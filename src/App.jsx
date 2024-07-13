@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider, createRoutesFromElements, Route } from 'react-router-dom'
-import { CartPage, CatalogPage, ContactsPage, DeliveryPage, MainPage, ProductsPage, Root, SingleProductPage } from './pages'
+import { CartPage, CatalogPage, ContactsPage, DeliveryPage, MainPage, PersonalArea, ProductsPage, Root, SingleProductPage } from './pages'
 
 
 const router = createBrowserRouter(
@@ -12,6 +12,7 @@ const router = createBrowserRouter(
       <Route path='/cart' element={<CartPage/>} />
       <Route path='/contacts' element={<ContactsPage/>} />
       <Route path='/delivery' element={<DeliveryPage/>} />
+      <Route path='/cabinet' element={<PersonalArea/>} />
     </Route>
   )
 )

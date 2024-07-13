@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
 import { setCartCounter } from '../../redux/cartSlice'
-import { statusBurger } from '../../redux/sideBarSlice'
+import { statusAuth, statusBurger } from '../../redux/sideBarSlice'
 
 import Bin from '/public/image/svg/bin.svg?react'
 import Man from '/public/image/svg/man.svg?react'
@@ -15,7 +15,9 @@ import styles from './UnderHeader.module.scss'
 export const UnderHeader = () => {
   const dispath = useDispatch()
   const selector = useSelector(state => state.cart.products)
+  const status = useSelector(state => state.auth.status)
   const [mouse, setMouse] = useState(false)
+  const navigate = useNavigate()
 
 
   const counter = selector.reduce((sum, el) => el.count + sum, 0);
@@ -30,6 +32,14 @@ export const UnderHeader = () => {
     dispath(statusBurger(true))
   }
 
+
+  const onSendAuth = () => {
+    if (!status) {
+      dispath(statusAuth(true))
+    } else if (status === 'success') {
+      navigate('/cabinet')
+    }
+  }
 
   let burger
   if (mouse) burger = <img src={burgerhover} alt='menu' />
@@ -60,7 +70,7 @@ export const UnderHeader = () => {
               <span className={styles.counter}>{counter}</span>
             </div>
           </Link>
-          <button>
+          <button onClick={onSendAuth}>
             <div className={styles.iconbox}>
               <Man className={styles.icon} />
             </div>

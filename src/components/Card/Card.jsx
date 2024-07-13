@@ -10,9 +10,8 @@ export const Card = ({ product, decrement, increment, count, handleClickCart, co
   return (
     <>
       <Link to={`/product/${product.id}`}>
-        <img className={styles.image} src={product.images} alt={product.name} />
-        <div className={styles.title}>{product.title}</div>
-        {/* <div className={styles.title}>{`${product.title.slice(0, 20)}...`}</div> */}
+          <img className={styles.image} src={product.images} alt={product.name} />
+          <div className={styles.title}>{product.title}</div>
       </Link>
       <div className={styles.price}>{`${product.price} $`}</div>
       <footer className="card-footer">

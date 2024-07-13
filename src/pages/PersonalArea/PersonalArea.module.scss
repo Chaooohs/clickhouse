@@ -1,0 +1,23 @@
+.user {
+  display: flex;
+  column-gap: 36px;
+  margin-top: 68px;
+  & p {
+    font-weight: 700;
+  }
+}
+
+.avatar {
+  width: 250px;
+  height: 250px;
+  border-radius: 30px;
+}
+
+.button {
+  margin: auto 0 0 auto;
+  text-decoration: underline;
+  transition: all .2s linear;
+  &:hover {
+    color: #FF9900;
+  }
+}

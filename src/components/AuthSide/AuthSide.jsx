@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { statusAuth } from '../../redux/sideBarSlice';
-import { fetchAuth } from '../../redux/authSlice';
+import { fetchAuth, sendAuth } from '../../redux/authSlice';
 
 import CloseIcon from '/public/image/svg/close.svg?react'
 import styles from './AuthSide.module.scss'
@@ -47,6 +47,7 @@ export const AuthSide = () => {
       password,
     }
     dispatch(fetchAuth(a))
+    dispatch(sendAuth())
   }
 
   return (
