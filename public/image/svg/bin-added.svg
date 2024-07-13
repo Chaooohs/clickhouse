@@ -1,0 +1,23 @@
+<svg width="58.000000" height="58.000000" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<desc>
+			Created with Pixso.
+	</desc>
+	<defs>
+		<filter id="filter_624_248_dd" x="0.000000" y="0.000000" width="58.000000" height="58.000000" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+			<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+			<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+			<feOffset dx="0" dy="0"/>
+			<feGaussianBlur stdDeviation="1.66667"/>
+			<feComposite in2="hardAlpha" operator="out" k2="-1" k3="1"/>
+			<feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 0.6 0 0 0 0 0 0 0 0 0.3 0"/>
+			<feBlend mode="normal" in2="BackgroundImageFix" result="effect_dropShadow_1"/>
+			<feBlend mode="normal" in="SourceGraphic" in2="effect_dropShadow_1" result="shape"/>
+		</filter>
+	</defs>
+	<g filter="url(#filter_624_248_dd)">
+		<circle id="Ellipse 8" cx="29.000000" cy="29.000000" r="24.000000" fill="#FF9900" fill-opacity="1.000000"/>
+	</g>
+	<rect id="Rectangle 110" x="39.000000" y="27.000000" rx="1.000000" width="8.000000" height="2.000000" fill="#FFFFFF" fill-opacity="1.000000"/>
+	<path id="Union" d="M34 19C34 18.44 34.44 18 35 18L38 18C38.55 18 39 18.44 39 19C39 19.55 38.55 20 38 20L36.42 20L30.56 30.13L32 33L34 33C36.2 33 38 34.79 38 37C38 39.2 36.2 41 34 41C31.79 41 30 39.2 30 37C30 36.27 30.19 35.58 30.53 35L25.46 35C25.8 35.58 26 36.27 26 37C26 39.2 24.2 41 22 41C19.79 41 18 39.2 18 37C18 34.79 19.79 33 22 33L29.76 33L28.76 31L18.01 31C17.97 31 17.93 31 17.9 30.99C17.76 30.98 17.62 30.93 17.51 30.87C17.39 30.8 17.29 30.72 17.2 30.61C17.18 30.58 17.16 30.54 17.13 30.5L11.85 21.99C11.37 21.91 11 21.5 11 21C11 20.44 11.44 20 12 20L34 20C34.03 20 34.07 20 34.1 20L34.28 19.7C34.1 19.51 34 19.27 34 19ZM28.91 29L18.55 29L14.21 22L32.95 22L28.91 29ZM22 35C20.89 35 20 35.89 20 37C20 38.1 20.89 39 22 39C23.1 39 24 38.1 24 37C24 35.89 23.1 35 22 35ZM34 35C32.89 35 32 35.89 32 37C32 38.1 32.89 39 34 39C35.1 39 36 38.1 36 37C36 35.89 35.1 35 34 35Z" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="evenodd"/>
+	<rect id="Rectangle 111" x="44.000000" y="24.000000" rx="1.000000" width="8.000000" height="2.000000" transform="rotate(90 44.000000 24.000000)" fill="#FFFFFF" fill-opacity="1.000000"/>
+</svg>

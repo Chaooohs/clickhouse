@@ -1,0 +1,48 @@
+.image {
+  width: 194px;
+  height: 194px;
+  & img {
+    border-radius: 30px;
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.three {
+  justify-self: flex-end;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.counter {
+  width: 84px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.icon__plus .icon__minus {
+  width: 16px;
+  height: 16px;
+}
+
+.number {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 34px;
+  letter-spacing: 0.5px;
+}
+
+.delete {
+  color: #7D7D7D;
+  transition: all .2s linear;
+  &:hover {
+    color: #000;
+  }
+}

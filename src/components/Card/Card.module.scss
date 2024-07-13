@@ -1,0 +1,44 @@
+.image {
+  border-radius: 30px;
+}
+
+.title {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: 0.5px;
+  margin: 30px 10px 0;
+  color: #000;
+}
+
+.price {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: 0.5px;
+  margin: 30px 10px 0;
+}
+
+.counter {
+  width: 84px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.icon__plus .icon__minus {
+  width: 16px;
+  height: 16px;
+}
+
+.number {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 34px;
+  letter-spacing: 0.5px;
+}
+
+.icon__bin {
+  width: 48px;
+  height: 48px;
+}

@@ -1,0 +1,14 @@
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 82px;
+  margin-top: 50px;
+}
+
+.left {
+  grid-column: 1;
+}
+
+.right {
+  grid-column: 2;
+}

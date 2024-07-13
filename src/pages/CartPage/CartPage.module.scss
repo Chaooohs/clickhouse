@@ -1,0 +1,68 @@
+.layout {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+}
+
+.shopcard {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  column-gap: 24px;
+  height: 300px;
+  border-bottom: 1px solid #e9e5e5;
+  box-sizing: border-box;
+  padding: 48px 0;
+}
+
+.footer {
+  box-sizing: border-box;
+  padding: 36px 0 60px;
+  &__price {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 48px;
+    margin-left: 38px;
+    margin-right: 1rem;
+  }
+  &__clear {
+    text-decoration: underline;
+    margin-top: 48px;
+    margin-left: 38px;
+    transition: all .2s linear;
+    &:hover {
+      color: #FF9900;
+    }
+  }
+  &__check {
+    width: 390px;
+    height: 54px;
+    border-radius: 50px;
+    background-color: #FF8A1E;
+    color: #fff;
+    font-size: 18px;
+    letter-spacing: .5px;
+    margin-top: 48px;
+    margin-left: 38px;
+  }
+}
+
+.right {
+  justify-self: flex-end;
+  width: 428px;
+  height: 428px;
+  & img {
+    height: 100%;
+    object-fit: cover;
+  }
+  &__button {
+    margin: 6px auto;
+    margin-left: 3rem;
+
+    width: 410px;
+    height: 54px;
+    border-radius: 50px;
+    background-color: #FF8A1E;
+    color: #fff;
+    font-size: 18px;
+    letter-spacing: .5px;
+  }
+}

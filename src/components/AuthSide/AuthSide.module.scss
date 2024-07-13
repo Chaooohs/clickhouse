@@ -1,0 +1,46 @@
+.auth {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 15;
+  width: 554px;
+  box-sizing: border-box;
+  padding: 90px 68px 40px 50px;
+
+  display: flex;
+  flex-direction: column;
+
+  background-color: white;
+  transform: translateX(100vw);
+  transition: all 0.3s linear;
+}
+
+.open {
+  transform: translateX(0);
+}
+
+.button {
+  width: 20px;
+  height: 20px;
+  margin-left: auto;
+  &:hover svg * {
+    fill: #000;
+  }
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  row-gap: 14px;
+  
+  &__button {
+    width: 454px;
+    height: 54px;
+    border-radius: 30px;
+    background-color: #FF8A1E;
+    color: #fff;
+    font-size: 18px;
+    letter-spacing: .5px;
+  }
+}

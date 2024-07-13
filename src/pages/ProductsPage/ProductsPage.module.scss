@@ -1,0 +1,10 @@
+.layout__card {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(302px, 1fr));
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

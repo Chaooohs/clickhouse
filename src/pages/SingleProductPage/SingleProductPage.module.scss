@@ -1,0 +1,92 @@
+.layout {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  box-sizing: border-box;
+  padding: 0 28px;
+}
+
+.images {
+  justify-self: center;
+}
+
+.big {
+  width: 518px;
+  height: 518px;
+}
+
+.box {
+ display: flex;
+ flex-wrap: wrap;
+ justify-content: space-between;
+ margin-top: 24px;
+}
+
+.small {
+  width: 168px;
+  height: 168px;
+  cursor: pointer;
+}
+
+.number {
+  display: flex;
+  justify-content: space-between;
+}
+
+.counter {
+  width: 84px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 10rem;
+}
+
+.icon__plus .icon__minus {
+  width: 16px;
+  height: 16px;
+}
+
+.number {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 34px;
+  letter-spacing: 0.5px;
+}
+
+.button {
+  width: 360px;
+  height: 54px;
+  border-radius: 32px;
+  background-color: #FF8A1E;
+  margin-top: 18px;
+  color: #fff;
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 6px;
+  }
+  &__text {
+    font-size: 18px;
+    letter-spacing: .5px;
+  }
+  &__plus {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+.random {
+  grid-column: 1 /3;
+  margin-top: 48px;
+}
+
+.layout__card {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(302px, 1fr));
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

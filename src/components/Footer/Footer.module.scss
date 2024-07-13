@@ -1,0 +1,41 @@
+.footer {
+  height: 424px;
+  background-color: #f8f8f8;
+}
+
+.layout {
+  box-sizing: border-box;
+  padding: 48px 0 54px;
+}
+
+.logo {
+  width: 172px;
+  height: 50px;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin-top: 12px;
+  & p {
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: .5px;
+  }
+  & a {
+    color: #000;
+    transition: all .2s linear;
+    &:hover {
+      color: #FF9900;
+    }
+  }
+}
+
+.social {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  & svg {
+    width: 64px;
+  }
+}

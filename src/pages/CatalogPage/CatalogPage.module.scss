@@ -1,0 +1,29 @@
+.layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(302px, 1fr));
+  column-gap: 24px;
+  row-gap: 52px;
+  margin-top: 42px;
+}
+
+.image {
+  height: 180px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.name {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 32px;
+  letter-spacing: 0.5px;
+  margin-top: 18px;
+  color: #000;
+}
+
+.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

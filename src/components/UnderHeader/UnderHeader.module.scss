@@ -1,0 +1,78 @@
+.underheader {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr 1fr;
+  align-items: center;
+  height: 98px;
+  margin-bottom: 28px;
+}
+
+.iconburger {
+  width: 30px;
+  height: 20px;
+}
+
+.search {
+  position: relative;
+  &__input {
+    width: 649px;
+    height: 54px;
+    border-radius: 30px;
+    background: transparent;
+    border: none;
+    outline: none;
+    box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.05);
+    box-sizing: border-box;
+    padding: 0 28px;
+    transition: all 0.2s linear;
+    &::placeholder {
+      font-size: 18px;
+      letter-spacing: 0.5px;
+      color: #7d7d7d;
+    }
+    &:hover {
+      box-shadow: inset 0px 0px 10px 0px rgba(255, 153, 0, 0.3);
+    }
+  }
+  &__button {
+    position: absolute;
+    top: 14px;
+    right: 22px;
+  }
+  &__icon {
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.box {
+  justify-self: flex-end;
+  grid-column: 4/5;
+  position: relative;
+  display: flex;
+  column-gap: 36px;
+}
+
+.counter {
+  position: absolute;
+  top: -10px;
+  left: 16px;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  background: #d34546;
+  color: #fff;
+}
+
+.iconbox {
+  &:hover .icon * {
+    fill: #ff9900;
+  }
+}
+
+.icon * {
+  width: 28px;
+  transition: all 0.2s linear;
+}

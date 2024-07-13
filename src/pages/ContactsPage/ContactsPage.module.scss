@@ -1,0 +1,56 @@
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 2fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  column-gap: 56px;
+  row-gap: 48px;
+}
+
+.tels,
+.city,
+.company {
+  display: flex;
+  flex-direction: column;
+}
+
+.tels {
+  grid-column: 1/2;
+  grid-row:2/3;
+  & a {
+    color: #000;
+    transition: all 0.2s linear;
+    &:last-child {
+      text-decoration: underline;
+    }
+    &:hover {
+      color: #7d7d7d;
+    }
+  }
+}
+
+.city {
+  grid-column: 2/3;
+  grid-row: 2/3;
+
+}
+
+.company {
+  grid-column: 3/4;
+  grid-row: 2/3;
+}
+
+.social {
+  grid-column: 1/4;
+  grid-row: 3/4;
+  display: flex;
+  column-gap: 56px;
+  & img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.image {
+  grid-column: 4/5;
+  grid-row: 1/4;
+}
