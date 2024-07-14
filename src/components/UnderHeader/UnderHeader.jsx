@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
 import { setCartCounter } from '../../redux/cartSlice'
 import { statusAuth, statusBurger } from '../../redux/sideBarSlice'
@@ -13,6 +13,7 @@ import burgerhover from '/public/image/svg/burgerhover.svg'
 import styles from './UnderHeader.module.scss'
 
 export const UnderHeader = () => {
+  const ref = useRef(false)
   const dispath = useDispatch()
   const selector = useSelector(state => state.cart.products)
   const status = useSelector(state => state.auth.status)
@@ -21,6 +22,16 @@ export const UnderHeader = () => {
 
 
   const counter = selector.reduce((sum, el) => el.count + sum, 0);
+
+  console.log(ref.current)
+
+  useEffect(() => {
+    if (ref.current === true) {
+     const json = JSON.stringify(selector)
+      localStorage.setItem('clickhouse__cart' , json)
+    }
+    ref.current = true
+  }, [selector])
 
 
   useEffect(() => {
