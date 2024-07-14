@@ -5,13 +5,13 @@ import plus from '../../../public/image/svg/plus.png'
 import bin from '../../../public/image/svg/bin-added.svg'
 import styles from './Card.module.scss'
 
-export const Card = ({ product, decrement, increment, count, handleClickCart, countId }) => {
- 
+export const Card = ({ product, decrement, increment, count, handleClickCart, countId, refreshPage }) => {
+
   return (
     <>
-      <Link to={`/product/${product.id}`}>
-          <img className={styles.image} src={product.images} alt={product.name} />
-          <div className={styles.title}>{product.title}</div>
+      <Link to={`/product/${product.id}`} onClick={refreshPage}>
+        <img className={styles.image} src={product.images} alt={product.name} />
+        <div className={styles.title}>{product.title}</div>
       </Link>
       <div className={styles.price}>{`${product.price} $`}</div>
       <footer className="card-footer">

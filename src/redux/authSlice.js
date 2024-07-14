@@ -9,7 +9,7 @@ const initialState = {
 
 export const fetchAuth = createAsyncThunk(
   'auth/fetchAuth',
-  async function (_, { rejectWithValue }) {
+  async function (a, { rejectWithValue, dispatch }) {
     try {
       const res = await fetch('https://api.escuelajs.co/api/v1/auth/login', {
         method: 'POST',
@@ -22,6 +22,7 @@ export const fetchAuth = createAsyncThunk(
       if (!res.ok) throw new error()
 
       const data = await res.json();
+      dispatch(sendAuth(data.access_token))
       return data;
     } catch (error) {
       return rejectWithValue(error.message)
@@ -31,12 +32,12 @@ export const fetchAuth = createAsyncThunk(
 
 export const sendAuth = createAsyncThunk(
   'auth/sendAuth',
-  async function (a, { rejectWithValue }) {
+  async function (b, { rejectWithValue }) {
     try {
       const res = await fetch('https://api.escuelajs.co/api/v1/auth/profile', {
         method: 'GET',
         headers: {
-          "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjIsImlhdCI6MTcyMDg4Njc5MCwiZXhwIjoxNzIyNjE0NzkwfQ.LKhzrKaaYOrFW2aB0lRBHUTJwwt6yXGPFxHo1dtShQk"
+          "Authorization": `Bearer ${b}`
         },
       });
 

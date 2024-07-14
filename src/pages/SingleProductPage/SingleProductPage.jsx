@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
-import { useLocation } from 'react-router'
+import { useLocation, useNavigate } from 'react-router'
 
 import { fetchSingleProduct } from '../../redux/singleProdSlice'
 import { fetchPoductsAll } from '../../redux/productsSlice'
@@ -16,7 +16,8 @@ import styles from './SingleProductPage.module.scss'
 export const SingleProductPage = () => {
   const dispatch = useDispatch()
   const location = useLocation()
-  
+  const navigate = useNavigate()
+
   const productsAll = useSelector(state => state.productsAll.productsAll)
   const single = useSelector(state => state.singleProduct.product)
   const status = useSelector(state => state.singleProduct.status)
@@ -35,18 +36,23 @@ export const SingleProductPage = () => {
     dispatch(fetchPoductsAll())
   }, [])
 
-  
+
+  const refreshPage = () => {
+    navigate(`/${product.id}`)
+  }
+
+
   const handleClick = (index) => {
     setIndexImage(index)
   }
 
-  
+
   const increment = (id) => {
     const found = productsAll?.find(el => el.id === id)
     if (found.id === id) {
       setCount(count + 1)
       setCountId(id)
-    } 
+    }
   }
   const decrement = () => setCount(Math.max(1, count - 1))
 
@@ -117,7 +123,7 @@ export const SingleProductPage = () => {
 
                 <button
                   className={styles.icon__plus}
-                  onClick={()=>increment(single.id)}
+                  onClick={() => increment(single.id)}
                 >
                   <img src={plus} alt="plus" />
                 </button>
@@ -136,7 +142,7 @@ export const SingleProductPage = () => {
           </div>
 
           <div className={styles.random}>
-            <h1 className='text-chapter'style={{marginBottom: '44px'}}>You might like these products</h1>
+            <h1 className='text-chapter' style={{ marginBottom: '44px' }}>You might like these products</h1>
             <div className={styles.layout__card}>
               {
                 productsAll?.map(product => {
@@ -149,6 +155,7 @@ export const SingleProductPage = () => {
                         increment={increment}
                         decrement={decrement}
                         handleClickCart={handleClickCart}
+                        refreshPage={refreshPage}
                       />
                     </div>
                   )

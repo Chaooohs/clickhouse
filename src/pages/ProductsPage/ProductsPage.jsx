@@ -36,7 +36,7 @@ export const ProductsPage = () => {
     if (found.id === id) {
       setCount(count + 1)
       setCountId(id)
-    } 
+    }
   }
 
   const decrement = () => setCount(Math.max(1, count - 1))
