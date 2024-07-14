@@ -42,9 +42,9 @@ export const UnderHeader = () => {
     dispatch(statusBurger(true))
   }
 
-
+  console.log(status)
   const onEnterUser = () => {
-    if (status === '') {
+    if (status === '' || status === 'fail') {
       dispatch(statusAuth(true))
     } else if (status === 'success') {
       navigate('/cabinet')

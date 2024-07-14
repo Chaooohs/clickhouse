@@ -1,24 +1,26 @@
 import styles from './PersonalArea.module.scss'
 
 import { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router'
 
 
 
 export const PersonalArea = () => {
   const navigate = useNavigate()
+  const status = useSelector(state => state.auth.status)
   const [auth, setAuth] = useState([])
 
 
   useEffect(() => {
     setAuth(JSON.parse(localStorage.getItem('clickhouse__user')))
-  }, [auth])
+  }, [status])
 
 
   const onExitClick = () => {
     localStorage.setItem('clickhouse__user', JSON.stringify([]))
     navigate('/')
-    // window.location.reload();  //* По умолчанию этот метод перезагружает страницу из кэша, если мы передаем true в качестве аргумента, он перезагружает всю страницу с сервера, а не с кэша. */
+    window.location.reload();  //* По умолчанию этот метод перезагружает страницу из кэша, если мы передаем true в качестве аргумента, он перезагружает всю страницу с сервера, а не с кэша. */
   }
 
 
