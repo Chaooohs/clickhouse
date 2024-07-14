@@ -4,18 +4,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import { statusAuth } from '../../redux/sideBarSlice';
 import { fetchAuth, sendAuth } from '../../redux/authSlice';
 
-import CloseIcon from '/public/image/svg/close.svg?react'
 import styles from './AuthSide.module.scss'
-import { useNavigate } from 'react-router';
+
 
 
 export const AuthSide = () => {
   const ref = useRef()
-  const navigate = useNavigate()
   const dispatch = useDispatch()
-  const [close, setClose] = useState(false);
   const auth = useSelector(state => state.sideBar.auth)
-  const { status, error } = useSelector(state => state.auth)
+  const status = useSelector(state => state.auth.status)
+  const [close, setClose] = useState(false);
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -47,11 +45,6 @@ export const AuthSide = () => {
   const onPasswordChanged = (e) => setPassword(e.target.value)
 
 
-  // const handleClickCloseAuth = () => {
-    // setClose(true);
-  // };
-
-
   const onSetAuthClick = () => {
     const a = {
       email,
@@ -66,9 +59,6 @@ export const AuthSide = () => {
     <main>
       <div className='side-layout'>
         <div className={styles.auth} ref={ref}>
-          {/* <button className={styles.button} onClick={handleClickCloseAuth}> */}
-            {/* <CloseIcon className={styles.icon} /> */}
-          {/* </button> */}
           <h1 className='text-chapter'>Entry</h1>
           <div className={styles.box}>
             <input
