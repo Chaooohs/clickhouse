@@ -1,11 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
+
 const initialState = {
-  data: null,
-  user: {},
   status: '',
   error: null,
 }
+
 
 export const fetchAuth = createAsyncThunk(
   'auth/fetchAuth',
@@ -22,13 +22,13 @@ export const fetchAuth = createAsyncThunk(
       if (!res.ok) throw new error()
 
       const data = await res.json();
-      dispatch(sendAuth(data.access_token))
-      return data;
+      return dispatch(sendAuth(data.access_token))
     } catch (error) {
       return rejectWithValue(error.message)
     }
   }
 )
+
 
 export const sendAuth = createAsyncThunk(
   'auth/sendAuth',
@@ -46,6 +46,7 @@ export const sendAuth = createAsyncThunk(
       }
 
       const user = await res.json();
+      localStorage.setItem('clickhouse__user', JSON.stringify([user]))
       return user;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -53,23 +54,18 @@ export const sendAuth = createAsyncThunk(
   }
 );
 
+
 const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(fetchAuth.fulfilled, (state, action) => {
-        // state.status = 'success'
-        state.data = action.payload;
-      })
       .addCase(fetchAuth.rejected, (state, action) => {
-        // state.status = 'fail'
         state.error = action.payload
       })
-      .addCase(sendAuth.fulfilled, (state, action) => {
+      .addCase(sendAuth.fulfilled, (state) => {
         state.status = 'success'
-        state.user = action.payload;
       })
       .addCase(sendAuth.rejected, (state, action) => {
         state.status = 'fail'
@@ -78,5 +74,5 @@ const authSlice = createSlice({
   },
 })
 
-export const { } = authSlice.actions
+export const { exitUser } = authSlice.actions
 export default authSlice.reducer;

@@ -15,7 +15,7 @@ export const CartPage = () => {
   const counter = useSelector(state => state.cart.counter)
 
 
-  let totalPrice = selector.map(el => el.count * el.price)
+  let totalPrice = selector?.map(el => el.count * el.price)
     .reduce((sum, el) => sum + el, 0)
 
 
@@ -28,9 +28,9 @@ export const CartPage = () => {
     dispatch(statusOrder(true))
   }
 
-
+  
   let message
-  if (counter === 0) {
+  if (counter === 0 || counter === undefined) {
     message = <div>
       <div className='text-id'>Shoping cart is empty</div>
       <img src={empty} alt='img' />

@@ -12,45 +12,45 @@ import burgernothover from '/public/image/svg/burger.svg'
 import burgerhover from '/public/image/svg/burgerhover.svg'
 import styles from './UnderHeader.module.scss'
 
+
+
 export const UnderHeader = () => {
   const ref = useRef(false)
-  const dispath = useDispatch()
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
   const selector = useSelector(state => state.cart.products)
   const status = useSelector(state => state.auth.status)
   const [mouse, setMouse] = useState(false)
-  const navigate = useNavigate()
 
+  const counter = selector?.reduce((sum, el) => el.count + sum, 0);
 
-  const counter = selector.reduce((sum, el) => el.count + sum, 0);
-
-  console.log(ref.current)
 
   useEffect(() => {
     if (ref.current === true) {
-     const json = JSON.stringify(selector)
-      localStorage.setItem('clickhouse__cart' , json)
+      localStorage.setItem('clickhouse__cart', JSON.stringify(selector))
     }
     ref.current = true
   }, [selector])
 
 
   useEffect(() => {
-    dispath(setCartCounter(counter))
+    dispatch(setCartCounter(counter))
   }, [counter])
 
 
-  const handleClickBurger = () => {
-    dispath(statusBurger(true))
+  const onClickBurger = () => {
+    dispatch(statusBurger(true))
   }
 
 
-  const onSendAuth = () => {
-    if (!status) {
-      dispath(statusAuth(true))
+  const onEnterUser = () => {
+    if (status === '') {
+      dispatch(statusAuth(true))
     } else if (status === 'success') {
       navigate('/cabinet')
     }
   }
+
 
   let burger
   if (mouse) burger = <img src={burgerhover} alt='menu' />
@@ -64,7 +64,7 @@ export const UnderHeader = () => {
           className={styles.iconburger}
           onMouseOver={() => setMouse(true)}
           onMouseOut={() => setMouse(false)}
-          onClick={() => handleClickBurger()}
+          onClick={onClickBurger}
         >
           {burger}
         </button>
@@ -81,11 +81,11 @@ export const UnderHeader = () => {
               <span className={styles.counter}>{counter}</span>
             </div>
           </Link>
-          <button onClick={onSendAuth}>
+          <Link to="/cabinet" onClick={onEnterUser}>
             <div className={styles.iconbox}>
               <Man className={styles.icon} />
             </div>
-          </button>
+          </Link>
         </div>
       </div>
     </div>

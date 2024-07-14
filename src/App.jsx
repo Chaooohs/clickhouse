@@ -5,14 +5,14 @@ import { CartPage, CatalogPage, ContactsPage, DeliveryPage, MainPage, PersonalAr
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Root />} >
-      <Route index element={<MainPage/>} />
-      <Route path='/categories' element={<CatalogPage/>} />
-      <Route path='/categories/:name' element={<ProductsPage/>} />
-      <Route path='/product/:id' element={<SingleProductPage/>} />
-      <Route path='/cart' element={<CartPage/>} />
-      <Route path='/contacts' element={<ContactsPage/>} />
-      <Route path='/delivery' element={<DeliveryPage/>} />
-      <Route path='/cabinet' element={<PersonalArea/>} />
+      <Route index element={<MainPage />} />
+      <Route path='/categories' element={<CatalogPage />} />
+      <Route path='/categories/:name' element={<ProductsPage />} />
+      <Route path='/product/:id' element={<SingleProductPage />} />
+      <Route path='/cart' element={<CartPage />} />
+      <Route path='/contacts' element={<ContactsPage />} />
+      <Route path='/delivery' element={<DeliveryPage />} />
+      <Route path='/cabinet' element={<PersonalArea />} />
     </Route>
   )
 )

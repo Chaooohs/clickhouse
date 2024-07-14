@@ -6,14 +6,16 @@ import { fetchAuth, sendAuth } from '../../redux/authSlice';
 
 import CloseIcon from '/public/image/svg/close.svg?react'
 import styles from './AuthSide.module.scss'
+import { useNavigate } from 'react-router';
 
 
 export const AuthSide = () => {
   const ref = useRef()
+  const navigate = useNavigate()
   const dispatch = useDispatch()
   const [close, setClose] = useState(false);
   const auth = useSelector(state => state.sideBar.auth)
-  const {status, error} = useSelector(state => state.auth)
+  const { status, error } = useSelector(state => state.auth)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -32,13 +34,22 @@ export const AuthSide = () => {
   }, [close, auth]);
 
 
+  useEffect(() => {
+    if (status) {
+      setTimeout(() => {
+        setClose(true)
+      }, 2000)
+    }
+  }, [status])
+
+
   const onEmailChanged = (e) => setEmail(e.target.value)
   const onPasswordChanged = (e) => setPassword(e.target.value)
 
 
-  const handleClickCloseAuth = () => {
-    setClose(true);
-  };
+  // const handleClickCloseAuth = () => {
+    // setClose(true);
+  // };
 
 
   const onSetAuthClick = () => {
@@ -50,13 +61,14 @@ export const AuthSide = () => {
     dispatch(sendAuth())
   }
 
+
   return (
     <main>
       <div className='side-layout'>
         <div className={styles.auth} ref={ref}>
-          <button className={styles.button} onClick={handleClickCloseAuth}>
-            <CloseIcon className={styles.icon} />
-          </button>
+          {/* <button className={styles.button} onClick={handleClickCloseAuth}> */}
+            {/* <CloseIcon className={styles.icon} /> */}
+          {/* </button> */}
           <h1 className='text-chapter'>Entry</h1>
           <div className={styles.box}>
             <input
@@ -79,11 +91,11 @@ export const AuthSide = () => {
             >Enter</button>
             {
               status === 'fail' &&
-              <p className='text-id' style={{color: 'red'}}>Incorrect login or password</p>
+              <p className='text-id' style={{ color: 'red' }}>Incorrect login or password</p>
             }
             {
               status === 'success' &&
-              <h3 className='text-chapter' style={{color: '#1bb40d'}}>Welcome!</h3>
+              <h3 className='text-chapter' style={{ color: '#1bb40d' }}>Welcome!</h3>
             }
           </div>
         </div>
