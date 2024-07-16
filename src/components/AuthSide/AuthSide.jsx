@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { statusAuth } from '../../redux/sideBarSlice';
 import { fetchAuth, sendAuth } from '../../redux/authSlice';
 
+import CloseIcon from '/public/image/svg/close.svg?react'
 import styles from './AuthSide.module.scss'
 
 
@@ -11,15 +12,14 @@ import styles from './AuthSide.module.scss'
 export const AuthSide = () => {
   const ref = useRef()
   const dispatch = useDispatch()
-  const auth = useSelector(state => state.sideBar.auth)
-  const status = useSelector(state => state.auth.status)
+  const { status, isUserLoggedIn } = useSelector(state => state.auth)
   const [close, setClose] = useState(false);
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
 
   useEffect(() => {
-    if (auth && !close) {
+    if (!isUserLoggedIn && !close) {
       setTimeout(() => {
         ref.current.classList.add(`${styles.open}`);
       }, 50);
@@ -29,21 +29,25 @@ export const AuthSide = () => {
         dispatch(statusAuth(false));
       }, 350);
     }
-  }, [close, auth]);
+  }, [close, isUserLoggedIn]);
 
 
   useEffect(() => {
-    if (status) {
+    if (isUserLoggedIn) {
       setTimeout(() => {
         setClose(true)
       }, 2000)
     }
-  }, [status])
+  }, [isUserLoggedIn])
 
 
   const onEmailChanged = (e) => setEmail(e.target.value)
   const onPasswordChanged = (e) => setPassword(e.target.value)
 
+
+  const handleClickCloseAuth = () => {
+    setClose(true);
+  };
 
   const onSetAuthClick = () => {
     const a = {
@@ -59,6 +63,9 @@ export const AuthSide = () => {
     <main>
       <div className='side-layout'>
         <div className={styles.auth} ref={ref}>
+          <button className={styles.button} onClick={handleClickCloseAuth}>
+            <CloseIcon className={styles.icon} />
+          </button>
           <h1 className='text-chapter'>Entry</h1>
           <div className={styles.box}>
             <input

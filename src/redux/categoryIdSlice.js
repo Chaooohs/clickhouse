@@ -10,6 +10,7 @@ export const fetchCategoryId = createAsyncThunk(
   'categoryId/fetchCategoryId',
 	async (id) => {
 		const res = await fetch(`https://api.escuelajs.co/api/v1/products/?categoryId=${id}`)
+		// const res = await fetch(`https://api.escuelajs.co/api/v1/categories/${id}/products`)
 		const data = await res.json()
     return data
 	}

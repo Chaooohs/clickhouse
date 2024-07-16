@@ -15,10 +15,30 @@ export const fetchPoductsAll = createAsyncThunk(
   }
 )
 
+export const newPoduct = createAsyncThunk(
+  'productsAll/newPoduct',
+  async (a, dispatch) => {
+    const res = await fetch(`https://api.escuelajs.co/api/v1/products/`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(a)
+    })
+    const data = await res.json()
+    dispatch(addPoduct(data));
+  }
+)
+
 const categoryIdSlice = createSlice({
   name: "productsAll",
   initialState,
-  reducers: {},
+  reducers: {
+    addPoduct: (state, action) => {
+      state.productsAll.push(action.payload)
+      // state.productsAll = action.payload
+    },
+  },
 
   extraReducers(builder) {
     builder
@@ -27,8 +47,9 @@ const categoryIdSlice = createSlice({
       })
       .addCase(fetchPoductsAll.fulfilled, (state, action) => {
         state.status = 'success'
-        state.productsAll = action.payload.sort(() => Math.random() - Math.random()).slice(0, 4);
-                                       
+        // state.productsAll = action.payload.sort(() => Math.random() - Math.random()).slice(0, 4);
+        state.productsAll = action.payload
+
       })
       .addCase(fetchPoductsAll.rejected, (state, action) => {
         state.status = 'fail'

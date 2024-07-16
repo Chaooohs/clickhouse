@@ -4,7 +4,9 @@ import { useEffect, useRef, useState } from 'react'
 
 import { setCartCounter } from '../../redux/cartSlice'
 import { statusAuth, statusBurger } from '../../redux/sideBarSlice'
+import authSlice, { exitUser } from '../../redux/authSlice'
 
+import Exit from '/public/image/svg/exit.svg?react'
 import Bin from '/public/image/svg/bin.svg?react'
 import Man from '/public/image/svg/man.svg?react'
 import search from '/public/image/svg/search.svg'
@@ -19,7 +21,7 @@ export const UnderHeader = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const selector = useSelector(state => state.cart.products)
-  const status = useSelector(state => state.auth.status)
+  // const {isUserLoggedIn}  = useSelector(state => state.auth)
   const [mouse, setMouse] = useState(false)
 
   const counter = selector?.reduce((sum, el) => el.count + sum, 0);
@@ -42,14 +44,19 @@ export const UnderHeader = () => {
     dispatch(statusBurger(true))
   }
 
-  console.log(status)
-  const onEnterUser = () => {
-    if (status === '' || status === 'fail') {
-      dispatch(statusAuth(true))
-    } else if (status === 'success') {
-      navigate('/cabinet')
-    }
+
+  // const onEnterUser = () => {
+  //   if (status === '' || status === 'fail') dispatch(statusAuth(true))
+  // }
+
+
+  const onExitClick = () => {
+    localStorage.setItem('clickhouse__user', JSON.stringify([]))
+    navigate('/')
+    // window.location.reload();  //* По умолчанию этот метод перезагружает страницу из кэша, если мы передаем true в качестве аргумента, он перезагружает всю страницу с сервера, а не с кэша. */
+    dispatch(exitUser(null))
   }
+
 
 
   let burger
@@ -81,11 +88,16 @@ export const UnderHeader = () => {
               <span className={styles.counter}>{counter}</span>
             </div>
           </Link>
-          <Link to="/cabinet" onClick={onEnterUser}>
+          <Link to="/cabinet">
             <div className={styles.iconbox}>
               <Man className={styles.icon} />
             </div>
           </Link>
+          <button onClick={onExitClick}>
+            <div className={styles.iconbox}>
+              <Exit className={styles.icon} />
+            </div>
+          </button>
         </div>
       </div>
     </div>

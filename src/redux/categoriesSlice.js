@@ -8,11 +8,26 @@ const initialState = {
 
 export const fetchCategories = createAsyncThunk(
   'categories/fetchCategories',
-	async () => {
-		const res = await fetch('https://api.escuelajs.co/api/v1/categories')
-		const data = await res.json()
+  async () => {
+    const res = await fetch('https://api.escuelajs.co/api/v1/categories')
+    const data = await res.json()
     return data
-	}
+  }
+)
+
+export const newCategory = createAsyncThunk(
+  'categories/newCategory',
+  async (a, dispatch) => {
+    const res = await fetch('https://api.escuelajs.co/api/v1/categories/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(a)
+    })
+    const data = await res.json()
+    dispatch(addCategory(data));
+  }
 )
 
 const categoriesSlice = createSlice({
@@ -21,24 +36,27 @@ const categoriesSlice = createSlice({
   reducers: {
     categoriesGet: (state, action) => {
       state.categories = action.payload
-    }
+    },
+    addCategory: (state, action) => {
+      state.categories.push(action.payload)
+    },
   },
 
   extraReducers(builder) {
     builder
-		.addCase(fetchCategories.pending, (state) => {
-			state.status = 'in progress'
-		})
-		.addCase(fetchCategories.fulfilled, (state, action) => {
-			state.status = 'success'
-			state.categories = action.payload
-		})
-    .addCase(fetchCategories.rejected, (state, action) => {
-      state.status = 'fail'
-      state.error = action.error.message
-    })
+      .addCase(fetchCategories.pending, (state) => {
+        state.status = 'in progress'
+      })
+      .addCase(fetchCategories.fulfilled, (state, action) => {
+        state.status = 'success'
+        state.categories = action.payload
+      })
+      .addCase(fetchCategories.rejected, (state, action) => {
+        state.status = 'fail'
+        state.error = action.error.message
+      })
   },
 })
 
-export const { categoriesGet } = categoriesSlice.actions
+export const { categoriesGet, addCategory } = categoriesSlice.actions
 export default categoriesSlice.reducer;

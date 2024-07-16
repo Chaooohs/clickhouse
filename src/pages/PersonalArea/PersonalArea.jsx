@@ -1,13 +1,14 @@
 import styles from './PersonalArea.module.scss'
 
 import { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
-import { useNavigate } from 'react-router'
+import { useDispatch, useSelector } from 'react-redux'
+import { newCategory } from '../../redux/categoriesSlice'
+import { newPoduct } from '../../redux/productsSlice'
 
 
 
 export const PersonalArea = () => {
-  const navigate = useNavigate()
+  const dispatch = useDispatch()
   const status = useSelector(state => state.auth.status)
   const [auth, setAuth] = useState([])
 
@@ -17,12 +18,21 @@ export const PersonalArea = () => {
   }, [status])
 
 
-  const onExitClick = () => {
-    localStorage.setItem('clickhouse__user', JSON.stringify([]))
-    navigate('/')
-    window.location.reload();  //* По умолчанию этот метод перезагружает страницу из кэша, если мы передаем true в качестве аргумента, он перезагружает всю страницу с сервера, а не с кэша. */
+  const onNewCategory = () => {
+    dispatch(newCategory({
+      name: "Sound",
+      image: "https://justenergy.com/wp-content/uploads/2021/08/sound-energy-illustration.jpg"
+    }))
   }
-
+  const onNewProduct = () => {
+    dispatch(newPoduct({
+      title: "Yamaha HS5",
+      price: 159,
+      description: "A description",
+      categoryId: 10,
+      images: ["https://cdn.mos.cms.futurecdn.net/c6BYbCdoK8RvUhUsXotgFf-970-80.jpg.webp"]
+    }))
+  }
 
   return (
     <main>
@@ -37,18 +47,14 @@ export const PersonalArea = () => {
                   <p className='text-id'>{`name: ${user.name}`}</p>
                   <p className='text-id'>{`email: ${user.email}`}</p>
                   <p className='text-id'>{`role: ${user.role}`}</p>
-                  <p className='text-id'>{`creationAt: ${user.creationAt}`}</p>
+                  <p className='text-id'>{`creationAt: ${user.creationAt.slice(0, 10)}`}</p>
                 </div>
-                <button
-                  className={`text-id ${styles.button}`}
-                  onClick={onExitClick}
-                >
-                  Exit
-                </button>
               </div>
             )
           })
         }
+        <p><button onClick={onNewCategory}>new category</button></p>
+        <p><button onClick={onNewProduct}>new product</button></p>
       </div>
     </main>
   )

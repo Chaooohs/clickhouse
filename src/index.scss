@@ -38,9 +38,6 @@ input {
   }
 }
 
-main {
-  flex: 1 1 auto;
-}
 /* #endregion */
 
 /* #region text */
@@ -98,8 +95,8 @@ main {
 }
 
 .layout {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
   height: 100vh;
   max-width: 1336px;
   margin: 0 auto;

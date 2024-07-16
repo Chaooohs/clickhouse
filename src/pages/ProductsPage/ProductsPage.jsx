@@ -2,32 +2,30 @@ import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useLocation } from 'react-router'
 
-import { fetchCategoryId } from '../../redux/categoryIdSlice'
+
 import { addToCart } from '../../redux/cartSlice'
 import { Card } from '../../components'
 
 import styles from './ProductsPage.module.scss'
+import { fetchCategoryId } from '../../redux/categoryIdSlice'
 
 
 export const ProductsPage = () => {
-  const dispath = useDispatch()
+  const location = useLocation()
+  const dispatch = useDispatch()
   const selector = useSelector(state => state.categoryId.products)
   const status = useSelector(state => state.categoryId.status)
   const error = useSelector(state => state.categoryId.error)
-  const location = useLocation()
   const [count, setCount] = useState(1)
   const [countId, setCountId] = useState()
 
-  let message
-  const a = location.pathname.split('/').slice(2, 3).join('/')
+  let a = location.pathname.split('/').slice(2, 3).join('/')
 
 
+  // write
   useEffect(() => {
-    if (a === 'Shoes') dispath(fetchCategoryId(4))
-    else if (a === 'Clothes') dispath(fetchCategoryId(1))
-    else if (a === 'Miscellaneous') dispath(fetchCategoryId(5))
-    else if (a === 'Furniture') dispath(fetchCategoryId(3))
-    else if (a === 'Electronics') dispath(fetchCategoryId(2))
+    const id = location.pathname.split('').slice(-1).join('')
+    dispatch(fetchCategoryId(id))
   }, [])
 
 
@@ -41,13 +39,13 @@ export const ProductsPage = () => {
 
   const decrement = () => setCount(Math.max(1, count - 1))
 
-
   const handleClickCart = (id, title, price, images, description) => {
-    dispath(addToCart({ id, title, price, images, description, count }))
+    dispatch(addToCart({ id, title, price, images, description, count }))
     setCount(1)
   }
 
 
+  let message
   if (status === 'in progress') {
     // message = <h1 className={styles.loading}>Category is loading...</h1>
     message = <div className="loader"><div className="loader__circle"></div></div>
@@ -63,8 +61,8 @@ export const ProductsPage = () => {
       {status === 'success' &&
         <div className='wrap'>
           <div className={styles.layout__card}>
-            {
-              selector?.map(product => {
+            {Array.isArray(selector) &&
+              selector.map(product => {
                 return (
                   <div className="card" key={product.id}>
                     <Card

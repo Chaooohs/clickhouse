@@ -4,6 +4,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 const initialState = {
   status: '',
   error: null,
+  isUserLoggedIn: null,
 }
 
 
@@ -58,7 +59,11 @@ export const sendAuth = createAsyncThunk(
 const authSlice = createSlice({
   name: "auth",
   initialState,
-  reducers: {},
+  reducers: {
+    exitUser: (state, action) => {
+      state.isUserLoggedIn = action.payload
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchAuth.rejected, (state, action) => {
@@ -66,10 +71,12 @@ const authSlice = createSlice({
       })
       .addCase(sendAuth.fulfilled, (state) => {
         state.status = 'success'
+        state.isUserLoggedIn = true
       })
       .addCase(sendAuth.rejected, (state, action) => {
         state.status = 'fail'
         state.error = action.payload
+        state.isUserLoggedIn = false
       })
   },
 })
