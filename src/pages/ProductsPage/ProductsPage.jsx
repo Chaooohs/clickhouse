@@ -19,9 +19,7 @@ export const ProductsPage = () => {
   const [count, setCount] = useState(1)
   const [countId, setCountId] = useState()
 
-  let a = location.pathname.split('/').slice(2, 3).join('/')
-
-
+  
   // write
   useEffect(() => {
     const id = location.pathname.split('').slice(-1).join('')

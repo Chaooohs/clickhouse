@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
+import { nanoid } from '@reduxjs/toolkit'
 
 import { getTotalPrice, setClearCart } from '../../redux/cartSlice'
 import { statusOrder } from '../../redux/sideBarSlice'
@@ -46,7 +47,7 @@ export const CartPage = () => {
           {message}
           {counter > 0 &&
             <>
-              <div>
+              <div key={nanoid}>
                 {
                   selector?.map(card => {
                     return <div className={styles.shopcard} key={card.id}>
@@ -59,7 +60,7 @@ export const CartPage = () => {
               </div>
 
               <div className={styles.right}>
-                <img src={CartImage} alt="img" />
+                {/* <img src={CartImage} alt="img" /> */}
                 <div className={styles.footer}>
                   <div className={`text-price ${styles.footer__price}`}>
                     <span>Total price: </span>
