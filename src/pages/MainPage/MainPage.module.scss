@@ -1,12 +1,12 @@
 .image {
+  container-type: inline-size;
   display: flex;
   flex-direction: column;
   row-gap: 22px;
   max-width: 1280px;
   height: 487px;
   border-radius: 60px;
-  background: url("/public/image/png/darken.png") left/487px 487px no-repeat,
-    url("/public/image/png/main.png") center/cover no-repeat;
+  background: url("/public/image/png/main.png") center/cover no-repeat;
   box-sizing: border-box;
   padding: 60px;
 }
@@ -67,7 +67,7 @@
   margin: 90px auto 0;
 }
 
-@media (min-width: 320px) {
+@media (max-width: 768px) {
   .wrap {
     padding: 0;
   }
@@ -82,22 +82,33 @@
   }
 
   .image {
-    height: 280px;
-    row-gap: 8px;
+    height: 96cqi;
+    row-gap: 1cqi;
     padding: 20px;
     border-radius: 0;
-    background: url("/public/image/png/darken-mobile.png") top / 100% 160px no-repeat,
-      url("/public/image/png/main-mobile.png") left / cover no-repeat;
+    background: url("/public/image/png/main-mobile.png") left / cover no-repeat;
     & p {
       width: 100%;
       text-align: center;
     }
   }
 
+  .dark {
+    width: 100%;
+    height: 56cqi;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000a6;
+    border-radius: 0 0 30px 30px;
+  }
+
   .buttons {
     display: flex;
     justify-content: center;
     column-gap: 12px;
+    margin-top: 2cqi;
   }
 
   .button,

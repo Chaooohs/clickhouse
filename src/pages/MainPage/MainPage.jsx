@@ -30,23 +30,25 @@ export const MainPage = () => {
     <main>
       <div className={styles.wrap}>
         <div className={styles.image}>
-          <h1 className={`text-chapter ${styles.chapter}`}>Platzi fake store API</h1>
-          <p className={`text-id ${styles.desc}`}>Your API for your e-commerce or shopping website prototype.</p>
-          <div className={styles.buttons}>
-            <Link to='/categories'>
-              <button className={styles.button}>Go to categories</button>
-            </Link>
-            {
-              isUserLoggedIn
-                ?
-                <button className={styles.login} onClick={handleExitClick}>
-                  Sign out
-                </button>
-                :
-                <button className={styles.login} onClick={handleStatusAuthClick}>
-                  Sing in
-                </button>
-            }
+          <div className={styles.dark}>
+            <h1 className={`text-chapter ${styles.chapter}`}>Platzi fake store API</h1>
+            <p className={`text-id ${styles.desc}`}>Your API for your e-commerce or shopping website prototype.</p>
+            <div className={styles.buttons}>
+              <Link to='/categories'>
+                <button className={styles.button}>Go to categories</button>
+              </Link>
+              {
+                isUserLoggedIn
+                  ?
+                  <button className={styles.login} onClick={handleExitClick}>
+                    Sign out
+                  </button>
+                  :
+                  <button className={styles.login} onClick={handleStatusAuthClick}>
+                    Sing in
+                  </button>
+              }
+            </div>
           </div>
         </div>
       </div>

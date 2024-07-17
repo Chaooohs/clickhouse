@@ -38,6 +38,10 @@ input {
   }
 }
 
+h1, p {
+  margin: 0;
+}
+
 /* #endregion */
 
 /* #region text */
@@ -192,10 +196,10 @@ input {
     grid-template-rows: auto 1fr auto;
   }
 
-  .text-chapter,
+  /* .text-chapter,
   .text-id {
     margin: 0;
-  }
+  } */
 
   .text-chapter {
     font-size: 24px;

@@ -7,7 +7,7 @@
 }
 
 .image {
-  height: 180px;
+  height: 87.5cqi;
   border-radius: 10px;
   object-fit: cover;
 }
@@ -28,7 +28,7 @@
   justify-content: center;
 }
 
-@media (min-width: 320px) {
+@media (max-width: 768px) {
   .main {
     margin: 20px 0;
   }
