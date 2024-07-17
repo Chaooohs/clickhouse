@@ -30,7 +30,7 @@
 
 @media (min-width: 320px) {
   .main {
-    margin-top: 20px;
+    margin: 20px 0;
   }
   .layout {
     grid-template-columns: repeat(auto-fill, minmax(124px, 1fr));
@@ -41,6 +41,6 @@
     height: 80px
   };
   .name {
-    font-size: 12px;
+    font-size: 14px;
   }
 }

@@ -14,9 +14,12 @@
 }
 
 @media (min-width: 320px) {
+  .main {
+    margin: 20px 0;
+  }
   .layout {
     grid-template-columns: 1fr;
-    margin-top: 20px;
+    margin-top: 0;
   }
   .left {
     margin-top: 12px;

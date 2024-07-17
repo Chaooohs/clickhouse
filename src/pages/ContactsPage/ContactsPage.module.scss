@@ -15,7 +15,7 @@
 
 .tels {
   grid-column: 1/2;
-  grid-row:2/3;
+  grid-row: 2/3;
   & a {
     color: #000;
     transition: all 0.2s linear;
@@ -31,7 +31,6 @@
 .city {
   grid-column: 2/3;
   grid-row: 2/3;
-
 }
 
 .company {
@@ -64,6 +63,7 @@
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     column-gap: 0;
+    row-gap: 0;
     margin-top: 12px;
   }
 
@@ -73,10 +73,15 @@
   .social {
     grid-column: 1/2;
   }
+  .city,
+  .company,
+  .social {
+    margin-top: 48px;
+  }
   .tels {
     grid-row: 1;
   }
-  .city{
+  .city {
     grid-row: 2;
   }
   .company {
