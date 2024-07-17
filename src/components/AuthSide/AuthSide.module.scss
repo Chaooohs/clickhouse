@@ -3,6 +3,7 @@
   top: 0;
   right: 0;
   bottom: 0;
+  left: 0;
   z-index: 15;
   width: 554px;
   box-sizing: border-box;
@@ -33,6 +34,7 @@
   display: flex;
   flex-direction: column;
   row-gap: 14px;
+  margin-top: 30px;
 }
 
 .submit {
@@ -45,3 +47,21 @@
   letter-spacing: 0.5px;
   cursor: pointer;
 }
+
+@media (max-width: 768px) {
+  .auth {
+    padding: 20px;
+  }
+  .button {
+    margin: 0 0 26px 0;
+    & svg {
+      width: 16px;
+      height: 16px;
+    }
+  }
+  .submit {
+    width: 280px;
+    height: 40px;
+  }
+}
+

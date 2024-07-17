@@ -27,19 +27,19 @@
     text-decoration: underline;
     margin-top: 48px;
     margin-left: 38px;
-    transition: all .2s linear;
+    transition: all 0.2s linear;
     &:hover {
-      color: #FF9900;
+      color: #ff9900;
     }
   }
   &__check {
     width: 390px;
     height: 54px;
     border-radius: 50px;
-    background-color: #FF8A1E;
+    background-color: #ff8a1e;
     color: #fff;
     font-size: 18px;
-    letter-spacing: .5px;
+    letter-spacing: 0.5px;
     margin-top: 48px;
     margin-left: 38px;
   }
@@ -60,10 +60,10 @@
     width: 410px;
     height: 54px;
     border-radius: 50px;
-    background-color: #FF8A1E;
+    background-color: #ff8a1e;
     color: #fff;
     font-size: 18px;
-    letter-spacing: .5px;
+    letter-spacing: 0.5px;
   }
 }
 
@@ -79,12 +79,23 @@
     padding: 20px 0;
   }
 
+  .right {
+    width: 100%;
+    height: fit-content;
+  }
   .footer {
     &__check {
       float: right;
       width: 157px;
       height: 34px;
       font-size: 14px;
+      margin: 26px 0 0;
+    }
+    &__clear {
+      margin: 26px 0 0;
+    }
+    &__price {
+      margin: 16px 0 0;
     }
   }
 }

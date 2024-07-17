@@ -76,7 +76,7 @@ export const CartPage = () => {
                     className={`text-id ${styles.footer__clear}`}
                     onClick={() => dispatch(setClearCart())}
                   >
-                    Clear shoping cart
+                    Clear cart
                   </button>
                 </div>
               </div>

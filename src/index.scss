@@ -196,11 +196,6 @@ h1, p {
     grid-template-rows: auto 1fr auto;
   }
 
-  /* .text-chapter,
-  .text-id {
-    margin: 0;
-  } */
-
   .text-chapter {
     font-size: 24px;
   }
@@ -215,6 +210,16 @@ h1, p {
   .text-price {
     font-size: 18px;
     line-height: 22px;
+  }
+
+  .side-input {
+    width: 280px;
+    height: 40px;
+    padding: 1rem;
+    &::placeholder {
+      font-size: 14px;
+      line-height: 22px;
+    }
   }
 }
 
