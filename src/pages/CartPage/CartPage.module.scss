@@ -66,3 +66,25 @@
     letter-spacing: .5px;
   }
 }
+
+@media (max-width: 768px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .shopcard {
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 0fr 0fr;
+    height: fit-content;
+    padding: 20px 0;
+  }
+
+  .footer {
+    &__check {
+      float: right;
+      width: 157px;
+      height: 34px;
+      font-size: 14px;
+    }
+  }
+}

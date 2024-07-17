@@ -40,9 +40,29 @@
 }
 
 .delete {
-  color: #7D7D7D;
-  transition: all .2s linear;
+  color: #7d7d7d;
+  transition: all 0.2s linear;
   &:hover {
     color: #000;
+  }
+}
+
+@media (max-width: 768px) {
+  .image {
+    width: 100px;
+    height: 100px;
+  }
+  .info {
+    height: fit-content;
+    justify-content: flex-start;
+    row-gap: 12px;
+  }
+  .three {
+    grid-column: 2;
+    justify-self: flex-start;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 28px;
+    margin-top: 8px;
   }
 }

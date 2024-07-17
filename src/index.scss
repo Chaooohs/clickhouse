@@ -205,8 +205,15 @@ h1, p {
     font-size: 24px;
   }
 
+  .text-description,
+  .text-title,
   .text-id {
     font-size: 14px;
+    line-height: 22px;
+  }
+
+  .text-price {
+    font-size: 18px;
     line-height: 22px;
   }
 }
