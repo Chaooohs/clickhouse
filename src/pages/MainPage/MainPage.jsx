@@ -1,16 +1,28 @@
 import { Link } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { statusAuth } from '../../redux/sideBarSlice'
+import { exitUser } from '../../redux/authSlice'
 
 import raket from '../../../public/image/png/raket.png'
 import styles from './MainPage.module.scss'
 
+
+
 export const MainPage = () => {
-const dispatch = useDispatch()
+  const dispatch = useDispatch()
+  const { isUserLoggedIn } = useSelector((state) => state.auth)
+
 
   const handleStatusAuthClick = () => {
     dispatch(statusAuth(true))
+  }
+
+
+  const handleExitClick = () => {
+    localStorage.setItem('clickhouse__user', JSON.stringify([]))
+    // navigate('/')
+    dispatch(exitUser(null))
   }
 
 
@@ -23,10 +35,20 @@ const dispatch = useDispatch()
           <Link to='/categories'>
             <button className={styles.button}>Go to categories</button>
           </Link>
-          <button className={styles.login}  onClick={handleStatusAuthClick}>Login</button>
+          {
+            isUserLoggedIn
+              ?
+              <button className={styles.login} onClick={handleExitClick}>
+                Sign out
+              </button>
+              :
+              <button className={styles.login} onClick={handleStatusAuthClick}>
+                Sing in
+              </button>
+          }
         </div>
       </div>
       <img className={styles.raket} src={raket} alt="img" />
-    </main>
+    </main >
   )
 }

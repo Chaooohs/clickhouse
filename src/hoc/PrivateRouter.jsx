@@ -1,28 +1,36 @@
 import { useDispatch, useSelector } from "react-redux";
 import { statusAuth } from "../redux/sideBarSlice";
-import { useLocation, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 import { useEffect } from "react";
+import { exitUser } from "../redux/authSlice";
 
 
 
 export const PrivateRouter = ({ children }) => {
-  const location = useLocation()
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const { isUserLoggedIn } = useSelector((state) => state.auth)
 
-  // if (isLoading) return null; 
- 
-  // const auth = true
 
   useEffect(() => {
-    if (!isUserLoggedIn ) {
-      navigate('/')
+    const a = JSON.parse(localStorage.getItem('clickhouse__user'))
+
+    if (a.length > 0) {
+      dispatch(exitUser(true))
+    } else if (a.length === 0) {
+      dispatch(exitUser(false))
+    } else if (a === null) {
+      dispatch(exitUser(false))
+    }
+  }, [])
+
+
+  useEffect(() => {
+    if (!isUserLoggedIn) {
       dispatch(statusAuth(true))
+      navigate('/')
     }
   }, [isUserLoggedIn])
 
   return children
-
-  // return isUserLoggedIn ? children : dispatch(statusAuth(true))
 }

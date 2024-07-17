@@ -49,10 +49,12 @@ export const AuthSide = () => {
     setClose(true);
   };
 
-  const onSetAuthClick = () => {
+  const onSetAuthClick = (e) => {
+    e.preventDefault()
+    const data = new FormData(formElem)
     const a = {
-      email,
-      password,
+      email: data.get('email'),
+      password: data.get('password'),
     }
     dispatch(fetchAuth(a))
     dispatch(sendAuth())
@@ -62,38 +64,54 @@ export const AuthSide = () => {
   return (
     <main>
       <div className='side-layout'>
-        <div className={styles.auth} ref={ref}>
+        <div className={styles.auth} ref={ref} >
           <button className={styles.button} onClick={handleClickCloseAuth}>
             <CloseIcon className={styles.icon} />
           </button>
           <h1 className='text-chapter'>Entry</h1>
           <div className={styles.box}>
-            <input
-              className='side-input'
-              type="text"
-              name='email'
-              placeholder='maria@mail.com'
-              onChange={onEmailChanged}
-            />
-            <input
-              className='side-input'
-              type="password"
-              name='phone'
-              placeholder='12345'
-              onChange={onPasswordChanged}
-            />
-            <button
-              className={styles.box__button}
-              onClick={onSetAuthClick}
-            >Enter</button>
+            <form className={styles.form} onSubmit={onSetAuthClick} id="formElem">
+              <input
+                className='side-input'
+                type="text"
+                name='email'
+                placeholder='login'
+                onChange={onEmailChanged}
+              />
+              <input
+                className='side-input'
+                type="password"
+                name='password'
+                placeholder='password'
+                onChange={onPasswordChanged}
+              />
+              <input
+                className={styles.submit}
+                type='submit'
+                value={'Enter'}
+              />
+            </form>
             {
               status === 'fail' &&
               <p className='text-id' style={{ color: 'red' }}>Incorrect login or password</p>
             }
             {
-              status === 'success' &&
+              isUserLoggedIn &&
               <h3 className='text-chapter' style={{ color: '#1bb40d' }}>Welcome!</h3>
             }
+          </div>
+
+          <div className='text-id' style={{ marginTop: 'auto' }}>
+            <p style={{ display: 'flex', flexDirection: 'column' }}>
+              <span style={{ fontWeight: 'bold' }}>Customer</span>
+              <span>maria@mail.com</span>
+              <span>12345</span>
+            </p>
+            <p style={{ display: 'flex', flexDirection: 'column' }}>
+              <span style={{ fontWeight: 'bold' }}>Admin</span>
+              <span>admin@mail.com</span>
+              <span>admin123</span>
+            </p>
           </div>
         </div>
       </div>

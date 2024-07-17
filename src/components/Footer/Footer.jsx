@@ -11,9 +11,11 @@ export const Footer = () => {
     <footer className={styles.footer}>
       <div className='wrap'>
         <div className={styles.layout}>
-          <div className={styles.logo}>
-            <img src={logo} alt="logo" />
-          </div>
+          <Link to='/'>
+            <div className={styles.logo}>
+              <img src={logo} alt="logo" />
+            </div>
+          </Link>
           <div className={styles.content}>
 
             <div>
@@ -26,13 +28,13 @@ export const Footer = () => {
             <div style={{ justifySelf: 'center' }}>
               <p style={{ fontSize: '18px', fontWeight: 'bold', }}>Menu</p>
               <p>
-                <Link>Categories</Link>
+                <Link to='categories'>Categories</Link>
               </p>
               <p>
-                <Link>Delivery</Link>
+                <Link to='delivery'>Delivery</Link>
               </p>
               <p>
-                <Link>Contacts</Link>
+                <Link to='contacts'>Contacts</Link>
               </p>
             </div>
 

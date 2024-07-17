@@ -11,6 +11,7 @@ import styles from "./BurgerSide.module.scss";
 export const BurgerSide = () => {
   const ref = useRef();
   const [close, setClose] = useState(false);
+  const [autoClose, setAutoClose] = useState(false);
   const burger = useSelector((state) => state.sideBar.burger);
   const dispatch = useDispatch();
 
@@ -28,6 +29,15 @@ export const BurgerSide = () => {
   }, [close, burger]);
 
 
+  useEffect(() => {
+    if (autoClose) {
+      setTimeout(() => {
+        setClose(true)
+      }, 0)
+    }
+  }, [autoClose])
+
+
   const handleClickCloseBurger = () => {
     setClose(true);
   };
@@ -38,15 +48,36 @@ export const BurgerSide = () => {
       <div className='side-layout'>
         <div className={styles.burger} ref={ref}>
           <header className={styles.header}>
-            <img className={styles.logo} src={logo} alt="logo" />
+            <Link
+              to='/'
+              onClick={() => setAutoClose(true)}
+            >
+              <img className={styles.logo} src={logo} alt="logo" />
+            </Link>
             <button className={styles.button} onClick={handleClickCloseBurger}>
               <CloseIcon className={styles.icon} />
             </button>
           </header>
           <main className={styles.main}>
-            <Link className="text-chapter" to='/categories' style={{ fontWeight: 'bold  ' }}> Categories </Link>
-            <Link className="text-id" to='/delivery'> Delivery </Link>
-            <Link className="text-id" to='/contacts'> Contacts </Link>
+            <Link
+              className="text-chapter"
+              to='/categories'
+              style={{ fontWeight: 'bold  ' }}
+              onClick={() => setAutoClose(true)}
+            >
+              Categories </Link>
+            <Link
+              className="text-id"
+              to='/delivery'
+              onClick={() => setAutoClose(true)}
+            >
+              Delivery </Link>
+            <Link
+              className="text-id"
+              to='/contacts'
+              onClick={() => setAutoClose(true)}
+            >
+              Contacts </Link>
           </main>
         </div>
       </div>

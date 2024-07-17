@@ -67,6 +67,7 @@ const authSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchAuth.rejected, (state, action) => {
+        state.status = 'fail'
         state.error = action.payload
       })
       .addCase(sendAuth.fulfilled, (state) => {
@@ -74,7 +75,7 @@ const authSlice = createSlice({
         state.isUserLoggedIn = true
       })
       .addCase(sendAuth.rejected, (state, action) => {
-        state.status = 'fail'
+        // state.status = 'fail'
         state.error = action.payload
         state.isUserLoggedIn = false
       })

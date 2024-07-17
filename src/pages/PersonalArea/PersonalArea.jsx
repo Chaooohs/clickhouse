@@ -9,13 +9,13 @@ import { newPoduct } from '../../redux/productsSlice'
 
 export const PersonalArea = () => {
   const dispatch = useDispatch()
-  const status = useSelector(state => state.auth.status)
+  const isUserLoggedIn = useSelector(state => state.auth.isUserLoggedIn)
   const [auth, setAuth] = useState([])
 
 
   useEffect(() => {
     setAuth(JSON.parse(localStorage.getItem('clickhouse__user')))
-  }, [status])
+  }, [isUserLoggedIn])
 
 
   const onNewCategory = () => {
@@ -49,12 +49,18 @@ export const PersonalArea = () => {
                   <p className='text-id'>{`role: ${user.role}`}</p>
                   <p className='text-id'>{`creationAt: ${user.creationAt.slice(0, 10)}`}</p>
                 </div>
+                {
+                  user.role === 'admin' &&
+                  <div>
+                    <p><button onClick={onNewCategory}>new category</button></p>
+                    <p><button onClick={onNewProduct}>new product</button></p>
+                  </div>
+                }
               </div>
             )
           })
         }
-        <p><button onClick={onNewCategory}>new category</button></p>
-        <p><button onClick={onNewProduct}>new product</button></p>
+
       </div>
     </main>
   )

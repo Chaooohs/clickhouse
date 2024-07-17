@@ -29,18 +29,19 @@
   }
 }
 
-.box {
+.form {
   display: flex;
   flex-direction: column;
   row-gap: 14px;
-  
-  &__button {
-    width: 454px;
-    height: 54px;
-    border-radius: 30px;
-    background-color: #FF8A1E;
-    color: #fff;
-    font-size: 18px;
-    letter-spacing: .5px;
-  }
+}
+
+.submit {
+  width: 454px;
+  height: 54px;
+  border-radius: 30px;
+  background: #ff8a1e;
+  color: #fff;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  cursor: pointer;
 }
