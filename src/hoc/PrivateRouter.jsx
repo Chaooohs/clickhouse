@@ -15,9 +15,9 @@ export const PrivateRouter = ({ children }) => {
   useEffect(() => {
     const a = JSON.parse(localStorage.getItem('clickhouse__user'))
 
-    if (a.length > 0) {
+    if (a?.length > 0) {
       dispatch(exitUser(true))
-    } else if (a.length === 0) {
+    } else if (a?.length === 0) {
       dispatch(exitUser(false))
     } else if (a === null) {
       dispatch(exitUser(false))
