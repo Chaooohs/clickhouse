@@ -58,8 +58,8 @@
   top: -12px;
   left: 10px;
   font-size: 12px;
-  letter-spacing: .5px;
-  color: #FF9900;
+  letter-spacing: 0.5px;
+  color: #ff9900;
 }
 
 .iconbox {
@@ -71,4 +71,28 @@
 .icon * {
   width: 28px;
   transition: all 0.2s linear;
+}
+
+@media (min-width: 320px) {
+  .underheader {
+    height: 60px;
+    margin-bottom: 0;
+  }
+
+  .iconburger {
+    width: 22px;
+    height: 16px;
+  }
+
+  .search {
+    display: none;
+  }
+
+  .icon {
+    width: 20px;
+  }
+
+  .counter {
+    top: 24px;
+  }
 }

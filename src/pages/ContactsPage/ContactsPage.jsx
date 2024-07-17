@@ -4,7 +4,7 @@ import styles from './ContactsPage.module.scss'
 
 export const ContactsPage = () => {
   return (
-    <main>
+    <main className={styles.main}>
       <div className='wrap'>
         <h1 className='text-chapter'>Contacts</h1>
         <div className={styles.layout}>

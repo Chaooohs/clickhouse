@@ -35,11 +35,11 @@ export const CatalogPage = () => {
 
 
   return (
-    <main>
+    <main className={styles.main}>
       {message}
       {status === 'success' &&
         <div className="wrap">
-          <h1 className='text-chapter'>categories</h1>
+          <h1 className='text-chapter'>Categories</h1>
           <div className={styles.layout}>
             {
               Array.isArray(categories) &&

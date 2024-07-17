@@ -54,3 +54,40 @@
   grid-column: 4/5;
   grid-row: 1/4;
 }
+
+@media (min-width: 320px) {
+  .main {
+    box-sizing: border-box;
+    padding: 20px 0;
+  }
+  .layout {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    column-gap: 0;
+    margin-top: 12px;
+  }
+
+  .tels,
+  .city,
+  .company,
+  .social {
+    grid-column: 1/2;
+  }
+  .tels {
+    grid-row: 1;
+  }
+  .city{
+    grid-row: 2;
+  }
+  .company {
+    grid-row: 3;
+  }
+  .social {
+    grid-row: 4;
+    justify-content: center;
+  }
+  .image {
+    grid-column: 1;
+    grid-row: 5;
+  }
+}

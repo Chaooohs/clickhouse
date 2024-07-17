@@ -27,3 +27,20 @@
   align-items: center;
   justify-content: center;
 }
+
+@media (min-width: 320px) {
+  .main {
+    margin-top: 20px;
+  }
+  .layout {
+    grid-template-columns: repeat(auto-fill, minmax(124px, 1fr));
+    column-gap: 15px;
+    margin-top: 12px;
+  }
+  .image {
+    height: 80px
+  };
+  .name {
+    font-size: 12px;
+  }
+}

@@ -7,3 +7,10 @@
 .icon {
   transition: all .2s linear;
 }
+
+@media (min-width: 320px) {
+  .icon {
+    width: 64px;
+    height: 64px;
+  }
+}

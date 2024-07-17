@@ -14,12 +14,12 @@
 
   background-color: white;
   transform: translateX(-100%);
-  transition: all .3s linear;
+  transition: all 0.3s linear;
   & a {
     color: #000;
-    transition: all .2s linear;
+    transition: all 0.2s linear;
     &:hover {
-      color: #FF9900;
+      color: #ff9900;
     }
   }
 }
@@ -55,4 +55,20 @@
   flex-direction: column;
   row-gap: 1rem;
   margin-top: 72px;
+}
+
+@media (min-width: 320px) {
+  .burger {
+    width: 100%;
+    padding: 24px 20px;
+  }
+  .header {
+    justify-content: flex-start;
+  }
+  .logo {
+    display: none;
+  }
+  .main {
+    margin-top: 0;
+  }
 }

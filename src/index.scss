@@ -91,13 +91,14 @@ input {
 
 .page {
   max-width: 1920px;
+  height: 100%;
   margin: 0 auto;
 }
 
 .layout {
   display: grid;
   grid-template-rows: auto auto 1fr auto;
-  height: 100vh;
+  height: 100%;
   max-width: 1336px;
   margin: 0 auto;
 }
@@ -179,4 +180,31 @@ input {
     transform: rotate(360deg);
   }
 }
+/* #endregion */
+
+/* #region media 320px */
+
+@media (min-width: 320px) {
+  .wrap {
+    padding: 0 20px;
+  }
+  .layout {
+    grid-template-rows: auto 1fr auto;
+  }
+
+  .text-chapter,
+  .text-id {
+    margin: 0;
+  }
+
+  .text-chapter {
+    font-size: 24px;
+  }
+
+  .text-id {
+    font-size: 12px;
+    line-height: 22px;
+  }
+}
+
 /* #endregion */

@@ -25,7 +25,7 @@ export const Footer = () => {
               <p>Lorem ipsum dolor </p>
             </div>
 
-            <div style={{ justifySelf: 'center' }}>
+            <div>
               <p style={{ fontSize: '18px', fontWeight: 'bold', }}>Menu</p>
               <p>
                 <Link to='categories'>Categories</Link>
@@ -38,7 +38,7 @@ export const Footer = () => {
               </p>
             </div>
 
-            <div style={{ justifySelf: 'center' }}>
+            <div>
               <p style={{ fontSize: '18px', fontWeight: 'bold' }}>Contacts</p>
               <p>Lorem</p>
               <p>Lorem ipsum dolor sit</p>

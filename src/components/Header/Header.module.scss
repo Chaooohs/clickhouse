@@ -19,7 +19,7 @@
 .link {
   font-size: 18px;
   line-height: 21px;
-  letter-spacing: .5px;
+  letter-spacing: 0.5px;
   text-transform: capitalize;
   color: #000;
 }
@@ -27,11 +27,27 @@
 .tel {
   font-size: 22px;
   font-weight: 400;
-  letter-spacing: .5px;
+  letter-spacing: 0.5px;
   margin-top: 28px;
   color: #000;
   transition: all 0.2s linear;
   &:hover {
-    color: #FF9900;
+    color: #ff9900;
+  }
+}
+
+@media (min-width: 320px) {
+  .content {
+    height: 50px;
+  }
+
+  .logo {
+    width: 115px;
+    margin-top: 11px;
+  }
+
+  .links,
+  .tel {
+    display: none;
   }
 }

@@ -20,22 +20,44 @@
   & p {
     font-size: 14px;
     line-height: 22px;
-    letter-spacing: .5px;
+    letter-spacing: 0.5px;
   }
   & a {
     color: #000;
-    transition: all .2s linear;
+    transition: all 0.2s linear;
     &:hover {
-      color: #FF9900;
+      color: #ff9900;
+    }
+  }
+
+  .social {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    & svg {
+      width: 64px;
     }
   }
 }
 
-.social {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  & svg {
-    width: 64px;
+@media (min-width: 320px) {
+  .footer {
+    height: 100%;
+  }
+
+  .logo {
+    width: 115px;
+  }
+
+  .content {
+    grid-template-columns: 1fr;
+    & p {
+      font-size: 12px;
+    }
+  }
+
+  .social {
+    display: flex;
+    flex-direction: row;
   }
 }
