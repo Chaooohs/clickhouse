@@ -7,6 +7,7 @@ import { OrderForm } from '../OrderForm/OrderForm';
 import CloseIcon from '/public/image/svg/close.svg?react'
 import success from '/public/image/png/success.png'
 import styles from './OrderSide.module.scss'
+import { Link } from 'react-router-dom';
 
 
 export const OrderSide = () => {
@@ -50,8 +51,16 @@ export const OrderSide = () => {
           {
             !get &&
             <>
-              <h1 className='text-chapter' style={{ color: '#1BB40D', marginTop: '90px' }}>The order has been successfully completed</h1>
-              <p className='text-description'>A manager will contact you to confirm the information</p>
+              <h1 className={`text-chapter ${styles.chapter}`}>The order has been successfully completed</h1>
+              <p className={`text-description ${styles.desc}`}>A manager will contact you to confirm the information</p>
+              <Link
+                to='/categories'
+                className={`text-id ${styles.goto}`}
+                style={{fontWeight: 'bold'}}
+                onClick={handleClickCloseOrder}
+              >
+                &#8592; Go to categories
+              </Link>
               <img src={success} alt="img" />
             </>
           }
