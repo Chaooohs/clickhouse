@@ -21,15 +21,6 @@
   transform: translateX(0);
 }
 
-.button {
-  width: 20px;
-  height: 20px;
-  margin-left: auto;
-  &:hover svg * {
-    fill: #000;
-  }
-}
-
 .chapter {
   color: #1bb40d;
   margin-top: 90px;

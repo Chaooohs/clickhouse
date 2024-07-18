@@ -1,13 +1,14 @@
 import { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { statusOrder } from '../../redux/sideBarSlice';
 import { OrderForm } from '../OrderForm/OrderForm';
+import { CloseButton } from "../CloseButton/CloseButton";
 
 import CloseIcon from '/public/image/svg/close.svg?react'
 import success from '/public/image/png/success.png'
 import styles from './OrderSide.module.scss'
-import { Link } from 'react-router-dom';
 
 
 export const OrderSide = () => {
@@ -41,9 +42,7 @@ export const OrderSide = () => {
     <main>
       <div className='side-layout'>
         <div className={styles.order} ref={ref}>
-          <button className={styles.button} onClick={handleClickCloseOrder}>
-            <CloseIcon className={styles.icon} />
-          </button>
+          <CloseButton  onClickClose={handleClickCloseOrder}/>
           {
             get &&
             <OrderForm />
@@ -56,7 +55,7 @@ export const OrderSide = () => {
               <Link
                 to='/categories'
                 className={`text-id ${styles.goto}`}
-                style={{fontWeight: 'bold'}}
+                style={{ fontWeight: 'bold' }}
                 onClick={handleClickCloseOrder}
               >
                 &#8592; Go to categories
