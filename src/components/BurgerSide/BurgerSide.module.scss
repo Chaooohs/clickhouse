@@ -39,17 +39,6 @@
   height: 60px;
 }
 
-.button {
-  &:hover svg * {
-    fill: #000;
-  }
-}
-
-.icon {
-  width: 20px;
-  height: 20px;
-}
-
 .main {
   display: flex;
   flex-direction: column;
@@ -69,12 +58,6 @@
     display: none;
   }
 
-  .button {
-    & svg {
-      width: 16px;
-      height: 16px;
-    }
-  }
   .main {
     margin-top: 0;
   }

@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
 import { statusBurger } from "../../redux/sideBarSlice";
+import { CloseButton } from "../CloseButton/CloseButton";
 
-import CloseIcon from '/public/image/svg/close.svg?react'
 import logo from '/public/image/logo/logo.svg'
 import styles from "./BurgerSide.module.scss";
 
@@ -38,7 +38,7 @@ export const BurgerSide = () => {
   }, [autoClose])
 
 
-  const handleClickCloseBurger = () => {
+  const handleClickClose = () => {
     setClose(true);
   };
 
@@ -54,9 +54,9 @@ export const BurgerSide = () => {
             >
               <img className={styles.logo} src={logo} alt="logo" />
             </Link>
-            <button className={styles.button} onClick={handleClickCloseBurger}>
-              <CloseIcon className={styles.icon} />
-            </button>
+
+            <CloseButton onClickClose={handleClickClose} />
+            
           </header>
           <main className={styles.main}>
             <Link

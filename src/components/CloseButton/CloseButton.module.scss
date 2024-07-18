@@ -1,0 +1,21 @@
+.button svg {
+  width: 20px;
+  height: 20px;
+}
+
+.button svg * {
+  transition: all .2s linear;
+}
+
+.button {
+  &:hover svg * {
+    fill: #000;
+  }
+}
+
+@media (max-width: 768px) {
+  .button svg {
+    width: 16px;
+    height: 16px;
+  }
+}
