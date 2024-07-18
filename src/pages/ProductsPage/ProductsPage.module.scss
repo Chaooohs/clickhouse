@@ -8,3 +8,13 @@
   align-items: center;
   justify-content: center;
 }
+
+@media (max-width: 768px) {
+  .layout__card {
+    grid-template-columns: repeat(auto-fill, minmax(132px, 1fr));
+    column-gap: 14px;
+    row-gap: 24px;
+    box-sizing: border-box;
+    padding: 20px 0 44px;
+  }
+}
