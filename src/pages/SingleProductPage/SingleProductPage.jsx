@@ -75,97 +75,101 @@ export const SingleProductPage = () => {
 
   return (
     <main>
-      {message}
-      {status === 'success' &&
-        <div className={styles.layout}>
-          <div className={styles.images}>
+      <div className='wrap'>
+        {message}
+        {status === 'success' &&
+          <div className={styles.layout}>
+            <div className={styles.images}>
 
-            <div className={styles.big}>
-              <img src={single.images[indexImage]} alt="img" />
-            </div>
-
-            <div className={styles.box}>
-              {
-                single.images?.map((img, index) => {
-                  return <img
-                    key={index}
-                    className={styles.small}
-                    src={img}
-                    alt="img"
-                    onClick={() => handleClick(index)}
-                    style={index === indexImage
-                      ? { border: '1px solid #2C2D2E' }
-                      : { border: '1px solid transparent' }}
-                  />
-                })
-              }
-            </div>
-          </div>
-
-          <div className={styles.descriptions} key={single.id}>
-            <h1 className='text-title'>{single.title}</h1>
-            <div className='text-id'>{`ID: ${single.id}`}</div>
-            <p className='text-description'>{single.description}</p>
-            <div className={styles.number}>
-              <div className="text-price">{`${single.price} $`}</div>
-
-              <div className={styles.counter}>
-                <button
-                  className={styles.icon__minus}
-                  onClick={decrement}
-                >
-                  <img src={minus} alt="minus" />
-                </button>
-
-                <span className={styles.number}>
-                  {count}
-                </span>
-
-                <button
-                  className={styles.icon__plus}
-                  onClick={() => increment(single.id)}
-                >
-                  <img src={plus} alt="plus" />
-                </button>
+              <div className={styles.big}>
+                <img src={single.images[indexImage]} alt="img" />
               </div>
 
-            </div>
-            <button
-              className={styles.button}
-              onClick={() => handleClickCart(single.id, single.title, single.price, single.images[0], single.description.slice(0, 80))}
-            >
-              <div className={styles.button__content}>
-                <span className={styles.button__text}>Add to cart </span>
-                <img className={styles.button__plus} src={plusBtn} alt="plus" />
-              </div>
-            </button>
-          </div>
-
-          <div className={styles.random}>
-            <h1 className='text-chapter' style={{ marginBottom: '44px' }}>You might like these products</h1>
-            <div className={styles.layout__card}>
-              {
-                productsAll?.map(product => {
-                  return (
-                    <div className="card" key={product.id}>
-                      <Card
-                        product={product}
-                        count={count}
-                        countId={countId}
-                        increment={increment}
-                        decrement={decrement}
-                        handleClickCart={handleClickCart}
-                        refreshPage={refreshPage}
+              <div className={styles.overflow}>
+                <div className={styles.box}>
+                  {
+                    single.images?.map((img, index) => {
+                      return <img
+                        key={index}
+                        className={styles.small}
+                        src={img}
+                        alt="img"
+                        onClick={() => handleClick(index)}
+                        style={index === indexImage
+                          ? { border: '1px solid #2C2D2E' }
+                          : { border: '1px solid transparent' }}
                       />
-                    </div>
-                  )
-                })
-              }
+                    })
+                  }
+                </div>
+              </div>
+            </div>
+
+            <div className={styles.descriptions} key={single.id}>
+              <h1 className='text-title'>{single.title}</h1>
+              <div className='text-id'>{`ID: ${single.id}`}</div>
+              <p className='text-description'>{single.description}</p>
+              <div className={styles.number}>
+                <div className="text-price">{`${single.price} $`}</div>
+
+                <div className={styles.counter}>
+                  <button
+                    className={styles.icon__minus}
+                    onClick={decrement}
+                  >
+                    <img src={minus} alt="minus" />
+                  </button>
+
+                  <span className={styles.number-count}>
+                    {count}
+                  </span>
+
+                  <button
+                    className={styles.icon__plus}
+                    onClick={() => increment(single.id)}
+                  >
+                    <img src={plus} alt="plus" />
+                  </button>
+                </div>
+
+              </div>
+              <button
+                className={styles.button}
+                onClick={() => handleClickCart(single.id, single.title, single.price, single.images[0], single.description.slice(0, 80))}
+              >
+                <div className={styles.button__content}>
+                  <span className={styles.button__text}>Add to cart </span>
+                  <img className={styles.button__plus} src={plusBtn} alt="plus" />
+                </div>
+              </button>
+            </div>
+
+            <div className={styles.random}>
+              <h1 className={`text-chapter ${styles.title__products}`} >You might like these products</h1>
+              <div className={styles.layout__card}>
+                {
+                  productsAll?.map(product => {
+                    return (
+                      <div className="card" key={product.id}>
+                        <Card
+                          product={product}
+                          count={count}
+                          countId={countId}
+                          increment={increment}
+                          decrement={decrement}
+                          handleClickCart={handleClickCart}
+                          refreshPage={refreshPage}
+                        />
+                      </div>
+                    )
+                  })
+                }
+              </div>
             </div>
           </div>
-        </div>
 
-      }
+        }
+      </div>
     </main >
   )
 }
