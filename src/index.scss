@@ -187,9 +187,9 @@ p {
 }
 /* #endregion */
 
-/* #region media 320px */
+/* #region media 768px */
 
-@media (min-width: 320px) {
+@media (max-width: 768px) {
   .main {
     box-sizing: border-box;
     padding: 20px 0;

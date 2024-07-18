@@ -3,6 +3,7 @@
   top: 0;
   right: 0;
   bottom: 0;
+  left: 0;
   z-index: 15;
   width: 554px;
   box-sizing: border-box;
@@ -29,4 +30,11 @@
   }
 }
 
+@media (max-width: 768px) {
+  .order {
+    width: 100%;
+    padding: 20px;
+    overflow: auto;
+  }
 
+}

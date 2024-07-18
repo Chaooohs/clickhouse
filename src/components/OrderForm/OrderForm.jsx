@@ -45,39 +45,39 @@ export const OrderForm = () => {
 
 
   return (
-    <form id="formElem" >
+    <form id="formElem" className={styles.form}>
       <h1 className='text-chapter'>Order</h1>
-      <p className='text-id' style={{ fontWeight: 'bold' }}>Contact information</p>
+      <p className={`text-id ${styles.info}`} style={{ fontWeight: 'bold' }}>Contact information</p>
       <div className={styles.box}>
         <input
-          className={styles.input}
+          className='side-input'
           type="text"
           placeholder='Phone'
           name='phone'
         />
         <input
-          className={styles.input}
+          className='side-input'
           type="text"
           placeholder='Email'
           name='email'
         />
         <input
-          className={styles.input}
+          className='side-input'
           type="text"
           placeholder='Name'
           name='name'
         />
       </div>
-      <p className='text-id' style={{ fontWeight: 'bold' }}>Address</p>
+      <p className={`text-id ${styles.address}`} style={{ fontWeight: 'bold' }}>Address</p>
       <div className={styles.box}>
         <input
-          className={styles.input}
+          className='side-input'
           type="text"
           placeholder='City'
           name='city'
         />
         <input
-          className={styles.input}
+          className='side-input'
           type="text"
           placeholder='Street'
           name='street'
@@ -109,7 +109,7 @@ export const OrderForm = () => {
         <input
           type="submit"
           value={'Ordered'}
-          className={styles.buttonorder}
+          className={styles.submit}
           onClick={onHandleForm}
         />
       </div>
