@@ -33,14 +33,14 @@ export const CartPage = () => {
   let message
   if (counter === 0 || counter === undefined) {
     message = <div>
-      <div className='text-id'>Shoping cart is empty</div>
+      <div className={`text-id ${styles.text}`}>Shoping cart is empty</div>
       <img src={empty} alt='img' />
     </div>
   }
 
 
   return (
-    <main>
+    <main className='main'>
       <div className='wrap'>
         <h1 className='text-chapter'>Shoping Cart</h1>
         <div className={styles.layout}>

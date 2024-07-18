@@ -35,7 +35,7 @@ export const CatalogPage = () => {
 
 
   return (
-    <main className={styles.main}>
+    <main className='main'>
       {message}
       {status === 'success' &&
         <div className="wrap">

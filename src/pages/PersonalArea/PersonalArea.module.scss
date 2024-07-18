@@ -21,3 +21,13 @@
     color: #FF9900;
   }
 }
+
+@media (max-width: 768px) {
+  .user {
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  .info {
+    margin-top: 20px;
+  }
+}

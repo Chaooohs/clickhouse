@@ -13,10 +13,7 @@
   grid-column: 2;
 }
 
-@media (min-width: 320px) {
-  .main {
-    margin: 20px 0;
-  }
+@media (max-width: 768px) {
   .layout {
     grid-template-columns: 1fr;
     margin-top: 0;

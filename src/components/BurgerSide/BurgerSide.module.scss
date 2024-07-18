@@ -57,7 +57,7 @@
   margin-top: 72px;
 }
 
-@media (min-width: 320px) {
+@media (max-width: 768px) {
   .burger {
     width: 100%;
     padding: 24px 20px;

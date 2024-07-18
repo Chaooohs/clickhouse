@@ -35,7 +35,7 @@ export const PersonalArea = () => {
   }
 
   return (
-    <main>
+    <main className='main'>
       <div className='wrap'>
         <h1 className='text-chapter' style={{ textAlign: 'center' }}>Personal area</h1>
         {
@@ -43,7 +43,7 @@ export const PersonalArea = () => {
             return (
               <div className={styles.user} key={user.id}>
                 <img className={styles.avatar} src={user.avatar} alt="avatar" />
-                <div>
+                <div className={styles.info}>
                   <p className='text-id'>{`name: ${user.name}`}</p>
                   <p className='text-id'>{`email: ${user.email}`}</p>
                   <p className='text-id'>{`role: ${user.role}`}</p>

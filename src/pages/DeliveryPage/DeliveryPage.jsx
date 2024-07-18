@@ -5,7 +5,7 @@ import styles from './DeliveryPage.module.scss'
 
 export const DeliveryPage = () => {
   return (
-    <main className={styles.main}>
+    <main className='main'>
       <div className='wrap'>
         <div className={styles.layout}>
           <h1 className='text-chapter'>Delivery</h1>

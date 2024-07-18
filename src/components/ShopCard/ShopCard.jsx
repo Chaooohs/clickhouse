@@ -24,12 +24,6 @@ export const ShopCard = ({ card }) => {
           <div className='text-description'>{card.description}</div>
         </div>
         <div className='text-price'>{`${card.price} $`}</div>
-        {/* <button
-          className={`"text-description" ${styles.delete}`}
-          onClick={() => navigate(`/product/${card.id}`)}
-        >
-          To the product
-        </button> */}
       </div>
 
       <div className={styles.three}>

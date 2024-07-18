@@ -73,7 +73,7 @@
   transition: all 0.2s linear;
 }
 
-@media (min-width: 320px) {
+@media (max-width: 768px) {
   .underheader {
     height: 60px;
     margin-bottom: 0;

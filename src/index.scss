@@ -38,7 +38,8 @@ input {
   }
 }
 
-h1, p {
+h1,
+p {
   margin: 0;
 }
 
@@ -189,9 +190,15 @@ h1, p {
 /* #region media 320px */
 
 @media (min-width: 320px) {
+  .main {
+    box-sizing: border-box;
+    padding: 20px 0;
+  } 
+
   .wrap {
     padding: 0 20px;
   }
+  
   .layout {
     grid-template-rows: auto 1fr auto;
   }

@@ -29,9 +29,6 @@
 }
 
 @media (max-width: 768px) {
-  .main {
-    margin: 20px 0;
-  }
   .layout {
     grid-template-columns: repeat(auto-fill, minmax(124px, 1fr));
     column-gap: 15px;
