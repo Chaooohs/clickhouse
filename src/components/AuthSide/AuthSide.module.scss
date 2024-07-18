@@ -21,15 +21,6 @@
   transform: translateX(0);
 }
 
-.button {
-  width: 20px;
-  height: 20px;
-  margin-left: auto;
-  &:hover svg * {
-    fill: #000;
-  }
-}
-
 .form {
   display: flex;
   flex-direction: column;
@@ -52,12 +43,8 @@
   .auth {
     padding: 20px;
   }
-  .button {
-    margin: 0 0 26px 0;
-    & svg {
-      width: 16px;
-      height: 16px;
-    }
+  .box {
+    margin-top: 24px;
   }
   .submit {
     width: 280px;

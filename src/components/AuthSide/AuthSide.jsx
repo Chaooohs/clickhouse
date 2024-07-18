@@ -3,8 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { statusAuth } from '../../redux/sideBarSlice';
 import { fetchAuth, sendAuth } from '../../redux/authSlice';
-
-import CloseIcon from '/public/image/svg/close.svg?react'
+import { CloseButton } from "../CloseButton/CloseButton";
 import styles from './AuthSide.module.scss'
 
 
@@ -65,11 +64,11 @@ export const AuthSide = () => {
     <main>
       <div className='side-layout'>
         <div className={styles.auth} ref={ref} >
-          <button className={styles.button} onClick={handleClickCloseAuth}>
-            <CloseIcon className={styles.icon} />
-          </button>
-          <h1 className='text-chapter'>Entry</h1>
+
+          <CloseButton onClickClose={handleClickCloseAuth} />
+
           <div className={styles.box}>
+            <h1 className='text-chapter'>Entry</h1>
             <form className={styles.form} onSubmit={onSetAuthClick} id="formElem">
               <input
                 className='side-input'

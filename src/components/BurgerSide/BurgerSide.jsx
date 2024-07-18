@@ -38,7 +38,7 @@ export const BurgerSide = () => {
   }, [autoClose])
 
 
-  const handleClickClose = () => {
+  const handleClickCloseBurger = () => {
     setClose(true);
   };
 
@@ -55,7 +55,7 @@ export const BurgerSide = () => {
               <img className={styles.logo} src={logo} alt="logo" />
             </Link>
 
-            <CloseButton onClickClose={handleClickClose} />
+            <CloseButton onClickClose={handleClickCloseBurger} />
             
           </header>
           <main className={styles.main}>
