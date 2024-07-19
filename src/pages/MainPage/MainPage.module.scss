@@ -75,6 +75,34 @@
   margin: 90px auto 0;
 }
 
+
+@media (max-width: 1136px) {
+  .image {
+    max-width: 717px;
+    height: 285px;
+    border-radius: 30px;
+  }
+  .dark {
+    width: 287px;
+    border-radius: 30px;
+    padding: 26px 26px;
+  }
+  .desc {
+    width: 282px;
+  }
+  .login {
+    margin-top: 15px;
+  }
+  .button,
+  .login {
+    width: 233px;
+    height: 36px;
+    font-size: 12px;
+  }
+
+  }
+
+
 @media (max-width: 768px) {
   .wrap {
     padding: 0;

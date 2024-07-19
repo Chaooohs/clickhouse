@@ -107,7 +107,7 @@ p {
 .layout {
   display: grid;
   grid-template-rows: auto auto 1fr auto;
-  height: 100%;
+  height: 100vh;
   max-width: 1336px;
   margin: 0 auto;
 }
@@ -191,6 +191,23 @@ p {
 }
 /* #endregion */
 
+/* #region media 1136 */
+.wrap {
+  padding: 0 154px;
+}
+.text-chapter {
+  font-size: 30px;
+  line-height: 28px;
+}
+.text-description,
+.text-title,
+.text-id {
+  font-size: 14px;
+  line-height: 22px;
+}
+
+/* #endregion */
+
 /* #region media 768px */
 
 @media (max-width: 768px) {
@@ -219,13 +236,6 @@ p {
 
   .text-chapter {
     font-size: 24px;
-  }
-
-  .text-description,
-  .text-title,
-  .text-id {
-    font-size: 14px;
-    line-height: 22px;
   }
 
   .text-price {
