@@ -1,20 +1,20 @@
 .iconbox {
   &:hover .icon * {
-    stroke: #FF9900;
+    stroke: #ff9900;
   }
 }
 .icon {
-  transition: all .2s linear;
+  width: 48px;
+  height: 48px;
+  transition: all 0.2s linear;
 }
-
 
 @media (max-width: 1336px) {
   .icon {
-    width: 50px;
-    height: 50px;
+    width: 48px;
+    height: 48px;
   }
 }
-
 
 @media (max-width: 768px) {
   .icon {

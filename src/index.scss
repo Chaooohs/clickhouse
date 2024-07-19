@@ -94,6 +94,10 @@ p {
   transform: translateX(0);
 }
 
+.no-scroll {
+  overflow: hidden;
+}
+
 .main {
   margin-bottom: 60px;
 }

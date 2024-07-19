@@ -25,10 +25,10 @@ export const ContactsPage = () => {
             <span className='text-id'>Lorem ipsum, dolor</span>
           </div>
           <div className={styles.social}>
-            <Social/>
+            <Social />
           </div>
-          <img className={styles.image} src={Image} alt="img" />
         </div>
+        <img className={styles.image} src={Image} alt="img" />
       </div>
     </main>
   )
