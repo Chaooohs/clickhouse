@@ -18,7 +18,7 @@ export const SingleProductPage = () => {
   const location = useLocation()
   const navigate = useNavigate()
 
-  const productsAll = useSelector(state => state.productsAll.productsAll)
+  const {productsAll, randomGoods} = useSelector(state => state.productsAll)
   const single = useSelector(state => state.singleProduct.product)
   const status = useSelector(state => state.singleProduct.status)
   const error = useSelector(state => state.singleProduct.error)
@@ -120,7 +120,7 @@ export const SingleProductPage = () => {
                     <img src={minus} alt="minus" />
                   </button>
 
-                  <span className={styles.number-count}>
+                  <span className='text-id'>
                     {count}
                   </span>
 
@@ -148,7 +148,7 @@ export const SingleProductPage = () => {
               <h1 className={`text-chapter ${styles.title__products}`} >You might like these products</h1>
               <div className={styles.layout__card}>
                 {
-                  productsAll?.map(product => {
+                  randomGoods?.map(product => {
                     return (
                       <div className="card" key={product.id}>
                         <Card

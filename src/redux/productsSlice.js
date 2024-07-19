@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const initialState = {
   productsAll: [],
+  randomGoods: [],
   status: 'idle',
   error: null,
 }
@@ -47,7 +48,8 @@ const categoryIdSlice = createSlice({
       })
       .addCase(fetchPoductsAll.fulfilled, (state, action) => {
         state.status = 'success'
-        state.productsAll = action.payload.sort(() => Math.random() - Math.random()).slice(0, 4);
+        state.randomGoods = action.payload.sort(() => Math.random() - Math.random()).slice(0, 4);
+        state.productsAll = action. payload
 
       })
       .addCase(fetchPoductsAll.rejected, (state, action) => {
