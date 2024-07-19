@@ -31,6 +31,8 @@
   }
 
   .social {
+    justify-self: flex-end;
+    align-self: flex-end;
     display: flex;
     column-gap: 18px;
   }
@@ -39,6 +41,24 @@
 .column {
   justify-self: center;
 }
+
+
+@media (max-width: 1336px) {
+  .footer {
+    height: auto;
+  }
+  .layout {
+    padding: 26px 0 34px;
+  }
+  .logo {
+    width: 115px;
+    height: 33px;
+  }
+  .column p {
+    margin-top: 14px;
+  }
+}
+
 
 @media (max-width: 768px) {
   .footer {

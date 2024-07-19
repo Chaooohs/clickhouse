@@ -75,12 +75,12 @@
   margin: 90px auto 0;
 }
 
-
 @media (max-width: 1136px) {
   .image {
     max-width: 717px;
     height: 285px;
     border-radius: 30px;
+    margin: 0 auto;
   }
   .dark {
     width: 287px;
@@ -99,9 +99,10 @@
     height: 36px;
     font-size: 12px;
   }
-
+  .raket {
+    width: 25rem;
   }
-
+}
 
 @media (max-width: 768px) {
   .wrap {

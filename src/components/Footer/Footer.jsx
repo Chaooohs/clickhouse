@@ -18,7 +18,7 @@ export const Footer = () => {
           </Link>
           <div className={styles.content}>
 
-            <div>
+            <div className={styles.column}>
               <p style={{ fontSize: '18px', fontWeight: 'bold' }}>Information</p>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
               <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>

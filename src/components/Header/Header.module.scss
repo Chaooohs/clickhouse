@@ -37,8 +37,25 @@
 }
 
 
-@media (max-width: 768px) {
-  
+@media (max-width: 1336px) {
+  .content {
+    height: 72px;
+  }
+  .logo {
+    width: 97px;
+    height: 28px;
+    margin-top: 24px;
+  }
+  .links {
+    margin-top: 29px;
+  }
+  .link {
+    font-size: 14px;
+  }
+  .tel {
+    font-size: 16px;
+    margin-top: 21px;
+  }
 }
 
 
