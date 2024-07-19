@@ -28,7 +28,6 @@ export const MainPage = () => {
 
   return (
     <main>
-      <div className={styles.wrap}>
         <div className={styles.image}>
           <div className={styles.dark}>
             <h1 className={`text-chapter ${styles.chapter}`}>Platzi fake store API</h1>
@@ -51,7 +50,6 @@ export const MainPage = () => {
             </div>
           </div>
         </div>
-      </div>
       <img className={styles.raket} src={raket} alt="img" />
     </main >
   )

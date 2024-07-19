@@ -1,17 +1,14 @@
 .layout {
   display: grid;
   grid-template-columns: 3fr 2fr;
+  column-gap: 30px;
   box-sizing: border-box;
   padding: 0 28px;
+  margin-top: 38px;
 }
 
 .images {
   justify-self: center;
-}
-
-.big {
-  width: 518px;
-  height: 518px;
 }
 
 .box {
@@ -30,6 +27,7 @@
 .number {
   display: flex;
   justify-content: space-between;
+  margin-top: 38px;
 }
 
 .counter {
@@ -100,6 +98,7 @@
     display: flex;
     flex-direction: column;
     padding: 30px 0 44px;
+    margin-top: 0;
   }
   .big {
     width: 280px;

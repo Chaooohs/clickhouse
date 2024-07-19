@@ -7,7 +7,7 @@ export const Social = () => {
   return (
     <>
       <a href="https://uk-ua.facebook.com/" target='_blank'>
-        <div className={styles.iconbox}>
+        <div className={styles.iconbox}>/
           <Facebook className={styles.icon} />
         </div>
       </a>

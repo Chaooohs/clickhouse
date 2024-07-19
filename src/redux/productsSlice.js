@@ -47,8 +47,7 @@ const categoryIdSlice = createSlice({
       })
       .addCase(fetchPoductsAll.fulfilled, (state, action) => {
         state.status = 'success'
-        // state.productsAll = action.payload.sort(() => Math.random() - Math.random()).slice(0, 4);
-        state.productsAll = action.payload
+        state.productsAll = action.payload.sort(() => Math.random() - Math.random()).slice(0, 4);
 
       })
       .addCase(fetchPoductsAll.rejected, (state, action) => {

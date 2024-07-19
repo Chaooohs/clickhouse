@@ -1,6 +1,6 @@
 .layout__card {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(302px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(302px, 1fr));
 }
 
 .loading {
@@ -11,7 +11,7 @@
 
 @media (max-width: 768px) {
   .layout__card {
-    grid-template-columns: repeat(auto-fill, minmax(132px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(132px, 1fr));
     column-gap: 14px;
     row-gap: 24px;
     box-sizing: border-box;

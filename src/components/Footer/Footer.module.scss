@@ -32,12 +32,11 @@
 
   .social {
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    & svg {
-      width: 64px;
-    }
   }
+}
+
+.column {
+  justify-self: center;
 }
 
 @media (max-width: 768px) {
@@ -52,14 +51,12 @@
   .content {
     grid-template-columns: 1fr;
     row-gap: 20px;
-        
+
     & p {
       font-size: 12px;
     }
   }
-
-  .social {
-    display: flex;
-    flex-direction: row;
+  .column {
+    justify-self: flex-start;
   }
 }
