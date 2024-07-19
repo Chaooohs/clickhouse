@@ -1,10 +1,12 @@
 .layout {
-  containe-type: inline-size;
+  container-type: inline-size;
+  position: relative;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 2fr;
   grid-template-rows: 1fr 1fr;
   column-gap: 56px;
   row-gap: 48px;
+  margin-top: 48px;
 }
 
 .tels,
@@ -16,7 +18,7 @@
 
 .tels {
   grid-column: 1/2;
-  grid-row: 2/3;
+  grid-row: 1/2;
   & a {
     color: #000;
     transition: all 0.2s linear;
@@ -31,17 +33,17 @@
 
 .city {
   grid-column: 2/3;
-  grid-row: 2/3;
+  grid-row: 1/2;
 }
 
 .company {
   grid-column: 3/4;
-  grid-row: 2/3;
+  grid-row: 1/2;
 }
 
 .social {
   grid-column: 1/4;
-  grid-row: 3/4;
+  grid-row: 2/3;
   display: flex;
   column-gap: 18px;
   & img {
@@ -50,17 +52,30 @@
   }
 }
 .image {
+  position: absolute;
+  top: -6rem;
+  right: -79px;
+  z-index: -1;
   width: 62cqi;
-  max-width: 590px;
-  margin: 0 auto;
+  max-width: 496px;
 }
 
 @media (max-width: 1336px) {
   .layout {
     position: relative;
-    grid-template-rows: 0fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 2fr;
     column-gap: 34px;
     row-gap: 16pxpx;
+  }
+  .city {
+    grid-column: 2/4;
+    justify-self: center;
+  }
+  .company {
+    grid-column: 4/5;
+  }
+  .image {
+    top: 9rem;
   }
 }
 
@@ -79,6 +94,9 @@
   .social {
     grid-column: 1/2;
   }
+  .city {
+    justify-self: flex-start;
+  }
   .city,
   .company,
   .social {
@@ -95,6 +113,12 @@
   }
   .social {
     grid-row: 4;
-    justify-content: center;
+  }
+  .image {
+    position: static;
+    width: 100cqi;
+    max-width: 382px;
+    margin: 80px auto;
+
   }
 }

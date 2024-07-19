@@ -27,8 +27,8 @@ export const ContactsPage = () => {
           <div className={styles.social}>
             <Social />
           </div>
+          <img className={styles.image} src={Image} alt="img" />
         </div>
-        <img className={styles.image} src={Image} alt="img" />
       </div>
     </main>
   )
