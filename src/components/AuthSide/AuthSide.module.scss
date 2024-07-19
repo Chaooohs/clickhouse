@@ -3,7 +3,6 @@
   top: 0;
   right: 0;
   bottom: 0;
-  left: 0;
   z-index: 15;
   width: 554px;
   box-sizing: border-box;
@@ -39,6 +38,21 @@
   cursor: pointer;
 }
 
+@media (max-width: 1336px) {
+  .auth {
+    width: 350px;
+    padding: 36px 20px 100px 30px;
+  }
+  .box {
+    margin-top: 24px;
+  }
+  .submit {
+    width: 295px;
+    height: 38px;
+    font-size: 14px;
+  }
+}
+
 @media (max-width: 768px) {
   .auth {
     padding: 20px;
@@ -51,4 +65,3 @@
     height: 40px;
   }
 }
-

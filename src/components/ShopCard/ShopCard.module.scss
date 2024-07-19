@@ -47,13 +47,22 @@
   }
 }
 
+
+@media (max-width: 1336px) {
+  .image {
+    width: 140px;
+    height: 140px;
+    & img {
+      border-radius: 0;
+    }
+  }
+}
+
+
 @media (max-width: 768px) {
   .image {
     width: 100px;
     height: 100px;
-    & img {
-      border-radius: 0;
-    }
   }
   .info {
     height: fit-content;

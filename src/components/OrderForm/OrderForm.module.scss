@@ -1,7 +1,11 @@
 .form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  margin-top: 20px;
+  & h1 {
+    text-align: center;
+  }
+  & p {
+    margin-top: 24px;
+  }
 }
 
 .box {
@@ -10,6 +14,7 @@
   flex-direction: column;
   row-gap: 14px;
   width: 300px;
+  margin-top: 16px;
 }
 
 .input {
@@ -69,12 +74,28 @@
   cursor: pointer;
 }
 
+@media (max-width: 1336px) {
+  .label {
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .price {
+    width: 277px;
+    margin-top: 24px;
+  }
+  .submit {
+    width: 277px;
+    height: 38px;
+    font-size: 14px;
+    margin-top: 24px;
+  }
+}
+
 @media (max-width: 768px) {
   .form,
   .box,
   .address,
-  .house,
-  .price {
+  .house {
     margin-top: 24px;
   }
   .info {
@@ -89,6 +110,5 @@
   .submit {
     width: 282px;
     height: 38px;
-    font-size: 14px;
   }
 }

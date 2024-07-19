@@ -46,6 +46,20 @@
   margin-top: 72px;
 }
 
+
+@media (max-width: 1336px) {
+  .burger {
+width: 422px;
+padding: 30px 30px 0 120px;
+  }
+  .logo {
+    width: 97px;
+    height: 28px;
+  }
+}
+
+
+
 @media (max-width: 768px) {
   .burger {
     width: 100%;

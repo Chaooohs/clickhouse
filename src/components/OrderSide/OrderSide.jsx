@@ -42,7 +42,7 @@ export const OrderSide = () => {
     <main>
       <div className='side-layout'>
         <div className={styles.order} ref={ref}>
-          <CloseButton  onClickClose={handleClickCloseOrder}/>
+          <CloseButton onClickClose={handleClickCloseOrder} />
           {
             get &&
             <OrderForm />
@@ -51,11 +51,15 @@ export const OrderSide = () => {
             !get &&
             <>
               <h1 className={`text-chapter ${styles.chapter}`}>The order has been successfully completed</h1>
-              <p className={`text-description ${styles.desc}`}>A manager will contact you to confirm the information</p>
+              <p className={`text-description ${styles.desc}`}
+              style={{marginTop: '24px'}}
+              >
+                A manager will contact you to confirm the information
+              </p>
               <Link
                 to='/categories'
                 className={`text-id ${styles.goto}`}
-                style={{ fontWeight: 'bold' }}
+                style={{ fontWeight: 'bold', marginTop: '24px' }}
                 onClick={handleClickCloseOrder}
               >
                 &#8592; Go to categories

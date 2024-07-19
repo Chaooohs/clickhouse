@@ -205,6 +205,20 @@ p {
   font-size: 14px;
   line-height: 22px;
 }
+.text-price {
+  font-size: 18px;
+  line-height: 22px;
+}
+.side-input {
+  width: 295px;
+  height: 40px;
+  font-size: 14px;
+  padding: 1rem;
+  &::placeholder {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
 
 /* #endregion */
 
@@ -236,11 +250,6 @@ p {
 
   .text-chapter {
     font-size: 24px;
-  }
-
-  .text-price {
-    font-size: 18px;
-    line-height: 22px;
   }
 
   .side-input {

@@ -60,7 +60,6 @@ export const CartPage = () => {
               </div>
 
               <div className={styles.right}>
-                {/* <img src={CartImage} alt="img" /> */}
                 <div className={styles.footer}>
                   <div className={`text-price ${styles.footer__price}`}>
                     <span>Total price: </span>

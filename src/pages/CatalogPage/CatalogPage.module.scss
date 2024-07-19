@@ -28,6 +28,20 @@
   justify-content: center;
 }
 
+
+@media (max-width: 1336px) {
+  .layout {
+    grid-template-columns: repeat(auto-fit, minmax(165px, 1fr));
+    column-gap: 24px;
+    row-gap: 52px;
+    margin-top: 42px;
+  }
+  .image {
+    height: 100px;
+  }
+}
+
+
 @media (max-width: 768px) {
   .layout {
     grid-template-columns: repeat(auto-fill, minmax(124px, 1fr));

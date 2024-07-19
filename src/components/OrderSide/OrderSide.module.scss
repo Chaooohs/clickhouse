@@ -3,11 +3,10 @@
   top: 0;
   right: 0;
   bottom: 0;
-  left: 0;
   z-index: 15;
   width: 554px;
   box-sizing: border-box;
-  padding: 90px 68px 40px 50px;
+  padding: 50px 50px 40px 20px;
 
   display: flex;
   flex-direction: column;
@@ -28,9 +27,25 @@
 
 .goto {
   color: #000;
-  transition: all .2s linear;
+  transition: all 0.2s linear;
   &:hover {
-    color: #FF9900;
+    color: #ff9900;
+  }
+}
+
+@media (max-width: 1336px) {
+  .order {
+    width: 378px;
+    padding: 36px 20px 100px 30px;
+    overflow: auto;
+    & h1 {
+      font-size: 24px;
+    }
+    & h1,
+    p,
+    img {
+      width: 277px;
+    }
   }
 }
 
@@ -38,7 +53,6 @@
   .order {
     width: 100%;
     padding: 20px 20px 80px 20px;
-    overflow: auto;
   }
 
   .chapter,

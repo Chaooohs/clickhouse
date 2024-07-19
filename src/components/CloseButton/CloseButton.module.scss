@@ -1,7 +1,6 @@
 .button {
-  margin-right: auto;
+  margin-left: auto;
 }
-
 .button svg {
   width: 20px;
   height: 20px;
@@ -17,7 +16,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1336px) {
   .button svg {
     width: 16px;
     height: 16px;

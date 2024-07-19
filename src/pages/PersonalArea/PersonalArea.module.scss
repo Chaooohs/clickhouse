@@ -22,6 +22,15 @@
   }
 }
 
+
+@media (max-width: 768px) {
+  .avatar {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+
 @media (max-width: 768px) {
   .user {
     flex-direction: column;
