@@ -9,12 +9,20 @@
 
 .left {
   grid-column: 1;
-  margin-top: 50px;
+  margin-top: 24px;
 }
 
 .right {
   grid-column: 2;
 }
+
+
+@media (max-width: 1336px) {
+  .left {
+    margin-top: 16px;
+  }
+}
+
 
 @media (max-width: 768px) {
   .layout {

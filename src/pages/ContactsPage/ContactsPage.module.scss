@@ -54,6 +54,22 @@
   grid-row: 1/4;
 }
 
+@media (max-width: 1336px) {
+  .layout {
+    position: relative;
+    grid-template-rows: 0fr 1fr 0fr;
+    column-gap: 34px;
+    row-gap: 16pxpx;
+  }
+  .image {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 18rem;
+  }
+}
+
+
 @media (max-width: 768px) {
   .layout {
     grid-template-columns: 1fr;
