@@ -213,6 +213,15 @@ p {
   font-size: 18px;
   line-height: 22px;
 }
+.card {
+  &:hover {
+    border-radius: 20px;
+  }
+}
+.card-footer {
+  opacity: 1;
+  margin: 0;
+}
 .side-input {
   width: 295px;
   height: 40px;
@@ -249,7 +258,6 @@ p {
   }
   .card-footer {
    margin: 2px 0 0 0;
-   opacity: 1;
   }
 
   .text-chapter {
