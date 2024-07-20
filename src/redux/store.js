@@ -8,6 +8,7 @@ import productsAll from './productsSlice'
 import sideBar from './sideBarSlice'
 import order from './orderSlice'
 import auth from './authSlice'
+import search from './searchSlice'
 
 
 export const store = configureStore ({
@@ -20,5 +21,6 @@ export const store = configureStore ({
     sideBar,
     order,
     auth,
+    search,
   }
 })

@@ -9,7 +9,7 @@
   background: url("/public/image/png/main.png") center/cover no-repeat;
   box-sizing: border-box;
   padding: 60px;
-  margin: 0 28px;
+  margin: 0 154px;
 }
 
 .dark {
@@ -75,12 +75,10 @@
   margin: 90px auto 0;
 }
 
-@media (max-width: 1136px) {
+@media (max-width: 1336px) {
   .image {
-    max-width: 717px;
     height: 285px;
     border-radius: 30px;
-    margin: 0 auto;
   }
   .dark {
     width: 287px;

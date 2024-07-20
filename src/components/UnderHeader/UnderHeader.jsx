@@ -1,10 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
+import debounce from 'lodash.debounce'
 
 import { setCartCounter } from '../../redux/cartSlice'
-import { statusAuth, statusBurger } from '../../redux/sideBarSlice'
-import authSlice, { exitUser } from '../../redux/authSlice'
+import { statusBurger } from '../../redux/sideBarSlice'
+import { exitUser } from '../../redux/authSlice'
+import { searchProducts } from '../../redux/searchSlice'
 
 import Exit from '/public/image/svg/exit.svg?react'
 import Bin from '/public/image/svg/bin.svg?react'
@@ -45,11 +47,6 @@ export const UnderHeader = () => {
   }
 
 
-  // const onEnterUser = () => {
-  //   if (status === '' || status === 'fail') dispatch(statusAuth(true))
-  // }
-
-
   const onExitClick = () => {
     localStorage.setItem('clickhouse__user', JSON.stringify([]))
     navigate('/')
@@ -57,6 +54,25 @@ export const UnderHeader = () => {
     dispatch(exitUser(null))
   }
 
+
+  const searchValueByTimer = useCallback(
+    debounce((value) => {
+      dispatch(searchProducts(value))
+    }, 1000),
+    []
+  );
+
+  const regSearch = (value) => {
+    let rgx = /^[a-zа-я]*$/gi;
+    return rgx.test(value);
+  };
+
+  const onSearchByName = (e) => {
+    const value = e.target.value;
+    if (regSearch(value)) {
+      searchValueByTimer(value);
+    }
+  };
 
 
   let burger
@@ -76,7 +92,12 @@ export const UnderHeader = () => {
           {burger}
         </button>
         <div className={styles.search}>
-          <input className={styles.search__input} type="text" placeholder='What will you want to find?' />
+          <input
+            className={styles.search__input}
+            type="text"
+            placeholder='What will you want to find?'
+            onChange={onSearchByName}
+          />
           <button className={styles.search__button}>
             <img className={styles.search__icon} src={search} alt="search" />
           </button>
