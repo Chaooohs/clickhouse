@@ -1,0 +1,19 @@
+.images {
+  width: 80px;
+  height: 80px;
+  border: 1px solid #fff;
+  cursor: pointer;
+  &:hover {
+    border: 1px solid #FF9900;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  &:hover h3 {
+    color: #FF9900
+  }
+}

@@ -6,7 +6,9 @@ import debounce from 'lodash.debounce'
 import { setCartCounter } from '../../redux/cartSlice'
 import { statusBurger } from '../../redux/sideBarSlice'
 import { exitUser } from '../../redux/authSlice'
-import { searchProducts } from '../../redux/searchSlice'
+import { searchProducts, toggleSearchIcon } from '../../redux/searchSlice'
+import { SearchSide } from '../SearchSide/SearchSide'
+import { CloseButton } from "../CloseButton/CloseButton";
 
 import Exit from '/public/image/svg/exit.svg?react'
 import Bin from '/public/image/svg/bin.svg?react'
@@ -23,8 +25,10 @@ export const UnderHeader = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const selector = useSelector(state => state.cart.products)
+  const isSearchIn = useSelector(state => state.search.isSearchIn)
   // const {isUserLoggedIn}  = useSelector(state => state.auth)
   const [mouse, setMouse] = useState(false)
+  const [value, setValue] = useState('')
 
   const counter = selector?.reduce((sum, el) => el.count + sum, 0);
 
@@ -41,6 +45,13 @@ export const UnderHeader = () => {
     dispatch(setCartCounter(counter))
   }, [counter])
 
+  // очищает инпут поиска
+  useEffect(() => {
+    if (!isSearchIn) {
+      setValue('')
+    }
+  }, [isSearchIn])
+
 
   const onClickBurger = () => {
     dispatch(statusBurger(true))
@@ -54,25 +65,31 @@ export const UnderHeader = () => {
     dispatch(exitUser(null))
   }
 
-
+  // задержка поиска и отправка запроса
   const searchValueByTimer = useCallback(
     debounce((value) => {
       dispatch(searchProducts(value))
     }, 1000),
     []
   );
-
+  // проверка на отсутствие цифр
   const regSearch = (value) => {
     let rgx = /^[a-zа-я]*$/gi;
     return rgx.test(value);
   };
-
+  // получение водимого поиска
   const onSearchByName = (e) => {
     const value = e.target.value;
     if (regSearch(value)) {
       searchValueByTimer(value);
+      setValue(value)
     }
   };
+
+
+  const handleClearSearch = () => {
+    dispatch(toggleSearchIcon(false))
+  }
 
 
   let burger
@@ -95,12 +112,19 @@ export const UnderHeader = () => {
           <input
             className={styles.search__input}
             type="text"
+            value={value}
             placeholder='What will you want to find?'
             onChange={onSearchByName}
           />
-          <button className={styles.search__button}>
-            <img className={styles.search__icon} src={search} alt="search" />
-          </button>
+          <div className={styles.search__button}>
+            {
+              !isSearchIn
+                ?
+                <img className={styles.search__icon} src={search} alt="search" />
+                :
+                <CloseButton onClickClose={handleClearSearch} />
+            }
+          </div>
         </div>
         <div className={styles.box}>
           <Link to="/cart">
@@ -120,6 +144,7 @@ export const UnderHeader = () => {
             </div>
           </button>
         </div>
+        <SearchSide />
       </div>
     </div>
   )

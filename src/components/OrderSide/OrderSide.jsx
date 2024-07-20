@@ -22,10 +22,10 @@ export const OrderSide = () => {
   useEffect(() => {
     if (order && !close) {
       setTimeout(() => {
-        ref.current.classList.add(`${styles.open}`);
+        ref.current.classList.add(`open`);
       }, 50);
     } else if (close) {
-      ref.current.classList.remove(`${styles.open}`);
+      ref.current.classList.remove(`open`);
       setTimeout(() => {
         dispatch(statusOrder(false));
       }, 350);

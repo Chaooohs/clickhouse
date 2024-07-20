@@ -82,6 +82,7 @@ p {
 .text-description {
   color: #7d7d7d;
 }
+
 /* #endregion */
 
 /* #region common */
@@ -96,6 +97,10 @@ p {
 
 .no-scroll {
   overflow: hidden;
+}
+
+.open-search {
+  transform: translateY(0);
 }
 
 .main {
@@ -143,6 +148,17 @@ p {
   margin: 0 10px;
   opacity: 0;
   transition: all 0.3s linear;
+}
+
+.long-card {
+  max-width: 1030px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  column-gap: 24px;
+  box-sizing: border-box;
+  padding: 36px 2rem 30px;
+  border-bottom: 1px solid #E9E5E5;
 }
 
 .side-layout {
@@ -195,7 +211,8 @@ p {
 }
 /* #endregion */
 
-/* #region media 1136 */
+/* #region media 1336 */
+
 .wrap {
   padding: 0 154px;
 }

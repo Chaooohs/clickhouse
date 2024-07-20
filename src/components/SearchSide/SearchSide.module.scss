@@ -1,0 +1,16 @@
+.layout {
+  position: fixed;
+  top: 178px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  background-color: #ffffff10;
+  backdrop-filter: blur(7px);
+  transform: translateY(-150vh);
+  transition: all .3s linear;
+}
+
+.search {
+  background-color: white;
+}

@@ -4,6 +4,7 @@ const initialState = {
   products: [],
   status: 'idle',
   error: null,
+  isSearchIn: false
 }
 
 export const searchProducts = createAsyncThunk(
@@ -22,6 +23,9 @@ const searchSlice = createSlice({
     getSearchProducts: (state, action) => {
       state.categories = action.payload
     },
+    toggleSearchIcon: (state, action) => {
+      state.isSearchIn = action.payload
+    },
   },
 
   extraReducers(builder) {
@@ -32,6 +36,7 @@ const searchSlice = createSlice({
       .addCase(searchProducts.fulfilled, (state, action) => {
         state.status = 'success'
         state.products = action.payload
+        state.isSearchIn = true
       })
       .addCase(searchProducts.rejected, (state, action) => {
         state.status = 'fail'
@@ -40,5 +45,5 @@ const searchSlice = createSlice({
   },
 })
 
-export const { getSearchProducts } = searchSlice.actions
+export const { getSearchProducts, toggleSearchIcon } = searchSlice.actions
 export default searchSlice.reducer;
