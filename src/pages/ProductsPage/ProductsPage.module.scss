@@ -11,7 +11,7 @@
 
 @media (max-width: 1336px) {
   .layout__card {
-    grid-template-columns: repeat(auto-fit, minmax(226px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     column-gap: 20px;
     row-gap: 20px;
     box-sizing: border-box;
@@ -19,7 +19,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .layout__card {
     grid-template-columns: repeat(auto-fit, minmax(132px, 1fr));
     column-gap: 14px;

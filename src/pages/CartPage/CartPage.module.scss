@@ -39,7 +39,6 @@
     font-size: 18px;
     letter-spacing: 0.5px;
     margin-top: 48px;
-    
   }
 }
 
@@ -78,11 +77,13 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 991px) {
   .layout {
     grid-template-columns: 1fr;
   }
+}
 
+@media (max-width: 767px) {
   .text {
     margin-top: 16px;
   }

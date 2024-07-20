@@ -125,7 +125,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .layout {
     display: flex;
     flex-direction: column;
@@ -133,8 +133,9 @@
     margin-top: 0;
   }
   .big {
-    width: 280px;
-    height: 280px;
+    max-width: 350px;
+    width: 100%;
+    height: auto;
   }
   .overflow {
     width: 87vw;

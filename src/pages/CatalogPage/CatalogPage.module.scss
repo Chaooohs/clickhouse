@@ -42,7 +42,7 @@
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .layout {
     grid-template-columns: repeat(auto-fill, minmax(124px, 1fr));
     column-gap: 15px;

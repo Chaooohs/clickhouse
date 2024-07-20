@@ -73,7 +73,7 @@
 
 @media (max-width: 1336px) {
   .underheader {
-    grid-template-columns: 1fr 3fr 3fr 1fr;
+    grid-template-columns: 0fr 3fr 0fr 1fr;
     height: 68px;
     margin-bottom: 16px;
   }
@@ -82,8 +82,10 @@
     height: 16px;
   }
   .search {
+    max-width: 360px;
+    margin: 0 28px;
     &__input {
-      width: 360px;
+      width: 100%;
       height: 38px;
       padding: 0 22px;
       &::placeholder {
@@ -105,7 +107,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .underheader {
     height: 60px;
     margin-bottom: 0;

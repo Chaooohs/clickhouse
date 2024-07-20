@@ -42,7 +42,6 @@
   justify-self: center;
 }
 
-
 @media (max-width: 1336px) {
   .footer {
     height: 355px;
@@ -59,10 +58,9 @@
   }
 }
 
-
-@media (max-width: 768px) {
+@media (max-width: 991px) {
   .footer {
-    height: 100%;
+    height: fit-content;
   }
 
   .logo {
