@@ -15,7 +15,7 @@ export const ProductsPage = () => {
   const error = useSelector(state => state.categoryId.error)
 
 
-  // write
+  // read
   useEffect(() => {
     const id = location.pathname.split('').slice(-1).join('')
     dispatch(fetchCategoryId(id))

@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useLocation } from 'react-router'
 
 import { fetchSingleProduct } from '../../redux/singleProdSlice'
@@ -17,6 +17,7 @@ import styles from './SingleProductPage.module.scss'
 export const SingleProductPage = () => {
   const dispatch = useDispatch()
   const location = useLocation()
+  const ref = useRef(false)
 
   const { randomGoods } = useSelector(state => state.productsAll)
   const { product, status, error } = useSelector(state => state.singleProduct)
@@ -24,29 +25,31 @@ export const SingleProductPage = () => {
 
   const [indexImage, setIndexImage] = useState(0)
   const [count, setCount] = useState(1)
-  const [refresh, setRefresh] = useState(false)
 
 
   const a = location.pathname.split('/').slice(2, 3).join('/')
 
 
   useEffect(() => {
-    dispatch(fetchSingleProduct(a))
-    dispatch(fetchPoductsAll())
-    setRefresh(false)
-  }, [refresh])
+    if(!ref.current) {
+      dispatch(fetchSingleProduct(a))
+      dispatch(fetchPoductsAll())
+    }
+    ref.current = true
+  }, [a])
 
 
   // обновление компонента при повторном выборе четырех предлагаемых продуктоа
   useEffect(() => {
-    setRefresh(true)
     dispatch(statusRerender(false))
   }, [rerender])
 
 
   // обновление компонента при выборе четырех предлагаемых продуктоа
   const rerenderPage = () => {
-    setRefresh(true)
+    if(ref.current) {
+      ref.current = false
+    }
   }
 
 
@@ -150,7 +153,7 @@ export const SingleProductPage = () => {
 
             <div className={styles.random}>
               <h1 className={`text-chapter ${styles.title__products}`} >You might like these products</h1>
-              <Cards products={randomGoods} rerenderPage={rerenderPage} />
+              <Cards products={randomGoods} rerenderPage ={rerenderPage } />
             </div>
           </div>
 

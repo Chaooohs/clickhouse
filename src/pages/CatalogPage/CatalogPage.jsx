@@ -3,7 +3,6 @@ import { Link } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 
 import { fetchCategories } from "../../redux/categoriesSlice"
-import { fetchCategoryId } from "../../redux/categoryIdSlice"
 
 import styles from './CatalogPage.module.scss'
 
@@ -13,16 +12,12 @@ export const CatalogPage = () => {
   const categories = useSelector(state => state.categories.categories)
   const status = useSelector(state => state.categories.status)
   const error = useSelector(state => state.categories.error)
-  
 
+
+  // получение всех категорий
   useEffect(() => {
     dispatch(fetchCategories())
   }, [])
-
-
-  const onPassCatalogID = (id, name) => {
-    dispatch(fetchCategoryId(id.toString()))
-  }
 
 
   let message
@@ -48,7 +43,6 @@ export const CatalogPage = () => {
                   <Link
                     to={`/categories/${el.name}/id=${el.id}`}
                     key={index}
-                    onClick={() => onPassCatalogID(el.id, el.name)}
                   >
                     <img className={styles.image} src={el.image} />
                     <span className={styles.name}>{el.name}</span>
