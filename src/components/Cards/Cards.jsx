@@ -5,7 +5,7 @@ import { Card } from "../Card/Card"
 import { addToCart } from "../../redux/cartSlice"
 
 
-export const Cards = ({products}) => {
+export const Cards = ({products, rerenderPage}) => {
   const dispatch = useDispatch()
   const [count, setCount] = useState(1)
   const [countId, setCountId] = useState()
@@ -41,6 +41,7 @@ export const Cards = ({products}) => {
                     increment={increment}
                     decrement={decrement}
                     handleClickCart={handleClickCart}
+                    rerenderPage={rerenderPage}
                   />
                 </div>
               )

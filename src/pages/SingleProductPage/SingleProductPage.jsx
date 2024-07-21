@@ -6,7 +6,7 @@ import { fetchSingleProduct } from '../../redux/singleProdSlice'
 import { fetchPoductsAll } from '../../redux/productsSlice'
 import { addToCart } from '../../redux/cartSlice'
 import { statusRerender } from '../../redux/sideBarSlice'
-import { Card } from '../../components'
+import { Cards } from '../../components'
 
 import minus from '../../../public/image/svg/minus.png'
 import plus from '../../../public/image/svg/plus.png'
@@ -18,15 +18,12 @@ export const SingleProductPage = () => {
   const dispatch = useDispatch()
   const location = useLocation()
 
-  const {productsAll, randomGoods} = useSelector(state => state.productsAll)
-  const single = useSelector(state => state.singleProduct.product)
-  const status = useSelector(state => state.singleProduct.status)
-  const error = useSelector(state => state.singleProduct.error)
+  const { randomGoods } = useSelector(state => state.productsAll)
+  const { product, status, error } = useSelector(state => state.singleProduct)
   const rerender = useSelector(state => state.sideBar.rerender)
 
   const [indexImage, setIndexImage] = useState(0)
   const [count, setCount] = useState(1)
-  const [countId, setCountId] = useState()
   const [refresh, setRefresh] = useState(false)
 
 
@@ -40,13 +37,13 @@ export const SingleProductPage = () => {
   }, [refresh])
 
 
-// обновление компонента при повторном выборе четырех предлагаемых продуктоа
+  // обновление компонента при повторном выборе четырех предлагаемых продуктоа
   useEffect(() => {
     setRefresh(true)
     dispatch(statusRerender(false))
   }, [rerender])
 
-  
+
   // обновление компонента при выборе четырех предлагаемых продуктоа
   const rerenderPage = () => {
     setRefresh(true)
@@ -58,12 +55,8 @@ export const SingleProductPage = () => {
   }
 
 
-  const increment = (id) => {
-    const found = productsAll?.find(el => el.id === id)
-    if (found.id === id) {
-      setCount(count + 1)
-      setCountId(id)
-    }
+  const increment = () => {
+    setCount(count + 1)
   }
   const decrement = () => setCount(Math.max(1, count - 1))
 
@@ -93,13 +86,13 @@ export const SingleProductPage = () => {
             <div className={styles.images}>
 
               <div className={styles.big}>
-                <img src={single.images[indexImage]} alt="img" />
+                <img src={product.images[indexImage]} alt="img" />
               </div>
 
               <div className={styles.overflow}>
                 <div className={styles.box}>
                   {
-                    single.images?.map((img, index) => {
+                    product.images?.map((img, index) => {
                       return <img
                         key={index}
                         className={styles.small}
@@ -116,12 +109,12 @@ export const SingleProductPage = () => {
               </div>
             </div>
 
-            <div className={styles.descriptions} key={single.id}>
-              <h1 className='text-title'>{single.title}</h1>
-              <div className='text-id'>{`ID: ${single.id}`}</div>
-              <p className='text-description'>{single.description}</p>
+            <div className={styles.descriptions} key={product.id}>
+              <h1 className='text-title'>{product.title}</h1>
+              <div className='text-id'>{`ID: ${product.id}`}</div>
+              <p className='text-description'>{product.description}</p>
               <div className={styles.number}>
-                <div className="text-price">{`${single.price} $`}</div>
+                <div className="text-price">{`${product.price} $`}</div>
 
                 <div className={styles.counter}>
                   <button
@@ -137,7 +130,7 @@ export const SingleProductPage = () => {
 
                   <button
                     className={styles.icon__plus}
-                    onClick={() => increment(single.id)}
+                    onClick={() => increment(product.id)}
                   >
                     <img src={plus} alt="plus" />
                   </button>
@@ -146,7 +139,7 @@ export const SingleProductPage = () => {
               </div>
               <button
                 className={styles.button}
-                onClick={() => handleClickCart(single.id, single.title, single.price, single.images[0], single.description.slice(0, 80))}
+                onClick={() => handleClickCart(product.id, product.title, product.price, product.images[0], product.description.slice(0, 80))}
               >
                 <div className={styles.button__content}>
                   <span className={styles.button__text}>Add to cart </span>
@@ -157,25 +150,7 @@ export const SingleProductPage = () => {
 
             <div className={styles.random}>
               <h1 className={`text-chapter ${styles.title__products}`} >You might like these products</h1>
-              <div className='card-layout'>
-                {
-                  randomGoods?.map(product => {
-                    return (
-                      <div className="card" key={product.id}>
-                        <Card
-                          product={product}
-                          count={count}
-                          countId={countId}
-                          increment={increment}
-                          decrement={decrement}
-                          handleClickCart={handleClickCart}
-                          rerenderPage={rerenderPage}
-                        />
-                      </div>
-                    )
-                  })
-                }
-              </div>
+              <Cards products={randomGoods} rerenderPage={rerenderPage} />
             </div>
           </div>
 

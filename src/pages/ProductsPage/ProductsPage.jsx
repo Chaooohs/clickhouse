@@ -1,45 +1,25 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useLocation } from 'react-router'
 
-
 import { fetchCategoryId } from '../../redux/categoryIdSlice'
-import { addToCart } from '../../redux/cartSlice'
-import { Card } from '../../components'
+import { Cards } from '../../components'
 
 
 
 export const ProductsPage = () => {
   const location = useLocation()
   const dispatch = useDispatch()
-  const selector = useSelector(state => state.categoryId.products)
+  const products = useSelector(state => state.categoryId.products)
   const status = useSelector(state => state.categoryId.status)
   const error = useSelector(state => state.categoryId.error)
-  const [count, setCount] = useState(1)
-  const [countId, setCountId] = useState()
 
-  
+
   // write
   useEffect(() => {
     const id = location.pathname.split('').slice(-1).join('')
     dispatch(fetchCategoryId(id))
   }, [])
-
-
-  const increment = (id) => {
-    const found = selector?.find(el => el.id === id)
-    if (found.id === id) {
-      setCount(count + 1)
-      setCountId(id)
-    }
-  }
-
-  const decrement = () => setCount(Math.max(1, count - 1))
-
-  const handleClickCart = (id, title, price, images, description) => {
-    dispatch(addToCart({ id, title, price, images, description, count }))
-    setCount(1)
-  }
 
 
   let message
@@ -57,24 +37,7 @@ export const ProductsPage = () => {
       {message}
       {status === 'success' &&
         <div className='wrap'>
-          <div className='card-layout'>
-            {Array.isArray(selector) &&
-              selector.map(product => {
-                return (
-                  <div className="card" key={product.id}>
-                    <Card
-                      product={product}
-                      count={count}
-                      countId={countId}
-                      increment={increment}
-                      decrement={decrement}
-                      handleClickCart={handleClickCart}
-                    />
-                  </div>
-                )
-              })
-            }
-          </div>
+          <Cards products={products} />
         </div>
       }
     </main>
