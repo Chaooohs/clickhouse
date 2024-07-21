@@ -1,10 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect, useState } from 'react'
-import { useLocation, useNavigate } from 'react-router'
+import { useLocation } from 'react-router'
 
 import { fetchSingleProduct } from '../../redux/singleProdSlice'
 import { fetchPoductsAll } from '../../redux/productsSlice'
 import { addToCart } from '../../redux/cartSlice'
+import { statusRerender } from '../../redux/sideBarSlice'
 import { Card } from '../../components'
 
 import minus from '../../../public/image/svg/minus.png'
@@ -16,16 +17,17 @@ import styles from './SingleProductPage.module.scss'
 export const SingleProductPage = () => {
   const dispatch = useDispatch()
   const location = useLocation()
-  const navigate = useNavigate()
 
   const {productsAll, randomGoods} = useSelector(state => state.productsAll)
   const single = useSelector(state => state.singleProduct.product)
   const status = useSelector(state => state.singleProduct.status)
   const error = useSelector(state => state.singleProduct.error)
+  const rerender = useSelector(state => state.sideBar.rerender)
 
   const [indexImage, setIndexImage] = useState(0)
   const [count, setCount] = useState(1)
   const [countId, setCountId] = useState()
+  const [refresh, setRefresh] = useState(false)
 
 
   const a = location.pathname.split('/').slice(2, 3).join('/')
@@ -34,11 +36,20 @@ export const SingleProductPage = () => {
   useEffect(() => {
     dispatch(fetchSingleProduct(a))
     dispatch(fetchPoductsAll())
-  }, [])
+    setRefresh(false)
+  }, [refresh])
 
 
-  const refreshPage = () => {
-    navigate(`/${product.id}`)
+// обновление компонента при повторном выборе четырех предлагаемых продуктоа
+  useEffect(() => {
+    setRefresh(true)
+    dispatch(statusRerender(false))
+  }, [rerender])
+
+  
+  // обновление компонента при выборе четырех предлагаемых продуктоа
+  const rerenderPage = () => {
+    setRefresh(true)
   }
 
 
@@ -158,7 +169,7 @@ export const SingleProductPage = () => {
                           increment={increment}
                           decrement={decrement}
                           handleClickCart={handleClickCart}
-                          refreshPage={refreshPage}
+                          rerenderPage={rerenderPage}
                         />
                       </div>
                     )

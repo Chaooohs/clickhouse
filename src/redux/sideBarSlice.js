@@ -4,6 +4,7 @@ const initialState = {
   burger: false,
   order: false,
   auth: false,
+  rerender: false,
 }
 
 const sideBarSlice = createSlice({
@@ -19,8 +20,11 @@ const sideBarSlice = createSlice({
     statusAuth: (state, actions) => {
       state.auth = actions.payload
     },
+    statusRerender: (state, actions) => {
+      state.rerender = actions.payload
+    },
   },
 })
 
-export const { statusBurger, statusOrder, statusAuth, } = sideBarSlice.actions
+export const { statusBurger, statusOrder, statusAuth, statusRerender} = sideBarSlice.actions
 export default sideBarSlice.reducer;

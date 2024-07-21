@@ -5,11 +5,11 @@ import plus from '../../../public/image/svg/plus.png'
 import bin from '../../../public/image/svg/bin-added.svg'
 import styles from './Card.module.scss'
 
-export const Card = ({ product, decrement, increment, count, handleClickCart, countId, refreshPage }) => {
+export const Card = ({ product, decrement, increment, count, handleClickCart, countId, rerenderPage }) => {
 
   return (
     <>
-      <Link to={`/product/${product.id}`} onClick={refreshPage}>
+      <Link to={`/product/${product.id}`} onClick={rerenderPage}>
         <img className={styles.image} src={product.images} alt={product.name} />
         <div className={styles.title}>{product.title}</div>
       </Link>

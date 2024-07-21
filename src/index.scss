@@ -99,10 +99,6 @@ p {
   overflow: hidden;
 }
 
-.open-search {
-  transform: translateY(0);
-}
-
 .main {
   margin-bottom: 60px;
 }
@@ -152,6 +148,7 @@ p {
 
 .long-card {
   max-width: 1030px;
+  width: 100%;
   margin: 0 auto;
   display: grid;
   grid-template-columns: auto 1fr auto;

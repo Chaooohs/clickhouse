@@ -2,9 +2,10 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 
 const initialState = {
+  user: [],
   status: '',
   error: null,
-  isUserLoggedIn: null,
+  isUserLoggedIn: false,
 }
 
 
@@ -23,7 +24,7 @@ export const fetchAuth = createAsyncThunk(
       if (!res.ok) throw new error()
 
       const data = await res.json();
-      return dispatch(sendAuth(data.access_token))
+      dispatch(sendAuth(data.access_token))
     } catch (error) {
       return rejectWithValue(error.message)
     }
@@ -47,7 +48,7 @@ export const sendAuth = createAsyncThunk(
       }
 
       const user = await res.json();
-      localStorage.setItem('clickhouse__user', JSON.stringify([user]))
+      // localStorage.setItem('clickhouse__user', JSON.stringify(true))
       return user;
     } catch (error) {
       return rejectWithValue(error.message);
@@ -70,8 +71,9 @@ const authSlice = createSlice({
         state.status = 'fail'
         state.error = action.payload
       })
-      .addCase(sendAuth.fulfilled, (state) => {
+      .addCase(sendAuth.fulfilled, (state, action) => {
         state.status = 'success'
+        state.user = action.payload
         state.isUserLoggedIn = true
       })
       .addCase(sendAuth.rejected, (state, action) => {

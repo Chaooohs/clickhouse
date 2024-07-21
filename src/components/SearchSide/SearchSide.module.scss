@@ -1,16 +1,40 @@
 .layout {
-  position: fixed;
+  position: absolute;
   top: 178px;
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 10;
+  z-index: 5;
   background-color: #ffffff10;
   backdrop-filter: blur(7px);
-  transform: translateY(-150vh);
-  transition: all .3s linear;
+  @media (max-width: 1336px) {
+    top: 156px;
+  }
 }
 
 .search {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  z-index: 5;
   background-color: white;
+}
+
+.more {
+  text-align: center;
+  box-sizing: border-box;
+  padding: 24px 0;
+  color: #000;
+  transition: all .2s linear;
+
+  &:hover {
+    color: #FF9900;
+  }
+}
+
+.no {
+  text-align: center;
+  box-sizing: border-box;
+  padding: 48px 0;
+  background-color: #fff;
 }

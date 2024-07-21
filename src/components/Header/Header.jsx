@@ -4,7 +4,7 @@ import { Link, NavLink } from 'react-router-dom'
 
 export const Header = () => {
   return (
-    <header style={{backgroundColor: '#F8F8F8'}}>
+    <header className={styles.header}>
       <div className="wrap">
         <div className={styles.content}>
           <Link to='/'><img className={styles.logo} src={Logo} alt="logo" /></Link>

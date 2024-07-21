@@ -1,3 +1,7 @@
+.header {
+  background-color: #f8f8f8;
+}
+
 .content {
   display: flex;
   justify-content: space-between;
@@ -36,7 +40,6 @@
   }
 }
 
-
 @media (max-width: 1336px) {
   .content {
     height: 72px;
@@ -57,7 +60,6 @@
     margin-top: 21px;
   }
 }
-
 
 @media (max-width: 767px) {
   .content {

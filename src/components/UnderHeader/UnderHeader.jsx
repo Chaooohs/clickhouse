@@ -26,7 +26,6 @@ export const UnderHeader = () => {
   const dispatch = useDispatch()
   const selector = useSelector(state => state.cart.products)
   const isSearchIn = useSelector(state => state.search.isSearchIn)
-  // const {isUserLoggedIn}  = useSelector(state => state.auth)
   const [mouse, setMouse] = useState(false)
   const [value, setValue] = useState('')
 
@@ -57,13 +56,12 @@ export const UnderHeader = () => {
     dispatch(statusBurger(true))
   }
 
-
+  // выход из личного кабинета
   const onExitClick = () => {
-    localStorage.setItem('clickhouse__user', JSON.stringify([]))
     navigate('/')
-    // window.location.reload();  //* По умолчанию этот метод перезагружает страницу из кэша, если мы передаем true в качестве аргумента, он перезагружает всю страницу с сервера, а не с кэша. */
     dispatch(exitUser(null))
   }
+
 
   // задержка поиска и отправка запроса
   const searchValueByTimer = useCallback(
@@ -144,8 +142,11 @@ export const UnderHeader = () => {
             </div>
           </button>
         </div>
-        <SearchSide />
       </div>
+      {
+        isSearchIn &&
+        <SearchSide />
+      }
     </div>
   )
 }
