@@ -31,7 +31,7 @@ export const SingleProductPage = () => {
 
 
   useEffect(() => {
-    if(!ref.current) {
+    if (!ref.current) {
       dispatch(fetchSingleProduct(a))
       dispatch(fetchPoductsAll())
     }
@@ -47,7 +47,7 @@ export const SingleProductPage = () => {
 
   // обновление компонента при выборе четырех предлагаемых продуктоа
   const rerenderPage = () => {
-    if(ref.current) {
+    if (ref.current) {
       ref.current = false
     }
   }
@@ -82,8 +82,8 @@ export const SingleProductPage = () => {
 
   return (
     <main>
+      {message}
       <div className='wrap'>
-        {message}
         {status === 'success' &&
           <div className={styles.layout}>
             <div className={styles.images}>
@@ -153,7 +153,7 @@ export const SingleProductPage = () => {
 
             <div className={styles.random}>
               <h1 className={`text-chapter ${styles.title__products}`} >You might like these products</h1>
-              <Cards products={randomGoods} rerenderPage ={rerenderPage } />
+              <Cards products={randomGoods} rerenderPage={rerenderPage} />
             </div>
           </div>
 
