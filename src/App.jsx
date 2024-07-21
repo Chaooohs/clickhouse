@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider, createRoutesFromElements, Route } from 'react-router-dom'
-import { CartPage, CatalogPage, ContactsPage, DeliveryPage, MainPage, PersonalArea, ProductsPage, Root, SingleProductPage } from './pages'
+import { CartPage, CatalogPage, ContactsPage, DeliveryPage, MainPage, PersonalArea, ProductsPage, Root, SearchPage, SingleProductPage } from './pages'
 import { PrivateRouter } from './hoc/PrivateRouter'
 
 
@@ -22,6 +22,7 @@ const router = createBrowserRouter(
           <PersonalArea />
         </PrivateRouter>
       } />
+      <Route path='/search' element={<SearchPage />} />
     </Route>
   )
 )

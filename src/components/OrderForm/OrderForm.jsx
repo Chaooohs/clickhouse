@@ -39,7 +39,7 @@ export const OrderForm = () => {
 
       dispatch(orderComplited(a))
       dispatch(orderGet(false))
-      alert(JSON.stringify(a, null, 12));
+      alert(JSON.stringify(a, null, 12)); // вывод заказа в алерт
     }
   }
 

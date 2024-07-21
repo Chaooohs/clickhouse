@@ -15,7 +15,7 @@ export const SearchSide = () => {
   const products = useSelector(state => state.search.products)
 
 
-  // переход к продукту из поиска и закрытие списка поиска
+  // переход к продукту из поиска и закрытие списка поиска и смена иконки поиска
   const rerenderPage = (id) => {
     navigate(`/product/${id}`)
     dispatch(toggleSearchIcon(false))
@@ -23,7 +23,7 @@ export const SearchSide = () => {
     // window.location.reload(); // перезагружает страницу
   }
 
-  console.log(products)
+
   return (
     <main>
       <div className={styles.layout} >
@@ -40,7 +40,7 @@ export const SearchSide = () => {
                   )
                 })
               }
-              <Link>
+              <Link to='/search' onClick={() => dispatch(toggleSearchIcon(false))}>
                 <div className={styles.more}>more goods &#8594;</div>
               </Link>
             </div>

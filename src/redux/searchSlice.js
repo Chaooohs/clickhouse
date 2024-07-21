@@ -4,7 +4,8 @@ const initialState = {
   products: [],
   status: 'idle',
   error: null,
-  isSearchIn: false
+  isSearchIn: false,
+  value: '',
 }
 
 export const searchProducts = createAsyncThunk(
@@ -20,8 +21,8 @@ const searchSlice = createSlice({
   name: "search",
   initialState,
   reducers: {
-    getSearchProducts: (state, action) => {
-      state.categories = action.payload
+    getSearchValue: (state, action) => {
+      state.value = action.payload
     },
     toggleSearchIcon: (state, action) => {
       state.isSearchIn = action.payload
@@ -45,5 +46,5 @@ const searchSlice = createSlice({
   },
 })
 
-export const { getSearchProducts, toggleSearchIcon } = searchSlice.actions
+export const { getSearchValue, toggleSearchIcon } = searchSlice.actions
 export default searchSlice.reducer;

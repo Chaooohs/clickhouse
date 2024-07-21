@@ -3,11 +3,10 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useLocation } from 'react-router'
 
 
+import { fetchCategoryId } from '../../redux/categoryIdSlice'
 import { addToCart } from '../../redux/cartSlice'
 import { Card } from '../../components'
 
-import styles from './ProductsPage.module.scss'
-import { fetchCategoryId } from '../../redux/categoryIdSlice'
 
 
 export const ProductsPage = () => {
@@ -58,7 +57,7 @@ export const ProductsPage = () => {
       {message}
       {status === 'success' &&
         <div className='wrap'>
-          <div className={styles.layout__card}>
+          <div className='card-layout'>
             {Array.isArray(selector) &&
               selector.map(product => {
                 return (

@@ -14,15 +14,15 @@ export const MainPage = () => {
   const { isUserLoggedIn } = useSelector((state) => state.auth)
 
 
+  // вход в личный кабинет
   const handleStatusAuthClick = () => {
     dispatch(statusAuth(true))
   }
 
 
+  // выход из личного кабинета
   const handleExitClick = () => {
-    localStorage.setItem('clickhouse__user', JSON.stringify([]))
-    // navigate('/')
-    dispatch(exitUser(null))
+    dispatch(exitUser(false))
   }
 
 

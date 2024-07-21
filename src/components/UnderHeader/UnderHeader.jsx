@@ -6,7 +6,7 @@ import debounce from 'lodash.debounce'
 import { setCartCounter } from '../../redux/cartSlice'
 import { statusBurger } from '../../redux/sideBarSlice'
 import { exitUser } from '../../redux/authSlice'
-import { searchProducts, toggleSearchIcon } from '../../redux/searchSlice'
+import { getSearchValue, searchProducts, toggleSearchIcon } from '../../redux/searchSlice'
 import { SearchSide } from '../SearchSide/SearchSide'
 import { CloseButton } from "../CloseButton/CloseButton";
 
@@ -56,6 +56,7 @@ export const UnderHeader = () => {
     dispatch(statusBurger(true))
   }
 
+  
   // выход из личного кабинета
   const onExitClick = () => {
     navigate('/')
@@ -67,6 +68,7 @@ export const UnderHeader = () => {
   const searchValueByTimer = useCallback(
     debounce((value) => {
       dispatch(searchProducts(value))
+      dispatch(getSearchValue(value))
     }, 1000),
     []
   );
