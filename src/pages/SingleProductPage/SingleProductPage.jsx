@@ -157,7 +157,7 @@ export const SingleProductPage = () => {
 
             <div className={styles.random}>
               <h1 className={`text-chapter ${styles.title__products}`} >You might like these products</h1>
-              <div className={styles.layout__card}>
+              <div className='card-layout'>
                 {
                   randomGoods?.map(product => {
                     return (

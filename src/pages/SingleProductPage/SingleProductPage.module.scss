@@ -81,11 +81,6 @@
   margin-bottom: 40px;
 }
 
-.layout__card {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(302px, 1fr));
-}
-
 .loading {
   display: flex;
   align-items: center;
@@ -95,9 +90,6 @@
 @media (max-width: 1336px) {
   .layout {
     padding: 26px 0 42px;
-  }
-  .layout__card {
-    grid-template-columns: repeat(auto-fit, minmax(226px, 1fr));
   }
   .box {
     container-type: inline-size;
@@ -174,12 +166,5 @@
   }
   .title__products {
     margin-bottom: 0;
-  }
-  .layout__card {
-    grid-template-columns: repeat(auto-fit, minmax(132px, 1fr));
-    column-gap: 14px;
-    row-gap: 24px;
-    box-sizing: border-box;
-    padding: 14px 0 44px;
   }
 }
