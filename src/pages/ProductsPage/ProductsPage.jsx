@@ -1,9 +1,9 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useLocation } from 'react-router'
 
 import { fetchCategoryId } from '../../redux/categoryIdSlice'
-import { Cards } from '../../components'
+import { Cards, Pagination } from '../../components'
 
 
 
@@ -13,14 +13,22 @@ export const ProductsPage = () => {
   const products = useSelector(state => state.categoryId.products)
   const status = useSelector(state => state.categoryId.status)
   const error = useSelector(state => state.categoryId.error)
-
+  const [offset, setOffset] = useState(0)
 
   // read
   useEffect(() => {
     const id = location.pathname.split('').slice(-1).join('')
-    dispatch(fetchCategoryId(id))
+    dispatch(fetchCategoryId({
+      id,
+      offset
+    }))
   }, [])
 
+
+  const handleChange = (e) => {
+    const offset = e.target.value - 1
+    setOffset(offset)
+  }
 
   let message
   if (status === 'in progress') {
@@ -36,9 +44,12 @@ export const ProductsPage = () => {
     <main>
       {message}
       {status === 'success' &&
-        <div className='wrap'>
-          <Cards products={products} />
-        </div>
+        <>
+          <div className='wrap'>
+            <Cards products={products} />
+          </div>
+          <Pagination handleChange={handleChange} />
+        </>
       }
     </main>
   )
