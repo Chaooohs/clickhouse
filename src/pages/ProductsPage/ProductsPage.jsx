@@ -76,9 +76,9 @@ export const ProductsPage = () => {
           <div className='wrap'>
             <Cards products={products} />
           </div>
-          <Pagination />
         </>
       }
+      <Pagination />
     </main>
   )
 }

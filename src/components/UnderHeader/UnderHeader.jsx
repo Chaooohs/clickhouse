@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import debounce from 'lodash.debounce'
+import { useMediaQuery } from 'react-responsive'
 
 import { setCartCounter } from '../../redux/cartSlice'
 import { statusBurger } from '../../redux/sideBarSlice'
@@ -21,6 +22,7 @@ import styles from './UnderHeader.module.scss'
 
 
 export const UnderHeader = () => {
+  const isMobile = useMediaQuery({ maxWidth: 767 })
   const ref = useRef(false)
   const navigate = useNavigate()
   const dispatch = useDispatch()
@@ -56,7 +58,7 @@ export const UnderHeader = () => {
     dispatch(statusBurger(true))
   }
 
-  
+
   // выход из личного кабинета
   const onExitClick = () => {
     navigate('/')
@@ -108,24 +110,33 @@ export const UnderHeader = () => {
         >
           {burger}
         </button>
-        <div className={styles.search}>
-          <input
-            className={styles.search__input}
-            type="text"
-            value={value}
-            placeholder='What will you want to find?'
-            onChange={onSearchByName}
-          />
-          <div className={styles.search__button}>
-            {
-              !isSearchIn
-                ?
-                <img className={styles.search__icon} src={search} alt="search" />
-                :
-                <CloseButton onClickClose={handleClearSearch} />
-            }
-          </div>
-        </div>
+        {
+          isMobile
+            ?
+            <button className={styles.mobsearchbtn}>
+              <img src={search} alt="search" />
+            </button>
+            :
+            <div className={styles.search}>
+              <input
+                className={styles.search__input}
+                type="text"
+                value={value}
+                placeholder='What will you want to find?'
+                onChange={onSearchByName}
+              />
+
+              <div className={styles.search__button}>
+                {
+                  !isSearchIn
+                    ?
+                    <img className={styles.search__icon} src={search} alt="search" />
+                    :
+                    <CloseButton onClickClose={handleClearSearch} />
+                }
+              </div>
+            </div>
+        }
         <div className={styles.box}>
           <Link to="/cart">
             <div className={styles.iconbox}>
