@@ -1,34 +1,62 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useLocation } from 'react-router'
+import { useNavigate } from 'react-router'
+import qs from 'qs'
 
 import { fetchCategoryId } from '../../redux/categoryIdSlice'
 import { Cards, Pagination } from '../../components'
+import { setFilters } from '../../redux/filtersSlice'
 
 
 
 export const ProductsPage = () => {
-  const location = useLocation()
+  const ref = useRef(false)
+  const isRender = useRef(false)
+  const navigate = useNavigate()
   const dispatch = useDispatch()
   const products = useSelector(state => state.categoryId.products)
   const status = useSelector(state => state.categoryId.status)
   const error = useSelector(state => state.categoryId.error)
-  const [offset, setOffset] = useState(0)
+  const { categoryId, offset, limit, } = useSelector(state => state.filters)
 
-  // read
+
+  // отправка запроса
   useEffect(() => {
-    const id = location.pathname.split('').slice(-1).join('')
-    dispatch(fetchCategoryId({
-      id,
-      offset
-    }))
+    const a = {
+      categoryId,
+      offset,
+      limit,
+    }
+    if (!ref.current) {
+      dispatch(fetchCategoryId(a))
+    }
+    ref.current = false
+  }, [categoryId, offset])
+
+
+  // чтение из адрессной строки
+  useEffect(() => {
+    if (window.location.search) {
+      const params = qs.parse(window.location.search.substring(1))
+      dispatch(setFilters(params))
+      ref.current = true
+    }
   }, [])
 
 
-  const handleChange = (e) => {
-    const offset = e.target.value - 1
-    setOffset(offset)
-  }
+  // запись в адессную строку
+  useEffect(() => {
+    // if(isRender.current) {
+      const queryString = qs.stringify({
+        categoryId,
+        offset,
+        limit,
+      })
+      navigate(`?${queryString}`)
+    // }
+    // isRender.current = true
+  }, [categoryId, offset])
+
 
   let message
   if (status === 'in progress') {
@@ -48,7 +76,7 @@ export const ProductsPage = () => {
           <div className='wrap'>
             <Cards products={products} />
           </div>
-          <Pagination handleChange={handleChange} />
+          <Pagination />
         </>
       }
     </main>

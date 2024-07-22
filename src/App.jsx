@@ -8,7 +8,7 @@ const router = createBrowserRouter(
     <Route path="/" element={<Root />} >
       <Route index element={<MainPage />} />
       <Route path='/categories' element={<CatalogPage />} />
-      <Route path='/categories/:name/:id' element={<ProductsPage />} />
+      <Route path='/products' element={<ProductsPage />} />
       <Route path='/product/:id' element={<SingleProductPage />} />
       <Route path='/cart' element={
         <PrivateRouter>

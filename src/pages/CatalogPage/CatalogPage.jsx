@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import { useDispatch, useSelector } from "react-redux"
 
 import { fetchCategories } from "../../redux/categoriesSlice"
+import { addCategoryId } from "../../redux/filtersSlice"
 
 import styles from './CatalogPage.module.scss'
 
@@ -12,7 +13,6 @@ export const CatalogPage = () => {
   const categories = useSelector(state => state.categories.categories)
   const status = useSelector(state => state.categories.status)
   const error = useSelector(state => state.categories.error)
-
 
   // получение всех категорий
   useEffect(() => {
@@ -41,8 +41,9 @@ export const CatalogPage = () => {
               categories.map((el, index) => {
                 return (
                   <Link
-                    to={`/categories/${el.name}/id=${el.id}`}
+                    to={`/products`}
                     key={index}
+                    onClick={() => dispatch(addCategoryId(el.id))}
                   >
                     <img className={styles.image} src={el.image} />
                     <span className={styles.name}>{el.name}</span>

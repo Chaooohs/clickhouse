@@ -3,9 +3,9 @@ import { useEffect } from "react";
 
 // import { setPage } from "../../redux";
 import styles from "./Pagination.module.scss";
-import { fetchCategoryId } from "../../redux/categoryIdSlice";
+import { addOffset } from "../../redux/filtersSlice";
 
-export const Pagination = ({handleChange}) => {
+export const Pagination = () => {
   const dispatch = useDispatch();
   // const page = useSelector((state) => state.filters.page);
   const products = useSelector(state => state.categoryId.products);
@@ -38,7 +38,7 @@ export const Pagination = ({handleChange}) => {
                 value={el}
                 id={`pag${index}`}
                 className={styles.input}
-                onChange={handleChange}
+                onChange={(e)=> dispatch(addOffset(e.target.value - 1))}
               // checked={el == page}
               />
               <label
