@@ -1,14 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 
-// import { setPage } from "../../redux";
 import styles from "./Pagination.module.scss";
 import { addOffset } from "../../redux/filtersSlice";
 
 export const Pagination = () => {
   const dispatch = useDispatch();
-  // const page = useSelector((state) => state.filters.page);
   const products = useSelector(state => state.categoryId.products);
+  const search = useSelector(state => state.search.products);
   const offset = useSelector(state => state.filters.offset);
 
   const pageCount = Math.ceil(products.length / 10);

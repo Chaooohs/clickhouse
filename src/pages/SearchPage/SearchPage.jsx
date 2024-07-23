@@ -1,5 +1,5 @@
 import { useSelector } from 'react-redux'
-import { Cards } from '../../components'
+import { Cards, Pagination } from '../../components'
 
 export const SearchPage = () => {
   const { value, products } = useSelector(state => state.search)
@@ -10,6 +10,7 @@ export const SearchPage = () => {
       <div className='wrap'>
         <h1 className='text-chapter'>Search results for the query “{`${value}`}”</h1>
         <Cards products={products} />
+        <Pagination/>
       </div>
     </main>
   )

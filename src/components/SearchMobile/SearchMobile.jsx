@@ -39,13 +39,15 @@ export const SeachMobile = () => {
 
 
   return (
-    <div className={styles.search} ref={ref}>
-      <CloseButton onClickClose={handleClickCloseSearchMobile} />
-      <SearchBox />
-      {
-        isSearchIn &&
-        < SearchSide />
-      }
+    <div className='side-layout'>
+      <div className={styles.search} ref={ref}>
+        <CloseButton onClickClose={handleClickCloseSearchMobile} />
+        <SearchBox />
+        {
+          isSearchIn &&
+          < SearchSide />
+        }
+      </div>
     </div>
   )
 }
