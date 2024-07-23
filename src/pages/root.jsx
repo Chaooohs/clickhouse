@@ -2,13 +2,14 @@ import { Outlet } from "react-router"
 import { useSelector } from "react-redux"
 import { useEffect } from "react"
 
-import { Footer, Header, UnderHeader, BurgerSide, OrderSide, AuthSide } from "../components"
+import { Footer, Header, UnderHeader, BurgerSide, OrderSide, AuthSide, SeachMobile } from "../components"
 
 
 export const Root = () => {
   const burger = useSelector(state => state.sideBar.burger)
   const order = useSelector(state => state.sideBar.order)
   const auth = useSelector(state => state.sideBar.auth)
+  const search = useSelector(state => state.sideBar.search)
 
 
   useEffect(() => {
@@ -30,6 +31,7 @@ export const Root = () => {
         {burger && <BurgerSide />}
         {order && <OrderSide />}
         {auth && <AuthSide />}
+        {search && <SeachMobile/>}
       </div>
     </div>
 

@@ -6,7 +6,7 @@ export const SearchPage = () => {
 
   
   return (
-    <main>
+    <main className='main'>
       <div className='wrap'>
         <h1 className='text-chapter'>Search results for the query “{`${value}`}”</h1>
         <Cards products={products} />

@@ -10,6 +10,10 @@
   @media (max-width: 1336px) {
     top: 156px;
   }
+  @media (max-width: 767px) {
+    top: 156px;
+    overflow: auto;
+  }
 }
 
 .search {
@@ -37,4 +41,7 @@
   box-sizing: border-box;
   padding: 48px 0;
   background-color: #fff;
+}
+
+@media (max-width: 767px) {
 }

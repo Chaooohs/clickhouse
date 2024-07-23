@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 import { SearchCard } from '../SearchCard/SearchCard'
 import { toggleSearchIcon } from '../../redux/searchSlice'
-import { statusRerender } from '../../redux/sideBarSlice'
+import { statusRerender, statusSearch } from '../../redux/sideBarSlice'
 import styles from './SearchSide.module.scss'
 
 export const SearchSide = () => {
@@ -20,7 +20,14 @@ export const SearchSide = () => {
     navigate(`/product/${id}`)
     dispatch(toggleSearchIcon(false))
     dispatch(statusRerender(true))
+    dispatch(statusSearch(false))
     // window.location.reload(); // перезагружает страницу
+  }
+
+  const goToSearchPage = () => {
+    dispatch(toggleSearchIcon(false))
+    // dispatch(statusRerender(true))
+    dispatch(statusSearch(false))
   }
 
 
@@ -40,7 +47,7 @@ export const SearchSide = () => {
                   )
                 })
               }
-              <Link to='/search' onClick={() => dispatch(toggleSearchIcon(false))}>
+              <Link to='/search' onClick={goToSearchPage}>
                 <div className={styles.more}>more goods &#8594;</div>
               </Link>
             </div>

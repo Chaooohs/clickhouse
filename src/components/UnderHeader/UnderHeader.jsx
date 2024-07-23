@@ -1,22 +1,20 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
-import { useCallback, useEffect, useRef, useState } from 'react'
-import debounce from 'lodash.debounce'
+import { useEffect, useRef, useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
 
 import { setCartCounter } from '../../redux/cartSlice'
-import { statusBurger } from '../../redux/sideBarSlice'
+import { statusBurger, statusSearch } from '../../redux/sideBarSlice'
 import { exitUser } from '../../redux/authSlice'
-import { getSearchValue, searchProducts, toggleSearchIcon } from '../../redux/searchSlice'
 import { SearchSide } from '../SearchSide/SearchSide'
-import { CloseButton } from "../CloseButton/CloseButton";
+import { SearchBox } from '../SearchBox/SearchBox'
 
 import Exit from '/public/image/svg/exit.svg?react'
 import Bin from '/public/image/svg/bin.svg?react'
 import Man from '/public/image/svg/man.svg?react'
-import search from '/public/image/svg/search.svg'
 import burgernothover from '/public/image/svg/burger.svg'
 import burgerhover from '/public/image/svg/burgerhover.svg'
+import search from '/public/image/svg/search.svg'
 import styles from './UnderHeader.module.scss'
 
 
@@ -29,8 +27,6 @@ export const UnderHeader = () => {
   const selector = useSelector(state => state.cart.products)
   const isSearchIn = useSelector(state => state.search.isSearchIn)
   const [mouse, setMouse] = useState(false)
-  const [value, setValue] = useState('')
-
   const counter = selector?.reduce((sum, el) => el.count + sum, 0);
 
 
@@ -46,14 +42,8 @@ export const UnderHeader = () => {
     dispatch(setCartCounter(counter))
   }, [counter])
 
-  // очищает инпут поиска
-  useEffect(() => {
-    if (!isSearchIn) {
-      setValue('')
-    }
-  }, [isSearchIn])
 
-
+  // открывает меню бургер
   const onClickBurger = () => {
     dispatch(statusBurger(true))
   }
@@ -66,31 +56,9 @@ export const UnderHeader = () => {
   }
 
 
-  // задержка поиска и отправка запроса
-  const searchValueByTimer = useCallback(
-    debounce((value) => {
-      dispatch(searchProducts(value))
-      dispatch(getSearchValue(value))
-    }, 1000),
-    []
-  );
-  // проверка на отсутствие цифр
-  const regSearch = (value) => {
-    let rgx = /^[a-zа-я]*$/gi;
-    return rgx.test(value);
-  };
-  // получение водимого поиска
-  const onSearchByName = (e) => {
-    const value = e.target.value;
-    if (regSearch(value)) {
-      searchValueByTimer(value);
-      setValue(value)
-    }
-  };
-
-
-  const handleClearSearch = () => {
-    dispatch(toggleSearchIcon(false))
+  // окрывает мобильный поиск
+  const onMobSearch = () => { 
+      dispatch(statusSearch(true))
   }
 
 
@@ -113,29 +81,11 @@ export const UnderHeader = () => {
         {
           isMobile
             ?
-            <button className={styles.mobsearchbtn}>
+            <button className={styles.mobsearchbtn} onClick={onMobSearch}>
               <img src={search} alt="search" />
             </button>
             :
-            <div className={styles.search}>
-              <input
-                className={styles.search__input}
-                type="text"
-                value={value}
-                placeholder='What will you want to find?'
-                onChange={onSearchByName}
-              />
-
-              <div className={styles.search__button}>
-                {
-                  !isSearchIn
-                    ?
-                    <img className={styles.search__icon} src={search} alt="search" />
-                    :
-                    <CloseButton onClickClose={handleClearSearch} />
-                }
-              </div>
-            </div>
+            <SearchBox/>
         }
         <div className={styles.box}>
           <Link to="/cart">

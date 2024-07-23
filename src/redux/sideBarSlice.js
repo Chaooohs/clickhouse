@@ -5,6 +5,7 @@ const initialState = {
   order: false,
   auth: false,
   rerender: false,
+  search: false,
 }
 
 const sideBarSlice = createSlice({
@@ -23,8 +24,11 @@ const sideBarSlice = createSlice({
     statusRerender: (state, actions) => {
       state.rerender = actions.payload
     },
+    statusSearch: (state, actions) => {
+      state.search = actions.payload
+    },
   },
 })
 
-export const { statusBurger, statusOrder, statusAuth, statusRerender} = sideBarSlice.actions
+export const { statusBurger, statusOrder, statusAuth, statusRerender, statusSearch, } = sideBarSlice.actions
 export default sideBarSlice.reducer;
