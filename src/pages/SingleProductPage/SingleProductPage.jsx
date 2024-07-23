@@ -37,6 +37,7 @@ export const SingleProductPage = () => {
   }, [rerender])
 
 
+  // отправка запроса на сервер
   useEffect(() => {
     if (!ref.current) {
       dispatch(fetchSingleProduct(a))

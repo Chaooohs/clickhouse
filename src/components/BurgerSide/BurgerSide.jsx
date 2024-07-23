@@ -16,6 +16,7 @@ export const BurgerSide = () => {
   const dispatch = useDispatch();
 
 
+  // таймер открытия и закрытия бургера
   useEffect(() => {
     if (burger && !close) {
       setTimeout(() => {
