@@ -12,7 +12,7 @@ export const Pagination = () => {
     let a = parseInt(offset)
     dispatch(addOffset(a += 1))
   }
-  const decrement = () => dispatch(addOffset(Math.max(1, offset -= 1)))
+  const decrement = () => dispatch(addOffset(Math.max(0, offset -= 1)))
 
 
   return (
