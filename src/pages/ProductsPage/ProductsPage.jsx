@@ -6,6 +6,7 @@ import qs from 'qs'
 import { fetchCategoryId } from '../../redux/categoryIdSlice'
 import { Cards, Pagination } from '../../components'
 import { setFilters } from '../../redux/filtersSlice'
+import { useSearchParams } from 'react-router-dom'
 
 
 
@@ -18,7 +19,7 @@ export const ProductsPage = () => {
   const status = useSelector(state => state.categoryId.status)
   const error = useSelector(state => state.categoryId.error)
   const { categoryId, offset, limit, } = useSelector(state => state.filters)
-
+  let [searchParams, setSearchParams] = useSearchParams();
 
   // отправка запроса
   useEffect(() => {

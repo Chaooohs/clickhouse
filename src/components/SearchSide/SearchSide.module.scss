@@ -8,7 +8,7 @@
   background-color: #ffffff10;
   backdrop-filter: blur(7px);
   @media (max-width: 1336px) {
-    top: 156px;
+    top: 152px;
   }
   @media (max-width: 767px) {
     top: 156px;
@@ -25,7 +25,8 @@
 }
 
 .more {
-  text-align: center;
+  display: block;
+  margin: 0 auto;
   box-sizing: border-box;
   padding: 24px 0;
   color: #000;
@@ -43,5 +44,3 @@
   background-color: #fff;
 }
 
-@media (max-width: 767px) {
-}

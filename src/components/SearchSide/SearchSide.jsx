@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useRef } from 'react'
-import { useNavigate } from 'react-router'
-import { Link } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router'
 
 import { SearchCard } from '../SearchCard/SearchCard'
 import { toggleSearchIcon } from '../../redux/searchSlice'
@@ -12,7 +11,9 @@ export const SearchSide = () => {
   const ref = useRef()
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const products = useSelector(state => state.search.products)
+  const { products, value } = useSelector(state => state.search)
+  const location = useLocation()
+
 
 
   // переход к продукту из поиска и закрытие списка поиска и смена иконки поиска
@@ -25,6 +26,7 @@ export const SearchSide = () => {
   }
 
   const goToSearchPage = () => {
+    navigate(`/search?title=${value}`)
     dispatch(toggleSearchIcon(false))
     dispatch(statusRerender(true))
     dispatch(statusSearch(false))
@@ -33,7 +35,7 @@ export const SearchSide = () => {
 
   return (
     <main>
-      <div className={styles.layout} >
+      <div div className={styles.layout} >
         {
           products.length > 0
             ?
@@ -47,14 +49,12 @@ export const SearchSide = () => {
                   )
                 })
               }
-              <Link to='/search' onClick={goToSearchPage}>
-                <div className={styles.more}>more goods &#8594;</div>
-              </Link>
+              <button className={styles.more} onClick={goToSearchPage}>more goods &#8594;</button>
             </div>
             :
             <div className={styles.no}>No results of search</div>
         }
       </div>
-    </main>
+    </main >
   )
 }

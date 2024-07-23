@@ -2,7 +2,7 @@ import { Outlet } from "react-router"
 import { useSelector } from "react-redux"
 import { useEffect } from "react"
 
-import { Footer, Header, UnderHeader, BurgerSide, OrderSide, AuthSide, SeachMobile } from "../components"
+import { Footer, Header, UnderHeader, BurgerSide, OrderSide, AuthSide, SeachMobile, } from "../components"
 
 
 export const Root = () => {
