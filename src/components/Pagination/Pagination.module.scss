@@ -1,80 +1,21 @@
 .box {
   display: flex;
-  // margin: 200px 0 92px 52px;
   margin-bottom: 92px;
-  box-sizing: border-box;
-  padding: 0 40px;
+  column-gap: 16px;
 }
 
-/* .dot {
-  color: black;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 22px;
-  text-transform: uppercase;
-
-  display: block;
-  width: 50px;
-  height: 50px;
-  border-radius: 50px;
-  border: 1px solid black;
-  margin-right: 14px;
-  transition: all .2s linear;
-}
-
-.dot:hover {
-  border: 1px solid black;
-}
-
-.active {
-  color: black;
-  background-color: green;
-  border: 1px solid green;
-} */
-
-.input {
-  display: none;
-}
-
-.label {
-  color: black;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 22px;
-  text-transform: uppercase;
-
+.button {
   display: flex;
-  justify-content: center;
   align-items: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 50px;
-  border: 1px solid green;
-  margin-right: 14px;
-  transition: all .2s linear;
-  cursor: pointer;
+  justify-content: center;
+  width: 56px;
+  height: 28px;
+  box-sizing: border-box;
+  padding: 1rem;
+  border-radius: 30px;
+  box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.1);
 
   &:hover {
-    border: 1px solid red;
-  }
-}
-
-.input:checked+label {
-  border: 1px solid black;
-}
-
-@media (max-width: 1336px) {
-
-  .label {
-    width: 30px;
-    height: 30px;
-  }
-}
-
-@media (max-width: 768px) {
-
-  .box {
-    margin-bottom: 60px;
-    padding: 0 16px;
+    box-shadow: inset 0px 0px 5px 0px rgba(255, 153, 0, 0.877);
   }
 }

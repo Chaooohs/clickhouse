@@ -11,7 +11,6 @@ export const fetchCategoryId = createAsyncThunk(
   async (params) => {
     const { categoryId, offset, limit } = params
     const res = await fetch(`https://api.escuelajs.co/api/v1/products/?categoryId=${categoryId}&offset=${offset}&limit=${limit}`)
-    // const res = await fetch(`https://api.escuelajs.co/api/v1/categories/${id}/products`)
     const data = await res.json()
     return data
   }
