@@ -9,6 +9,7 @@ export const Pagination = () => {
   const dispatch = useDispatch();
   // const page = useSelector((state) => state.filters.page);
   const products = useSelector(state => state.categoryId.products);
+  const offset = useSelector(state => state.filters.offset);
 
   const pageCount = Math.ceil(products.length / 10);
 
@@ -38,8 +39,8 @@ export const Pagination = () => {
                 value={el}
                 id={`pag${index}`}
                 className={styles.input}
-                onChange={(e)=> dispatch(addOffset(e.target.value - 1))}
-              // checked={el == page}
+                onChange={(e) => dispatch(addOffset(e.target.value - 1))}
+                checked={el === offset + 1}
               />
               <label
                 htmlFor={`pag${index}`}

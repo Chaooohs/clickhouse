@@ -21,19 +21,26 @@ export const Root = () => {
   }, [burger, order, auth])
 
 
-  return (
-    <div className="page">
-      <div className="layout">
-        <Header />
-        <UnderHeader />
-        <Outlet />
-        <Footer />
-        {burger && <BurgerSide />}
-        {order && <OrderSide />}
-        {auth && <AuthSide />}
-        {search && <SeachMobile/>}
-      </div>
-    </div>
+  if (burger || order || auth || search) {
+    document.body.classList.add('no-scroll')
+  } else {
+    document.body.classList.remove('no-scroll')
+  }
 
-  )
+
+    return (
+      <div className="page">
+        <div className="layout">
+          <Header />
+          <UnderHeader />
+          <Outlet />
+          <Footer />
+          {burger && <BurgerSide />}
+          {order && <OrderSide />}
+          {auth && <AuthSide />}
+          {search && <SeachMobile />}
+        </div>
+      </div>
+
+    )
 }

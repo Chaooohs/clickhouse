@@ -7,7 +7,6 @@ import { CloseButton } from "../CloseButton/CloseButton";
 
 import logo from '/public/image/logo/logo.svg'
 import styles from "./BurgerSide.module.scss";
-import { translateX } from "../../utils";
 
 export const BurgerSide = () => {
   const ref = useRef();
@@ -15,22 +14,20 @@ export const BurgerSide = () => {
   const [autoClose, setAutoClose] = useState(false);
   const burger = useSelector(state => state.sideBar.burger);
   const dispatch = useDispatch();
-  const d = useRef()
 
-  translateX(burger, close, ref )
 
-  // useEffect(() => {
-  //   if (burger && !close) {
-  //     setTimeout(() => {
-  //       ref.current.classList.add(`${styles.open}`);
-  //     }, 50);
-  //   } else if (close) {
-  //     ref.current.classList.remove(`${styles.open}`);
-  //     setTimeout(() => {
-  //       dispatch(statusBurger(false));
-  //     }, 350);
-  //   }
-  // }, [close, burger]);
+  useEffect(() => {
+    if (burger && !close) {
+      setTimeout(() => {
+        ref.current.classList.add(`${styles.open}`);
+      }, 50);
+    } else if (close) {
+      ref.current.classList.remove(`${styles.open}`);
+      setTimeout(() => {
+        dispatch(statusBurger(false));
+      }, 350);
+    }
+  }, [close, burger]);
 
 
   useEffect(() => {

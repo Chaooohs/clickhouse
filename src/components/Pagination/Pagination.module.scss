@@ -6,7 +6,7 @@
   padding: 0 40px;
 }
 
-.dot {
+/* .dot {
   color: black;
   font-size: 14px;
   font-weight: 400;
@@ -30,7 +30,7 @@
   color: black;
   background-color: green;
   border: 1px solid green;
-}
+} */
 
 .input {
   display: none;
@@ -46,8 +46,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 50px;
-  height: 50px;
+  width: 36px;
+  height: 36px;
   border-radius: 50px;
   border: 1px solid green;
   margin-right: 14px;
@@ -55,22 +55,19 @@
   cursor: pointer;
 
   &:hover {
-    border: 1px solid black;
+    border: 1px solid red;
   }
 }
 
 .input:checked+label {
-  // color:;
-  // background-color: $color-primary;
-  // border: 1px solid $color-primary;
   border: 1px solid black;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1336px) {
 
   .label {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
   }
 }
 

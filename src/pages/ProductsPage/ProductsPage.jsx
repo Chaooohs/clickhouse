@@ -47,12 +47,12 @@ export const ProductsPage = () => {
   // запись в адессную строку
   useEffect(() => {
     // if(isRender.current) {
-      const queryString = qs.stringify({
-        categoryId,
-        offset,
-        limit,
-      })
-      navigate(`?${queryString}`)
+    const queryString = qs.stringify({
+      categoryId,
+      offset,
+      limit,
+    })
+    navigate(`?${queryString}`)
     // }
     // isRender.current = true
   }, [categoryId, offset])
@@ -75,10 +75,10 @@ export const ProductsPage = () => {
         <>
           <div className='wrap'>
             <Cards products={products} />
+            <Pagination />
           </div>
         </>
       }
-      <Pagination />
     </main>
   )
 }

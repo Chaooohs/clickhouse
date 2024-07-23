@@ -26,7 +26,7 @@ export const SearchSide = () => {
 
   const goToSearchPage = () => {
     dispatch(toggleSearchIcon(false))
-    // dispatch(statusRerender(true))
+    dispatch(statusRerender(true))
     dispatch(statusSearch(false))
   }
 
@@ -39,7 +39,7 @@ export const SearchSide = () => {
             ?
             <div className={styles.search} ref={ref}>
               {
-                products?.slice(0, 3).map(product => {
+                products?.slice(0, 2).map(product => {
                   return (
                     <div key={product.id} className='long-card'>
                       <SearchCard product={product} rerenderPage={rerenderPage} />
