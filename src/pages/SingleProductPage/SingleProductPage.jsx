@@ -30,6 +30,13 @@ export const SingleProductPage = () => {
   const a = location.pathname.split('/').slice(2, 3).join('/')
 
 
+  // обновление компонента при повторном выборе четырех предлагаемых продуктоа
+  useEffect(() => {
+    ref.current = false
+    dispatch(statusRerender(false))
+  }, [rerender])
+
+
   useEffect(() => {
     if (!ref.current) {
       dispatch(fetchSingleProduct(a))
@@ -37,12 +44,6 @@ export const SingleProductPage = () => {
     }
     ref.current = true
   }, [a])
-
-
-  // обновление компонента при повторном выборе четырех предлагаемых продуктоа
-  useEffect(() => {
-    dispatch(statusRerender(false))
-  }, [rerender])
 
 
   // обновление компонента при выборе четырех предлагаемых продуктоа
