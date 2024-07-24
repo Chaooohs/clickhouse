@@ -6,8 +6,7 @@ import { getTotalPrice, setClearCart } from '../../redux/cartSlice'
 import { statusOrder } from '../../redux/sideBarSlice'
 import { ShopCard } from '../../components'
 
-import empty from '/public/image/png/cart-empty.png'
-import CartImage from '/public/image/png/cart.png'
+import empty from '/public/image/png/cart-empty.jpg'
 import styles from './CartPage.module.scss'
 
 export const CartPage = () => {

@@ -1,5 +1,5 @@
 import { Social } from '../../components'
-import Image from '/public/image/png/contacts.png'
+import Image from '/public/image/png/contacts.jpg'
 import styles from './ContactsPage.module.scss'
 
 export const ContactsPage = () => {

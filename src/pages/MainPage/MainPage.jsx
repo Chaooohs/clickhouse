@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { statusAuth } from '../../redux/sideBarSlice'
 import { exitUser } from '../../redux/authSlice'
 
-import raket from '../../../public/image/png/raket.png'
+import raket from '../../../public/image/png/raket.jpg'
 import styles from './MainPage.module.scss'
 
 

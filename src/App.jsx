@@ -1,20 +1,16 @@
 import { createBrowserRouter, RouterProvider, createRoutesFromElements, Route } from 'react-router-dom'
-import { ContactsPage, MainPage, PersonalArea, Root,  } from './pages'
+import { MainPage, PersonalArea, Root, } from './pages'
 import { PrivateRouter } from './hoc/PrivateRouter'
 import { lazy, Suspense } from 'react'
 
 
-
-const DeliveryPage = lazy(() => import('./pages'))
+const DeliveryPage = lazy(() => import('./pages/DeliveryPage'))
 const ProductsPage = lazy(() => import('./pages/ProductsPage'))
 const CartPage = lazy(() => import('./pages/CartPage'))
-const SearchPage = lazy(() => import('./pages/SearchPage'))
 const CatalogPage = lazy(() => import('./pages/CatalogPage'))
 const SingleProductPage = lazy(() => import('./pages/SingleProductPage'))
-
-
-
-
+const ContactsPage = lazy(() => import('./pages/ContactsPage'))
+const SearchPage = lazy(() => import('./pages/SearchPage'))
 
 
 const router = createBrowserRouter(
@@ -43,7 +39,11 @@ const router = createBrowserRouter(
           </Suspense>
         </PrivateRouter>
       } />
-      <Route path='/contacts' element={<ContactsPage />} />
+      <Route path='/contacts' element={
+        <Suspense fallback={<div className='loader'></div>}>
+          <ContactsPage />
+        </Suspense>
+      } />
       <Route path='/delivery' element={
         <Suspense fallback={<div className='loader'></div>}>
           <DeliveryPage />

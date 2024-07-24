@@ -1,5 +1,5 @@
-import DeliveryOne from '/public/image/png/delivery-one.png'
-import DeliveryTwo from '/public/image/png/delivery-two.png'
+import DeliveryOne from '/public/image/png/delivery-one.jpg'
+import DeliveryTwo from '/public/image/png/delivery-two.jpg'
 import styles from './DeliveryPage.module.scss'
 
 

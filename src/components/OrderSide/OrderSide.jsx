@@ -6,7 +6,7 @@ import { statusOrder } from '../../redux/sideBarSlice';
 import { OrderForm } from '../OrderForm/OrderForm';
 import { CloseButton } from "../CloseButton/CloseButton";
 
-import success from '/public/image/png/success.png'
+import success from '/public/image/png/success.jpg'
 import styles from './OrderSide.module.scss'
 
 
