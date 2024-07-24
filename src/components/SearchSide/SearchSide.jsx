@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { useRef } from 'react'
-import { useLocation, useNavigate } from 'react-router'
+import { useNavigate } from 'react-router'
 
 import { SearchCard } from '../SearchCard/SearchCard'
 import { toggleSearchIcon } from '../../redux/searchSlice'
@@ -8,12 +7,9 @@ import { statusRerender, statusSearch } from '../../redux/sideBarSlice'
 import styles from './SearchSide.module.scss'
 
 export const SearchSide = () => {
-  const ref = useRef()
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const { products, value } = useSelector(state => state.search)
-  const location = useLocation()
-
 
 
   // переход к продукту из поиска и закрытие списка поиска и смена иконки поиска
@@ -39,7 +35,7 @@ export const SearchSide = () => {
         {
           products.length > 0
             ?
-            <div className={styles.search} ref={ref}>
+            <div className={styles.search}>
               {
                 products?.slice(0, 2).map(product => {
                   return (

@@ -5,8 +5,7 @@ import qs from 'qs'
 
 import { fetchCategoryId } from '../../redux/categoryIdSlice'
 import { Cards, Pagination } from '../../components'
-import { setFilters } from '../../redux/filtersSlice'
-import { useSearchParams } from 'react-router-dom'
+import { addOffset, setFilters } from '../../redux/filtersSlice'
 
 
 
@@ -56,9 +55,14 @@ export const ProductsPage = () => {
   }, [categoryId, offset])
 
 
+  // обнуление offset при смене категории
+  useEffect(() => {
+    dispatch(addOffset(0))
+  }, [categoryId])
+
+
   let message
   if (status === 'in progress') {
-    // message = <h1 className={styles.loading}>Category is loading...</h1>
     message = <div className="loader"><div className="loader__circle"></div></div>
   }
   else if (error === 'fail') {

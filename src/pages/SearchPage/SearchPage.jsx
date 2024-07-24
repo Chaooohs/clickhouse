@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { Cards, Pagination } from '../../components'
+import { Cards } from '../../components'
 import { useSearchParams } from 'react-router-dom';
 import { useEffect, useRef } from 'react';
 import { getSearchValue, searchProducts, toggleSearchIcon } from '../../redux/searchSlice';
@@ -42,7 +42,6 @@ export const SearchPage = () => {
 
   let message
   if (status === 'in progress') {
-    // message = <h1 className={styles.loading}>Category is loading...</h1>
     message = <div className="loader"><div className="loader__circle"></div></div>
   }
   else if (error === 'fail') {
@@ -58,7 +57,6 @@ export const SearchPage = () => {
         <div>
           <h1 className='text-chapter'>Search results for the query “{`${value}`}”</h1>
           <Cards products={products} />
-          <Pagination />
         </div>
       </div>
       }
