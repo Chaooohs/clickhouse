@@ -10,9 +10,9 @@ export const Pagination = () => {
 
   const increment = () => {
     let a = parseInt(offset)
-    dispatch(addOffset(a += 1))
+    dispatch(addOffset(a += 10))
   }
-  const decrement = () => dispatch(addOffset(Math.max(0, offset -= 1)))
+  const decrement = () => dispatch(addOffset(Math.max(0, offset -= 10)))
 
 
   return (

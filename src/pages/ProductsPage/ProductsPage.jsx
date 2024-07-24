@@ -15,11 +15,8 @@ export const ProductsPage = () => {
   const isRender = useRef(false)
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const products = useSelector(state => state.categoryId.products)
-  const status = useSelector(state => state.categoryId.status)
-  const error = useSelector(state => state.categoryId.error)
+  const {products, status, error} = useSelector(state => state.categoryId)
   const { categoryId, offset, limit, } = useSelector(state => state.filters)
-  let [searchParams, setSearchParams] = useSearchParams();
 
   // отправка запроса
   useEffect(() => {

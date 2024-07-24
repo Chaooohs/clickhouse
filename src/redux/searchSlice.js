@@ -10,8 +10,8 @@ const initialState = {
 
 export const searchProducts = createAsyncThunk(
   'search/searchProducts',
-  async (name) => {
-    const res = await fetch(`https://api.escuelajs.co/api/v1/products/?title=${name}`)
+  async (title) => {
+    const res = await fetch(`https://api.escuelajs.co/api/v1/products/?title=${title}`)
     const data = await res.json()
     return data
   }

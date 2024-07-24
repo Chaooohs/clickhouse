@@ -7,7 +7,7 @@ import { getSearchValue, searchProducts, toggleSearchIcon } from '../../redux/se
 export const SearchPage = () => {
   const ref = useRef(false)
   const dispatch = useDispatch()
-  const { value, products, status } = useSelector(state => state.search)
+  const { value, products, status, error } = useSelector(state => state.search)
   const [searchParams, setSearchParams] = useSearchParams();
 
 
@@ -40,15 +40,28 @@ export const SearchPage = () => {
   }, [status])
 
 
+  let message
+  if (status === 'in progress') {
+    // message = <h1 className={styles.loading}>Category is loading...</h1>
+    message = <div className="loader"><div className="loader__circle"></div></div>
+  }
+  else if (error === 'fail') {
+    message = <h1 className={styles.loading}>{error}</h1>
+  }
+
+
   return (
     <main className='main'>
-      <div className='wrap'>
+      {message}
+      {status === 'success' &&
+        <div className='wrap'>
         <div>
           <h1 className='text-chapter'>Search results for the query “{`${value}`}”</h1>
           <Cards products={products} />
           <Pagination />
         </div>
       </div>
+      }
     </main>
   )
 }
