@@ -1,0 +1,1 @@
+export { SingleProductPage as default } from './SingleProductPage'
