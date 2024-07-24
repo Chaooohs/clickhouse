@@ -3,10 +3,10 @@
   display: flex;
   flex-direction: column;
   row-gap: 22px;
-  max-width: 1280px;
+  max-width: 1612px;
   height: 487px;
   border-radius: 60px;
-  background: url("/public/image/png/main.png") center/cover no-repeat;
+  background: url("/public/image/png/main.jpg") center/cover no-repeat;
   box-sizing: border-box;
   padding: 60px;
   margin: 0 154px;
@@ -79,7 +79,7 @@
   .image {
     height: 285px;
     border-radius: 30px;
-    background: url("/public/image/png/main.png") center/cover no-repeat;
+    background: url("/public/image/png/main.jpg") center/cover no-repeat;
   }
   .dark {
     width: 287px;
