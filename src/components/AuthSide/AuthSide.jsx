@@ -101,15 +101,10 @@ export const AuthSide = () => {
           </div>
 
           <div className='text-id' style={{ marginTop: 'auto' }}>
-            <p style={{ display: 'flex', flexDirection: 'column' }}>
+            <p style={{ display: 'flex', flexDirection: 'column', margin: '18px 0' }}>
               <span style={{ fontWeight: 'bold' }}>Customer</span>
               <span>maria@mail.com</span>
               <span>12345</span>
-            </p>
-            <p style={{ display: 'flex', flexDirection: 'column' }}>
-              <span style={{ fontWeight: 'bold' }}>Admin</span>
-              <span>admin@mail.com</span>
-              <span>admin123</span>
             </p>
           </div>
         </div>

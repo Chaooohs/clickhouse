@@ -103,6 +103,12 @@
   }
 }
 
+@media (max-width: 991px) {
+  .image {
+    margin: 28px;
+  }
+}
+
 @media (max-width: 767px) {
   .wrap {
     padding: 0;

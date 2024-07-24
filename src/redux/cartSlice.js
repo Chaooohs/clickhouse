@@ -1,17 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  // products: JSON.parse(localStorage.getItem('clickhouse__cart')),
-  products: [
-    {
-      title: "Yamaha HS5",
-      price: 159,
-      count: 1,
-      description: "A description",
-      categoryId: 10,
-      images: ["https://cdn.mos.cms.futurecdn.net/c6BYbCdoK8RvUhUsXotgFf-970-80.jpg.webp"]
-    },
-  ],
+  products: [],
   status: 'idle',
   counter: 0,
   totalPrice: 0,

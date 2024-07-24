@@ -124,7 +124,7 @@ p {
 
 .wrap {
   box-sizing: border-box;
-  padding: 0 28px;
+  padding: 0 154px;
 }
 
 .card-layout {
@@ -227,55 +227,64 @@ p {
 
 /* #region media 1336 */
 
-.wrap {
-  padding: 0 154px;
-}
+@media (max-width: 1336px) {
 
-.text-chapter {
-  font-size: 30px;
-  line-height: 28px;
-}
+  .text-chapter {
+    font-size: 30px;
+    line-height: 28px;
+  }
 
-.text-description,
-.text-title,
-.text-id {
-  font-size: 14px;
-  line-height: 22px;
-}
+  .text-description,
+  .text-title,
+  .text-id {
+    font-size: 14px;
+    line-height: 22px;
+  }
 
-.text-price {
-  font-size: 18px;
-  line-height: 22px;
-}
+  .text-price {
+    font-size: 18px;
+    line-height: 22px;
+  }
 
-.card-layout {
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  column-gap: 20px;
-  row-gap: 20px;
-  box-sizing: border-box;
-  padding: 30px 0;
-}
+  .card-layout {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    column-gap: 20px;
+    row-gap: 20px;
+    box-sizing: border-box;
+    padding: 30px 0;
+  }
 
-.card {
-  &:hover {
-    border-radius: 20px;
+  .card {
+    &:hover {
+      border-radius: 20px;
+    }
+  }
+
+  .card-footer {
+    opacity: 1;
+    margin: 0;
+  }
+
+  .side-input {
+    width: 295px;
+    height: 40px;
+    font-size: 14px;
+    padding: 1rem;
+
+    &::placeholder {
+      font-size: 14px;
+      line-height: 22px;
+    }
   }
 }
 
-.card-footer {
-  opacity: 1;
-  margin: 0;
-}
+/* #endregion */
 
-.side-input {
-  width: 295px;
-  height: 40px;
-  font-size: 14px;
-  padding: 1rem;
+/* #region media 992 */
 
-  &::placeholder {
-    font-size: 14px;
-    line-height: 22px;
+@media (max-width: 991px) {
+  .wrap {
+    padding: 0 28px;
   }
 }
 
