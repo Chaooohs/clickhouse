@@ -8,6 +8,7 @@ import { CloseButton } from "../CloseButton/CloseButton";
 
 import success from '/public/image/png/success.jpg'
 import styles from './OrderSide.module.scss'
+import { orderGet } from '../../redux/orderSlice';
 
 
 export const OrderSide = () => {
@@ -34,6 +35,7 @@ export const OrderSide = () => {
 
   const handleClickCloseOrder = () => {
     setClose(true);
+    dispatch(orderGet(true))
   };
 
 

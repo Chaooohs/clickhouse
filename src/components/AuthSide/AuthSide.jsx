@@ -92,7 +92,7 @@ export const AuthSide = () => {
             </form>
             {
               status === 'fail' &&
-              <p className='text-id' style={{ color: 'red' }}>Incorrect login or password</p>
+              <p className='text-id' style={{ color: 'red', marginTop: '18px' }}>Incorrect login or password</p>
             }
             {
               isUserLoggedIn &&
