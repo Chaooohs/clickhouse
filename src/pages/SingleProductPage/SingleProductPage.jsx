@@ -44,8 +44,8 @@ export const SingleProductPage = () => {
       dispatch(fetchPoductsAll())
     }
     ref.current = true
+    window.scrollTo(0, 0);
   }, [a])
-
 
   // обновление компонента при выборе четырех предлагаемых продуктоа
   const rerenderPage = () => {

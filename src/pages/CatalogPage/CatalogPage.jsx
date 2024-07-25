@@ -20,6 +20,11 @@ export const CatalogPage = () => {
   }, [])
 
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
+
+
   let message
   if (status === 'in progress') {
     message = <div className="loader"><div className="loader__circle"></div></div>

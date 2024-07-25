@@ -2,7 +2,16 @@ import { Social } from '../../components'
 import Image from '/public/image/png/contacts.jpg'
 import styles from './ContactsPage.module.scss'
 
+import { useEffect } from 'react'
+
+
 export const ContactsPage = () => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
+
+
   return (
     <main className='main'>
       <div className='wrap'>

@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -13,6 +14,11 @@ export const MainPage = () => {
   const dispatch = useDispatch()
   const { isUserLoggedIn } = useSelector((state) => state.auth)
 
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
+  
 
   // вход в личный кабинет
   const handleStatusAuthClick = () => {

@@ -28,6 +28,7 @@ export const ProductsPage = () => {
       dispatch(fetchCategoryId(a))
     }
     ref.current = false
+    window.scrollTo(0, 0);
   }, [categoryId, offset])
 
 

@@ -2,8 +2,16 @@ import DeliveryOne from '/public/image/png/delivery-one.jpg'
 import DeliveryTwo from '/public/image/png/delivery-two.jpg'
 import styles from './DeliveryPage.module.scss'
 
+import { useEffect } from 'react'
+
 
 export const DeliveryPage = () => {
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [])
+
+
   return (
     <main className='main'>
       <div className='wrap'>
