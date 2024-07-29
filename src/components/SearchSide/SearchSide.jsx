@@ -1,16 +1,30 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router'
+import { useLocation, useNavigate } from 'react-router'
+import { useEffect } from 'react'
 
 import { SearchCard } from '../SearchCard/SearchCard'
-import { toggleSearchIcon } from '../../redux/searchSlice'
+import { searchProducts, toggleSearchIcon } from '../../redux/searchSlice'
 import { statusRerender, statusSearch } from '../../redux/sideBarSlice'
 import styles from './SearchSide.module.scss'
 
 export const SearchSide = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const { products, value } = useSelector(state => state.search)
+  const location = useLocation()
+  const { products } = useSelector(state => state.search)
+  const { title, offset, limit } = useSelector(state => state.filters)
 
+  // отправка запроса
+  useEffect(() => {
+    if(location.pathname !== '/search') {
+      const params = {
+        title,
+        offset,
+        limit,
+      }
+      dispatch(searchProducts(params))
+    }
+  }, [title, offset])
 
   // переход к продукту из поиска и закрытие списка поиска и смена иконки поиска
   const rerenderPage = (id) => {
@@ -22,7 +36,7 @@ export const SearchSide = () => {
   }
 
   const goToSearchPage = () => {
-    navigate(`/search?title=${value}`)
+    navigate(`/search?title=${title}`)
     dispatch(toggleSearchIcon(false))
     dispatch(statusRerender(true))
     dispatch(statusSearch(false))

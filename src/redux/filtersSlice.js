@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   categoryId: '',
+  title: '',
   offset: 0,
   limit: 10,
 }
@@ -16,6 +17,9 @@ const filtersSlice = createSlice({
     addOffset: (state, action) => {
       state.offset = action.payload
     },
+    addTitle: (state, action) => {
+      state.title = action.payload
+    },
     setFilters: (state, action) => {
       state.categoryId = action.payload.categoryId
       state.offset = action.payload.offset
@@ -23,5 +27,5 @@ const filtersSlice = createSlice({
   },
 })
 
-export const { addCategoryId, addOffset, setFilters } = filtersSlice.actions
+export const { addCategoryId, addOffset, setFilters, addTitle } = filtersSlice.actions
 export default filtersSlice.reducer;

@@ -1,37 +1,40 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { Cards } from '../../components'
-import { useSearchParams } from 'react-router-dom';
-import { useEffect, useRef } from 'react';
-import { getSearchValue, searchProducts, toggleSearchIcon } from '../../redux/searchSlice';
+import { Cards, Pagination } from '../../components'
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useEffect } from 'react';
+import qs from 'qs'
+
+import { searchProducts, toggleSearchIcon } from '../../redux/searchSlice';
 
 export const SearchPage = () => {
-  const ref = useRef(false)
+  const navigate = useNavigate()
   const dispatch = useDispatch()
-  const { value, products, status, error } = useSelector(state => state.search)
+  const { products, status, error } = useSelector(state => state.search)
+  const { title, offset, limit } = useSelector(state => state.filters)
   const [searchParams, setSearchParams] = useSearchParams();
 
 
-  // чтение из адрессной строки после ?
+  // отправка запроса
+
   useEffect(() => {
-    const title = searchParams.get('title')
-    dispatch(getSearchValue(title))
-  }, [])
-  
-  
-  // запись в адресную строку после ?
-  useEffect(() => {
-    setSearchParams({ title: value })
-  }, [value])
-  
-  
-  // получение товаров при перезагрузке
-  useEffect(() => {
-    if (ref.current === true) {
-      const title = searchParams.get('title')
-      dispatch(searchProducts(title))
+    const params = {
+      title,
+      offset,
+      limit,
     }
-    ref.current = true
-  }, [value, ])
+    dispatch(searchProducts(params))
+  }, [title, offset])
+
+
+  // запись в адресную строку
+  useEffect(() => {
+    const queryString = qs.stringify({
+      title: title === "" ? null : title,
+      offset,
+      limit,
+    }, { skipNulls: true })
+    navigate(`?${queryString}`)
+  }, [title, offset])
 
 
   // закрытие серч бара после получения товаров
@@ -54,11 +57,12 @@ export const SearchPage = () => {
       {message}
       {status === 'success' &&
         <div className='wrap'>
-        <div>
-          <h1 className='text-chapter'>Search results for the query “{`${value}`}”</h1>
-          <Cards products={products} />
+          <div>
+            <h1 className='text-chapter'>Search results for the query “{`${title === undefined ? '' : title}`}”</h1>
+            <Cards products={products} />
+            <Pagination/>
+          </div>
         </div>
-      </div>
       }
     </main>
   )

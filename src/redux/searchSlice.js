@@ -5,13 +5,13 @@ const initialState = {
   status: 'idle',
   error: null,
   isSearchIn: false,
-  value: '',
 }
 
 export const searchProducts = createAsyncThunk(
   'search/searchProducts',
-  async (title) => {
-    const res = await fetch(`https://api.escuelajs.co/api/v1/products/?title=${title}`)
+  async (params, dispatch) => {
+    const {title, offset, limit} = params
+    const res = await fetch(`https://api.escuelajs.co/api/v1/products/?title=${title}&offset=${offset}&limit=${limit}`)
     const data = await res.json()
     return data
   }
@@ -21,9 +21,6 @@ const searchSlice = createSlice({
   name: "search",
   initialState,
   reducers: {
-    getSearchValue: (state, action) => {
-      state.value = action.payload
-    },
     toggleSearchIcon: (state, action) => {
       state.isSearchIn = action.payload
     },
@@ -46,5 +43,5 @@ const searchSlice = createSlice({
   },
 })
 
-export const { getSearchValue, toggleSearchIcon } = searchSlice.actions
+export const { toggleSearchIcon } = searchSlice.actions
 export default searchSlice.reducer;

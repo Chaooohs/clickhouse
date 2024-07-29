@@ -2,7 +2,8 @@ import { useDispatch, useSelector } from "react-redux"
 import { useCallback, useEffect, useState } from "react"
 import debounce from 'lodash.debounce'
 
-import { getSearchValue, searchProducts, toggleSearchIcon } from "../../redux/searchSlice"
+import {  toggleSearchIcon } from "../../redux/searchSlice"
+import { addOffset, addTitle } from "../../redux/filtersSlice";
 import { CloseButton } from "../CloseButton/CloseButton";
 import search from '/public/image/svg/search.svg'
 import styles from './SearchBox.module.scss'
@@ -25,8 +26,11 @@ export const SearchBox = () => {
   // задержка поиска и отправка запроса
   const searchValueByTimer = useCallback(
     debounce((value) => {
-      dispatch(searchProducts(value))
-      dispatch(getSearchValue(value))
+      // dispatch(searchProducts(value))
+      // dispatch(getSearchValue(value))
+      dispatch(toggleSearchIcon(true))
+      dispatch(addTitle(value))
+      dispatch(addOffset(0))
     }, 1000),
     []
   );

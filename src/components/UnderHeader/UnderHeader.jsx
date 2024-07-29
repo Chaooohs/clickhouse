@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import { useEffect, useRef, useState } from 'react'
 import { useMediaQuery } from 'react-responsive'
 
@@ -23,6 +23,7 @@ export const UnderHeader = () => {
   const isMobile = useMediaQuery({ maxWidth: 767 })
   const ref = useRef(false)
   const navigate = useNavigate()
+  const location = useLocation()
   const dispatch = useDispatch()
   const selector = useSelector(state => state.cart.products)
   const isSearchIn = useSelector(state => state.search.isSearchIn)
@@ -107,7 +108,7 @@ export const UnderHeader = () => {
         </div>
       </div>
       {
-        isSearchIn &&
+        isSearchIn && location.pathname !== '/search' &&
         <SearchSide />
       }
     </div>

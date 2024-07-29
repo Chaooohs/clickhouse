@@ -13,8 +13,6 @@ export const AuthSide = () => {
   const dispatch = useDispatch()
   const { status, isUserLoggedIn } = useSelector(state => state.auth)
   const [close, setClose] = useState(false);
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
 
 
   useEffect(() => {
@@ -38,10 +36,6 @@ export const AuthSide = () => {
       }, 2000)
     }
   }, [isUserLoggedIn])
-
-
-  const onEmailChanged = (e) => setEmail(e.target.value)
-  const onPasswordChanged = (e) => setPassword(e.target.value)
 
 
   const handleClickCloseAuth = () => {
@@ -72,17 +66,15 @@ export const AuthSide = () => {
             <form className={styles.form} onSubmit={onSetAuthClick} id="formElem">
               <input
                 className='side-input'
-                type="text"
+                type="email"
                 name='email'
                 placeholder='login'
-                onChange={onEmailChanged}
               />
               <input
                 className='side-input'
                 type="password"
                 name='password'
                 placeholder='password'
-                onChange={onPasswordChanged}
               />
               <input
                 className={styles.submit}

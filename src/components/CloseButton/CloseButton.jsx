@@ -1,5 +1,5 @@
 import styles from './CloseButton.module.scss'
-import CloseIcon from '../../../public/image/svg/close.svg?react'
+import CloseIcon from '/public/image/svg/close.svg?react'
 
 
 export const CloseButton = ({ onClickClose }) => {

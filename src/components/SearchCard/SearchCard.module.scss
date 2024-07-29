@@ -29,7 +29,7 @@
 }
 .price {
   grid-column: 2;
-  grid-row: 1;
+  grid-row: 2;
   align-self: flex-end;
 }
 .button {
@@ -42,7 +42,11 @@
 @media (max-width: 1336px) {
   .images {
     width: 64px;
+    height: 64px;
   }
+  .price {
+  grid-row: 1;
+}
 }
 
 @media (max-width: 767px) {

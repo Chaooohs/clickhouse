@@ -16,21 +16,6 @@ export const fetchPoductsAll = createAsyncThunk(
   }
 )
 
-export const newPoduct = createAsyncThunk(
-  'productsAll/newPoduct',
-  async (a, dispatch) => {
-    const res = await fetch(`https://api.escuelajs.co/api/v1/products/`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(a)
-    })
-    const data = await res.json()
-    dispatch(addPoduct(data));
-  }
-)
-
 const categoryIdSlice = createSlice({
   name: "productsAll",
   initialState,

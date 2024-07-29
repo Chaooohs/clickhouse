@@ -1,32 +1,9 @@
+import { useSelector } from 'react-redux'
 import styles from './PersonalArea.module.scss'
-
-import { useDispatch, useSelector } from 'react-redux'
-import { newCategory } from '../../redux/categoriesSlice'
-import { newPoduct } from '../../redux/productsSlice'
-
 
 
 export const PersonalArea = () => {
-  const dispatch = useDispatch()
   const { user } = useSelector(state => state.auth)
-
-
-  const onNewCategory = () => {
-    dispatch(newCategory({
-      name: "Sound",
-      image: "https://justenergy.com/wp-content/uploads/2021/08/sound-energy-illustration.jpg"
-    }))
-  }
-  const onNewProduct = () => {
-    dispatch(newPoduct({
-      title: "Yamaha HS5",
-      price: 159,
-      description: "A description",
-      categoryId: 10,
-      images: ["https://cdn.mos.cms.futurecdn.net/c6BYbCdoK8RvUhUsXotgFf-970-80.jpg.webp"]
-    }))
-  }
- 
 
   return (
     <main className='main'>

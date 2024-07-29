@@ -48,7 +48,6 @@ export const sendAuth = createAsyncThunk(
       }
 
       const user = await res.json();
-      // localStorage.setItem('clickhouse__user', JSON.stringify(true))
       return user;
     } catch (error) {
       return rejectWithValue(error.message);

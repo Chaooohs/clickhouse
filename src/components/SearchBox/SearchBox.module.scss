@@ -21,7 +21,8 @@
   }
   &__button {
     position: absolute;
-    top: 14px;
+    top: 50%;
+    transform: translateY(-50%);
     right: 22px;
   }
   &__icon {
@@ -43,11 +44,6 @@
         font-size: 14px;
       }
     }
-    &__button {
-      position: absolute;
-      top: 11px;
-      right: 22px;
-    }
     &__icon {
       width: 16px;
       height: 16px;
@@ -65,11 +61,6 @@
       &::placeholder {
         font-size: 14px;
       }
-    }
-    &__button {
-      position: absolute;
-      top: 11px;
-      right: 22px;
     }
     &__icon {
       width: 16px;
